@@ -1,0 +1,13 @@
+{
+	"slides": [
+		{
+			"num": 1,
+			"title": "Mandelbrotmenge",
+			"sub-title": "Wenn Mathematik mal schön ist."
+		},
+		{
+			"num": 2,
+			"headline": "Zahlen potenzieren"
+		}
+	]
+}

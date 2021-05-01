@@ -1,7 +1,28 @@
+import * as data from "./data/data.json"
+
+import Slider from "./components/Slider"
+import Slide from "./components/Slide"
+import Control from "./components/Control"
+import Progress from "./components/Progress"
+
+import styled from "styled-components"
+
+const Wrapper = styled.div`
+	display: grid;
+	width: 100vw;
+	height: 100vh;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	gap: 0.5rem;
+`
+
 function App() {
 	return (
 		<div className="App">
-			<h1>M22 mit Reis.</h1>
+			<Wrapper>
+				<Control />
+				<Slider />
+			</Wrapper>
 		</div>
 	)
 }
