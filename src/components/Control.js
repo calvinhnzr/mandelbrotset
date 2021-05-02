@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from "react"
 
+import Slider from "./Slider"
 import Progress from "./Progress"
 import styled from "styled-components"
 
-const StyledControl = styled.aside`
-	outline: 1px solid greenyellow;
+const StyledControl = styled.div`
+	width: 100%;
+	height: 100%;
+	display: grid;
+	padding: 0.8rem 0;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	gap: 0.5rem;
+	position: relative;
 `
 
 const StyledContainer = styled.div`
+	z-index: 100;
 	outline: 1px solid white;
 	display: flex;
 	flex-direction: column;
@@ -23,12 +32,11 @@ const StyledContainer = styled.div`
 	}
 `
 
-let maxSlides = 16
-
-const Control = () => {
-	const [count, setCount] = useState(1)
+const Control = (props) => {
+	const [count, setCount] = useState(0)
 	const [isHidden, setIsHidden] = useState(false)
 
+	let maxSlides = props.maxSlides
 	let currentSlide = count
 
 	const handleKeyDown = (event) => {
@@ -47,7 +55,7 @@ const Control = () => {
 				break
 			// reset
 			case 82:
-				setCount(1)
+				setCount(0)
 				break
 			default:
 				break
@@ -55,14 +63,14 @@ const Control = () => {
 	}
 
 	const increment = () => {
-		if (!(count >= maxSlides)) {
+		if (!(count >= maxSlides - 1)) {
 			return 1
 		} else {
 			return 0
 		}
 	}
 	const decrement = () => {
-		if (!(count <= 1)) {
+		if (!(count <= 0)) {
 			return 1
 		} else {
 			return 0
@@ -82,7 +90,7 @@ const Control = () => {
 			{isHidden ? (
 				<StyledContainer>
 					<span>
-						{currentSlide}/{maxSlides}
+						{currentSlide + 1}/{maxSlides}
 					</span>
 					<button onClick={() => setCount(count + increment())}>
 						Next Slide
@@ -90,13 +98,14 @@ const Control = () => {
 					<button onClick={() => setCount(count - decrement())}>
 						Previous Slide
 					</button>
-					<button onClick={() => setCount(1)}>Reset</button>
+					<button onClick={() => setCount(0)}>Reset</button>
 				</StyledContainer>
-			) : (
-				""
-			)}
+			) : null}
+			{props.children}
 
-			<Progress value={currentSlide} max={maxSlides} />
+			<Slider data={props.data} currentSlide={currentSlide} />
+
+			<Progress value={currentSlide + 1} max={maxSlides} />
 		</StyledControl>
 	)
 }

@@ -3,11 +3,39 @@
 		{
 			"num": 1,
 			"title": "Mandelbrotmenge",
-			"sub-title": "Wenn Mathematik mal schön ist."
+			"subTitle": "Wenn Mathematik mal schön ist."
 		},
 		{
 			"num": 2,
 			"headline": "Zahlen potenzieren"
+		},
+		{
+			"num": 3,
+			"headline": "Geschichte"
+		},
+		{
+			"num": 4,
+			"headline": "Komplexe Zahlen"
+		},
+		{
+			"num": 5,
+			"headline": "Visuelle Darstellung"
+		},
+		{
+			"num": 6,
+			"headline": "Farbe"
+		},
+		{
+			"num": 7,
+			"headline": "Beweis"
+		},
+		{
+			"num": 8,
+			"headline": "Andere Fraktale"
+		},
+		{
+			"num": 9,
+			"headline": "Realanwendungen"
 		}
 	]
 }
