@@ -1,10 +1,5 @@
 import * as data from "./data/data.json"
-
-import Slider from "./components/Slider"
-import Slide from "./components/Slide"
 import Control from "./components/Control"
-import Progress from "./components/Progress"
-
 import styled from "styled-components"
 
 const Wrapper = styled.div`

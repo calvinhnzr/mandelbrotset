@@ -4,13 +4,12 @@ import Slider from "./Slider"
 import Progress from "./Progress"
 import styled from "styled-components"
 
+// add: double click on screen opens controls
+
 const StyledControl = styled.div`
 	width: 100%;
 	height: 100%;
-	display: grid;
 	padding: 0.8rem 0;
-	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: repeat(6, 1fr);
 	gap: 0.5rem;
 	position: relative;
 `
@@ -78,7 +77,7 @@ const Control = (props) => {
 	}
 
 	useEffect(() => {
-		document.title = `Mandelbrot ${currentSlide} / ${maxSlides}`
+		document.title = `Mandelbrot ${currentSlide + 1} / ${maxSlides}`
 		window.addEventListener("keydown", handleKeyDown)
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown)
@@ -93,12 +92,12 @@ const Control = (props) => {
 						{currentSlide + 1}/{maxSlides}
 					</span>
 					<button onClick={() => setCount(count + increment())}>
-						Next Slide
+						Next Slide (ArrowRight)
 					</button>
 					<button onClick={() => setCount(count - decrement())}>
-						Previous Slide
+						Previous Slide (ArrowLeft)
 					</button>
-					<button onClick={() => setCount(0)}>Reset</button>
+					<button onClick={() => setCount(0)}>Reset (R)</button>
 				</StyledContainer>
 			) : null}
 			{props.children}
