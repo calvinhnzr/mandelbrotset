@@ -9,8 +9,8 @@ import styled from "styled-components"
 
 const Wrapper = styled.div`
 	display: grid;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(6, 1fr);
 	gap: 0.5rem;

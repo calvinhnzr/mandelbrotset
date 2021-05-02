@@ -9,8 +9,9 @@ const StyledProgress = styled.progress`
 	appearance: none;
 	position: absolute;
 	bottom: 0;
-	height: 1.2rem;
+	height: 0.75rem;
 	width: 100%;
+
 	&[value] {
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -21,6 +22,7 @@ const StyledProgress = styled.progress`
 	}
 	&[value]::-webkit-progress-value {
 		background-color: ${myDarkGrey};
+		transition: width 0.5s ease-in-out;
 	}
 	&[value]::-webkit-progress-bar {
 		background-color: ${myBlue};

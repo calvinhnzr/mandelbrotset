@@ -1,3 +1,9 @@
 body {
 	background-color: #202123;
 }
+
+.App,
+#root {
+	width: 100%;
+	height: 100%;
+}
