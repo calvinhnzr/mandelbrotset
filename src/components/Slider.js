@@ -2,7 +2,7 @@ import Slide from "./Slide"
 import styled from "styled-components"
 
 const StyledSlider = styled.div`
-	outline: 1px solid red;
+	/* outline: 1px solid red; */
 	height: 100%;
 	width: 100%;
 	position: relative;
