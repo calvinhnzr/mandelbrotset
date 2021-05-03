@@ -66,6 +66,7 @@ const Control = (props) => {
 
 	useEffect(() => {
 		document.title = `Mandelbrot ${currentSlide + 1} / ${maxSlides}`
+
 		window.addEventListener("keydown", handleKeyDown)
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown)

@@ -3,7 +3,7 @@
 		{
 			"num": 1,
 			"title": "Mandelbrotmenge",
-			"subTitle": "\"Wenn Mathematik mal schön ist.\""
+			"subTitle": "„Wenn Mathematik mal schön ist.“"
 		},
 		{
 			"num": 2,
@@ -36,6 +36,10 @@
 		{
 			"num": 9,
 			"headline": "Realanwendungen"
+		},
+		{
+			"num": 10,
+			"headline": "Quellen"
 		}
 	]
 }
