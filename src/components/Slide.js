@@ -6,6 +6,7 @@ import MyCanvas from "./threejs/MyCanvas"
 
 import styled from "styled-components"
 import MyMesh from "./threejs/MyMesh"
+import MyAnimatedMesh from "./threejs/MyAnimatedMesh"
 
 const StyledSlide = styled.section`
 	width: 100%;
@@ -28,12 +29,11 @@ const Slide = (props) => {
 		<StyledSlide>
 			{item.title ? <Title title={item.title} /> : null}
 			{item.subTitle ? <SubTitle subTitle={item.subTitle} /> : null}
-
-			{item.num == 5 ? (
+			{item.num === 5 ? (
 				<MyCanvas>
-					<MyMesh position={[-1.5, 0, 2]} />
-					<MyMesh position={[0, 0, 1]} />
-					<MyMesh position={[1.5, 0, 2]} />
+					<MyAnimatedMesh />
+					<MyMesh position={[0, 0, 0]} />
+					<MyMesh position={[-2, 0, 0]} />
 				</MyCanvas>
 			) : null}
 

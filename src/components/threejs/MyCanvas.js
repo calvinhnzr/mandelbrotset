@@ -5,8 +5,9 @@ const StyledCanvas = styled.div`
 	/* outline: 1px solid white; */
 	grid-row-start: 1;
 	grid-row-end: 7;
-	grid-column: 2 / 12;
+	grid-column: 1 / 13;
 `
+
 const MyCanvas = (props) => {
 	return (
 		<StyledCanvas>
