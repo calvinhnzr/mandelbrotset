@@ -14,9 +14,22 @@ const StyledControl = styled.div`
 	position: relative;
 `
 
+const StyledBotton = styled.button`
+	margin: 0.2rem;
+	border: none;
+	height: 1.5rem;
+	height: auto;
+	width: auto;
+	background-color: white;
+	border-radius: 0.2rem;
+	box-shadow: 0 6px 25px 0 #00000033;
+	font-family: "Roboto";
+`
+
 const StyledContainer = styled.div`
+	margin: 1rem;
 	z-index: 100;
-	outline: 1px solid white;
+	/* outline: 1px solid white; */
 	display: flex;
 	flex-direction: column;
 	position: absolute;
@@ -80,13 +93,22 @@ const Control = (props) => {
 					<span>
 						{currentSlide + 1}/{maxSlides}
 					</span>
-					<button onClick={() => setCount(count + increment())}>
-						Next Slide (ArrowRight)
-					</button>
-					<button onClick={() => setCount(count - decrement())}>
-						Previous Slide (ArrowLeft)
-					</button>
-					<button onClick={() => setCount(0)}>Reset (R)</button>
+					<div>
+						<StyledBotton
+							onClick={() => setCount(count - decrement())}>
+							Previous
+						</StyledBotton>
+						<StyledBotton
+							onClick={() => setCount(count + increment())}>
+							Next
+						</StyledBotton>
+					</div>
+					<StyledBotton onClick={() => setCount(0)}>
+						Reset (R)
+					</StyledBotton>
+					<StyledBotton onClick={() => setIsHidden(!isHidden)}>
+						Hide (H)
+					</StyledBotton>
 				</StyledContainer>
 			) : null}
 			{props.children}

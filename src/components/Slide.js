@@ -2,6 +2,7 @@ import Title from "./Title"
 import SubTitle from "./SubTitle"
 import Headline from "./Headline"
 
+import ExponentSequence from "./math/ExponentSequence"
 import MyCanvas from "./threejs/MyCanvas"
 
 import styled from "styled-components"
@@ -29,6 +30,7 @@ const Slide = (props) => {
 		<StyledSlide>
 			{item.title ? <Title title={item.title} /> : null}
 			{item.subTitle ? <SubTitle subTitle={item.subTitle} /> : null}
+			{item.num === 2 ? <ExponentSequence /> : null}
 			{item.num === 5 ? (
 				<MyCanvas>
 					<MyAnimatedMesh />
