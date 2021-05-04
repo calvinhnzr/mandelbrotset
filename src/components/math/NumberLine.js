@@ -48,7 +48,7 @@ const NumberLine = (props) => {
 		let num = e.target.value
 		let length = num.toString().length
 
-		if (length <= 4) {
+		if (length <= 5) {
 			setNum(e.target.value)
 		}
 	}

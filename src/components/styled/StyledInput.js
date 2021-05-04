@@ -26,7 +26,8 @@ const StyledInput = styled.input`
 	border: none;
 	border-radius: 0.2rem;
 	height: auto;
-	width: 5rem;
+	width: auto;
+	min-width: 4rem;
 	padding: 0.5rem;
 	font-family: "Roboto";
 	font-size: 1.6rem;
