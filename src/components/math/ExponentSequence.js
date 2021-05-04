@@ -1,33 +1,9 @@
 import { useState } from "react"
 import styled from "styled-components"
 
-const StyledInputContainer = styled.div`
-	position: relative;
-	width: 5rem;
-	// exponent ^2
-	&::after {
-		content: "2";
-		position: absolute;
-		top: -0.8rem;
-		right: -1.5rem;
-		font-family: "Roboto";
-		font-size: 1.4rem;
-		font-weight: bold;
-		color: #437ef1;
-	}
-`
+import MyInput from "../styled/StyledInput"
+import MyList from "../styled/StyledList"
 
-const StyledInput = styled.input`
-	background-color: #363738;
-	border: none;
-	border-radius: 0.2rem;
-	height: auto;
-	width: 5rem;
-	padding: 0.5rem;
-	font-family: "Roboto";
-	font-size: 1.6rem;
-	color: white;
-`
 const StyledList = styled.ul`
 	margin-top: 2rem;
 	height: 100%;
@@ -68,7 +44,8 @@ const StyledExponentSequence = styled.div`
 
 const ExponentSequence = () => {
 	// handle input
-	const [num, setNum] = useState(9)
+	const [num, setNum] = useState("")
+	const iterations = 5
 
 	const handleChange = (e) => {
 		let num = e.target.value
@@ -79,37 +56,16 @@ const ExponentSequence = () => {
 		}
 	}
 
-	// calculate exponent
-	const myArr = []
-	const numOfIterations = 5
-	let myStartingPoint = num
-
-	for (let i = 0; i < numOfIterations; i++) {
-		myStartingPoint = Math.pow(myStartingPoint, 2)
-		myArr.push(myStartingPoint)
-	}
-
 	return (
 		<StyledExponentSequence>
-			<StyledInputContainer>
-				<StyledInput
-					type="number"
-					min="1"
-					max="9"
-					placeholder="x:"
-					value={num}
-					onChange={handleChange}
-				/>
-			</StyledInputContainer>
-			<StyledList>
-				{myArr.map((item, index) => (
-					<StyledListItem
-						key={index}
-						style={{ marginLeft: 2 * (index + 2.5) + "rem" }}>
-						{item}
-					</StyledListItem>
-				))}
-			</StyledList>
+			<MyInput
+				type="number"
+				min="1"
+				max="9"
+				value={num}
+				onChange={handleChange}
+			/>
+			<MyList iterations={iterations} startingPoint={num} />
 		</StyledExponentSequence>
 	)
 }
