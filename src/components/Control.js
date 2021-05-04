@@ -79,8 +79,10 @@ const Control = (props) => {
 
 	useEffect(() => {
 		document.title = `Mandelbrot ${currentSlide + 1} / ${maxSlides}`
+		if (document.hasFocus()) {
+			window.addEventListener("keydown", handleKeyDown)
+		}
 
-		window.addEventListener("keydown", handleKeyDown)
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown)
 		}
@@ -113,7 +115,11 @@ const Control = (props) => {
 			) : null}
 			{props.children}
 
-			<Slider data={props.data} currentSlide={currentSlide} />
+			<Slider
+				data={props.data}
+				currentSlide={currentSlide}
+				handleKeyDown={handleKeyDown}
+			/>
 
 			<Progress value={currentSlide + 1} max={maxSlides} />
 		</StyledControl>

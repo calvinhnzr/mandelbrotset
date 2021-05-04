@@ -44,7 +44,7 @@ const List = (props) => {
 
 	return (
 		<StyledList>
-			{myStartingPoint != ""
+			{myStartingPoint !== 0
 				? myArr.map((item, index) => (
 						<StyledElements
 							key={index}

@@ -11,7 +11,7 @@ const StyledExponentSequence = styled.div`
 	grid-column: 2 / 12;
 `
 
-const ExponentSequence = () => {
+const ExponentSequence = (props) => {
 	// handle input
 	const [num, setNum] = useState("")
 	const iterations = 5
@@ -34,6 +34,7 @@ const ExponentSequence = () => {
 				value={num}
 				onChange={handleChange}
 				placeholder="int"
+				handleKeyDown={props.handleKeyDown}
 			/>
 			<MyList iterations={iterations} startingPoint={num} />
 		</StyledExponentSequence>

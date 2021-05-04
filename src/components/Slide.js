@@ -32,8 +32,12 @@ const Slide = (props) => {
 			{item.title ? <Title title={item.title} /> : null}
 			{item.subTitle ? <SubTitle subTitle={item.subTitle} /> : null}
 
-			{item.num === 2 ? <ExponentSequence /> : null}
-			{item.num === 3 ? <NumberLine /> : null}
+			{item.num === 2 ? (
+				<ExponentSequence handleKeyDown={props.handleKeyDown} />
+			) : null}
+			{item.num === 3 ? (
+				<NumberLine handleKeyDown={props.handleKeyDown} />
+			) : null}
 
 			{item.num === 5 ? (
 				<MyCanvas>

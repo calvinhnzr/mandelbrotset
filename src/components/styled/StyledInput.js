@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 import styled from "styled-components"
 
@@ -44,10 +44,9 @@ const StyledLabel = styled.label`
 
 const NumInput = (props) => {
 	const [placeholder, setPlaceholder] = useState("")
+	const inputRef = useRef()
 
 	useEffect(() => {
-		console.log(props)
-
 		if (props.placeholder === "int") {
 			intPlaceholder()
 		} else if (props.placeholder === "float") {
@@ -55,7 +54,7 @@ const NumInput = (props) => {
 		} else {
 			setPlaceholder(8)
 		}
-	}, [])
+	}, [props.placeholder])
 
 	const intPlaceholder = () => setPlaceholder(Math.ceil(Math.random() * 9))
 	const floatPlaceholder = () => {
@@ -65,12 +64,19 @@ const NumInput = (props) => {
 		<StyledContainer>
 			<StyledLabel>x = </StyledLabel>
 			<StyledInput
+				ref={inputRef}
 				type={props.type}
 				min={props.min}
 				max={props.max}
 				value={props.value}
 				onChange={props.onChange}
 				placeholder={placeholder}
+				onFocus={() =>
+					window.removeEventListener("keydown", props.handleKeyDown)
+				}
+				onBlur={() =>
+					window.addEventListener("keydown", props.handleKeyDown)
+				}
 				step={props.placeholder === "float" ? "0.01" : "1"}
 			/>
 		</StyledContainer>

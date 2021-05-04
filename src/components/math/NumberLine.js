@@ -5,7 +5,6 @@ import styled from "styled-components"
 const StyledNumberLine = styled.div`
 	/* outline: 1px solid white; */
 	margin-top: 2rem;
-
 	grid-row-start: 2;
 	grid-row-end: 6;
 	grid-column: 2 / 12;
@@ -41,9 +40,9 @@ const StyledCanvas = styled.div`
 	margin: 1rem;
 `
 
-const NumberLine = () => {
+const NumberLine = (props) => {
 	const [num, setNum] = useState("")
-	const iterations = 5
+	//const iterations = 5
 
 	const handleChange = (e) => {
 		let num = e.target.value
@@ -65,6 +64,7 @@ const NumberLine = () => {
 						value={num}
 						onChange={handleChange}
 						placeholder="float"
+						handleKeyDown={props.handleKeyDown}
 					/>
 				</StyledStartingPoint>
 				<StyledIteration>

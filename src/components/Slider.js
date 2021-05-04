@@ -26,7 +26,11 @@ const Slider = (props) => {
 	const max = props.data.default.slides.length
 	const renderSlides = () =>
 		props.data.default.slides.map((item, index) => (
-			<Slide key={index} item={item} />
+			<Slide
+				key={index}
+				item={item}
+				handleKeyDown={props.handleKeyDown}
+			/>
 		))
 
 	return (
