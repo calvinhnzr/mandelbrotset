@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const myDarkGrey = "#202123"
-const myBlue = "#EA5B89"
+const myBlue = "#65D677"
 
 // missing firefox support
 const StyledProgress = styled.progress`

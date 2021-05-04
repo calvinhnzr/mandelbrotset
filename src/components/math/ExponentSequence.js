@@ -1,6 +1,10 @@
 import { useState } from "react"
 import styled from "styled-components"
 
+// remove all components except ExponentSequence
+// leave Styled components instead
+// only one Main component
+
 const StyledStartingPoint = styled.div`
 	position: relative;
 	width: 5rem;
@@ -12,7 +16,7 @@ const StyledStartingPoint = styled.div`
 		font-family: "Roboto";
 		font-size: 1.4rem;
 		font-weight: bold;
-		color: #ea5b89;
+		color: #437ef1;
 	}
 	input {
 		background-color: #363738;
@@ -22,16 +26,17 @@ const StyledStartingPoint = styled.div`
 		width: 5rem;
 		padding: 0.5rem;
 		font-family: "Roboto";
-		font-size: 1.5rem;
+		font-size: 1.6rem;
 		color: white;
 	}
 `
 
 const StartingPoint = () => {
-	const [num, setNum] = useState("")
+	const [num, setNum] = useState(9)
 	const handleChange = (e) => {
 		let num = e.target.value
 		let length = num.toString().length
+
 		if (length <= 1) {
 			setNum(e.target.value)
 		}
@@ -61,15 +66,16 @@ const StyledSequence = styled.ul`
 		font-size: 1.5rem;
 		color: white;
 		position: relative;
+		letter-spacing: 1px;
 		&::after {
 			position: absolute;
 			top: -0.8rem;
 			right: -1.5rem;
 			content: "2";
 			font-family: "Roboto";
-			font-size: 1.4rem;
+			font-size: 1.3rem;
 			font-weight: bold;
-			color: #ea5b89;
+			color: #437ef1;
 		}
 		&:last-of-type {
 			&::after {
@@ -82,7 +88,7 @@ const StyledSequence = styled.ul`
 const Sequence = () => {
 	const myArr = []
 	const numOfIterations = 5
-	let myStartingPoint = 7
+	let myStartingPoint = 9
 
 	for (let i = 0; i < numOfIterations; i++) {
 		myStartingPoint = Math.pow(myStartingPoint, 2)
@@ -104,7 +110,7 @@ const Sequence = () => {
 
 const StyledExponentSequence = styled.div`
 	/* outline: 1px solid white; */
-	margin-top: 1.5rem;
+	margin-top: 2rem;
 	grid-row-start: 2;
 	grid-row-end: 6;
 	grid-column: 2 / 12;
