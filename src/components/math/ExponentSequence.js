@@ -4,37 +4,6 @@ import styled from "styled-components"
 import MyInput from "../styled/StyledInput"
 import MyList from "../styled/StyledList"
 
-const StyledList = styled.ul`
-	margin-top: 2rem;
-	height: 100%;
-`
-
-const StyledListItem = styled.li`
-	width: fit-content;
-	margin-bottom: 2.5rem;
-	font-family: "Roboto";
-	font-size: 1.5rem;
-	color: white;
-	position: relative;
-	letter-spacing: 1px;
-	// exponent ^2
-	&::after {
-		position: absolute;
-		top: -0.8rem;
-		right: -1.5rem;
-		content: "2";
-		font-family: "Roboto";
-		font-size: 1.3rem;
-		font-weight: bold;
-		color: #437ef1;
-	}
-	&:last-of-type {
-		&::after {
-			display: none;
-		}
-	}
-`
-
 const StyledExponentSequence = styled.div`
 	margin-top: 2rem;
 	grid-row-start: 2;
@@ -64,6 +33,7 @@ const ExponentSequence = () => {
 				max="9"
 				value={num}
 				onChange={handleChange}
+				placeholder="int"
 			/>
 			<MyList iterations={iterations} startingPoint={num} />
 		</StyledExponentSequence>

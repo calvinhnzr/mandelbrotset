@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react"
+
 import styled from "styled-components"
 
 const StyledContainer = styled.div`
@@ -41,6 +43,24 @@ const StyledLabel = styled.label`
 `
 
 const NumInput = (props) => {
+	const [placeholder, setPlaceholder] = useState("")
+
+	useEffect(() => {
+		console.log(props)
+
+		if (props.placeholder === "int") {
+			intPlaceholder()
+		} else if (props.placeholder === "float") {
+			floatPlaceholder()
+		} else {
+			setPlaceholder(8)
+		}
+	}, [])
+
+	const intPlaceholder = () => setPlaceholder(Math.ceil(Math.random() * 9))
+	const floatPlaceholder = () => {
+		setPlaceholder((Math.random() * 9).toFixed(2))
+	}
 	return (
 		<StyledContainer>
 			<StyledLabel>x = </StyledLabel>
@@ -50,7 +70,8 @@ const NumInput = (props) => {
 				max={props.max}
 				value={props.value}
 				onChange={props.onChange}
-				placeholder="8"
+				placeholder={placeholder}
+				step={props.placeholder === "float" ? "0.01" : "1"}
 			/>
 		</StyledContainer>
 	)

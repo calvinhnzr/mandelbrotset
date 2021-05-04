@@ -1,8 +1,6 @@
 import styled from "styled-components"
 
 const StyledList = styled.ul`
-	outline: 1px soldid white;
-
 	margin-top: 2rem;
 	height: 100%;
 `
