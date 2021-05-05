@@ -36,7 +36,11 @@ const ExponentSequence = (props) => {
 				placeholder="int"
 				handleKeyDown={props.handleKeyDown}
 			/>
-			<MyList iterations={iterations} startingPoint={num} />
+			<MyList
+				iterations={iterations}
+				startingPoint={num}
+				myStyle="sequence"
+			/>
 		</StyledExponentSequence>
 	)
 }

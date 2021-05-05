@@ -1,29 +1,56 @@
 import styled from "styled-components"
 
-const StyledList = styled.ul`
-	margin-top: 2rem;
+const StyledList = styled.ol`
 	height: 100%;
+	margin-top: 2rem;
 `
 
 const StyledElements = styled.li`
-	width: fit-content;
-	margin-bottom: 2.5rem;
 	font-family: "Roboto";
-	font-size: 1.5rem;
+	width: fit-content;
 	color: white;
 	position: relative;
 	letter-spacing: 1px;
-	// exponent ^2
+
+	&.sequence {
+		font-size: 1.5rem;
+		/* outline: 1px solid red; */
+		margin-bottom: 2.5rem;
+		margin-left: ${(props) => props.marginLeft}rem;
+		list-style: none;
+		&::after {
+			font-size: 1.3rem;
+		}
+	}
+	&.numberLine {
+		font-size: 1.2rem;
+		font-weight: 100;
+		margin-bottom: 1.5rem;
+		line-height: 1.1;
+		counter-increment: item;
+		&::before {
+			display: inline-block;
+			/* width: 1em; */
+			padding-right: 0.5em;
+			font-weight: bold;
+			/* text-align: right; */
+			content: counter(item);
+		}
+		&::after {
+			font-size: 1rem;
+		}
+	}
+
 	&::after {
 		position: absolute;
 		top: -0.8rem;
 		right: -1.5rem;
 		content: "2";
 		font-family: "Roboto";
-		font-size: 1.3rem;
 		font-weight: bold;
 		color: #437ef1;
 	}
+
 	&:last-of-type {
 		&::after {
 			display: none;
@@ -48,9 +75,8 @@ const List = (props) => {
 				? myArr.map((item, index) => (
 						<StyledElements
 							key={index}
-							style={{
-								marginLeft: 2 * (index + 2.5) + "rem",
-							}}>
+							className={props.myStyle}
+							marginLeft={2 * (index + 3.2)}>
 							{item}
 						</StyledElements>
 				  ))

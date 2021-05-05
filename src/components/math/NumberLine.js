@@ -1,5 +1,6 @@
 import { useState } from "react"
 import MyInput from "../styled/StyledInput"
+import MyList from "../styled/StyledList"
 import styled from "styled-components"
 
 const StyledNumberLine = styled.div`
@@ -14,8 +15,7 @@ const StyledNumberLine = styled.div`
 
 const StyledContainer = styled.div`
 	/* outline: 1px solid red; */
-	width: 20%;
-
+	width: 50%;
 	display: flex;
 	flex-direction: column;
 `
@@ -28,16 +28,10 @@ const StyledHeadline = styled.h4`
 	margin-bottom: 1rem;
 `
 
-const StyledStartingPoint = styled.div``
-
-const StyledIteration = styled.div`
-	margin-top: 2rem;
-`
-
 const StyledCanvas = styled.div`
 	/* outline: 1px solid red; */
-	width: 80%;
-	margin: 1rem;
+	/* width: 50%; */
+	/* margin: 1rem; */
 `
 
 const NumberLine = (props) => {
@@ -56,20 +50,20 @@ const NumberLine = (props) => {
 	return (
 		<StyledNumberLine>
 			<StyledContainer>
-				<StyledStartingPoint>
-					<MyInput
-						type="number"
-						min="-5"
-						max="5"
-						value={num}
-						onChange={handleChange}
-						placeholder="float"
-						handleKeyDown={props.handleKeyDown}
-					/>
-				</StyledStartingPoint>
-				<StyledIteration>
-					{/* <StyledHeadline>Iteration</StyledHeadline> */}
-				</StyledIteration>
+				<MyInput
+					type="number"
+					min="-5"
+					max="5"
+					value={num}
+					onChange={handleChange}
+					placeholder="float"
+					handleKeyDown={props.handleKeyDown}
+				/>
+				<MyList
+					iterations={4}
+					startingPoint={num}
+					myStyle="numberLine"
+				/>
 			</StyledContainer>
 			<StyledCanvas></StyledCanvas>
 		</StyledNumberLine>

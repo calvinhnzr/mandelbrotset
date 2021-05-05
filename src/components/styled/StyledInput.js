@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react"
-
 import styled from "styled-components"
+
+// [BUG] floating point precision
 
 const StyledContainer = styled.div`
 	margin-bottom: 1rem;
@@ -8,8 +9,6 @@ const StyledContainer = styled.div`
 	width: fit-content;
 	display: flex;
 	align-items: center;
-
-	// exponent ^2
 	&::after {
 		content: "2";
 		position: absolute;

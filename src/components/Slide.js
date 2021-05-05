@@ -46,8 +46,7 @@ const Slide = (props) => {
 
 			{item.num === 1 ? (
 				<MyKeys>
-					<MyKey letter="H" label="Open Controls" />
-					<MyKey letter="R" label="Start from new" />
+					<MyKey letter="O" label="Open Controls" />
 				</MyKeys>
 			) : null}
 			{item.num === 2 ? (

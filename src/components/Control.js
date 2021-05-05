@@ -54,7 +54,7 @@ const Control = (props) => {
 	const handleKeyDown = (event) => {
 		switch (event.keyCode) {
 			// hides control
-			case 72:
+			case 79:
 				setIsHidden(!isHidden)
 				break
 			// previous slide
@@ -108,7 +108,7 @@ const Control = (props) => {
 						Reset (R)
 					</StyledBotton>
 					<StyledBotton onClick={() => setIsHidden(!isHidden)}>
-						Hide (H)
+						Hide (O)
 					</StyledBotton>
 				</StyledContainer>
 			) : null}
