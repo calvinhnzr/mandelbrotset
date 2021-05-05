@@ -1,21 +1,26 @@
 import { useState } from "react"
+import styled from "styled-components"
+
 import MyInput from "../styled/StyledInput"
 import MyList from "../styled/StyledList"
-import styled from "styled-components"
+
+import MyCanvas from "../threejs/MyCanvas"
+import MyMesh from "../threejs/MyMesh"
+import MyAnimatedMesh from "../threejs/MyAnimatedMesh"
 
 const StyledNumberLine = styled.div`
 	/* outline: 1px solid white; */
 	margin-top: 2rem;
 	grid-row-start: 2;
 	grid-row-end: 6;
-	grid-column: 2 / 12;
+	grid-column: 2 / 6;
 	display: flex;
 	flex-direction: row;
 `
 
 const StyledContainer = styled.div`
 	/* outline: 1px solid red; */
-	width: 50%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 `
@@ -48,25 +53,31 @@ const NumberLine = (props) => {
 	}
 
 	return (
-		<StyledNumberLine>
-			<StyledContainer>
-				<MyInput
-					type="number"
-					min="-5"
-					max="5"
-					value={num}
-					onChange={handleChange}
-					placeholder="float"
-					handleKeyDown={props.handleKeyDown}
-				/>
-				<MyList
-					iterations={4}
-					startingPoint={num}
-					myStyle="numberLine"
-				/>
-			</StyledContainer>
-			<StyledCanvas></StyledCanvas>
-		</StyledNumberLine>
+		<>
+			<StyledNumberLine>
+				<StyledContainer>
+					<MyInput
+						type="number"
+						min="-5"
+						max="5"
+						value={num}
+						onChange={handleChange}
+						placeholder="float"
+						handleKeyDown={props.handleKeyDown}
+					/>
+					<MyList
+						iterations={4}
+						startingPoint={num}
+						myStyle="numberLine"
+					/>
+				</StyledContainer>
+			</StyledNumberLine>
+			<MyCanvas>
+				<MyAnimatedMesh />
+				<MyMesh position={[0, 0, 0]} />
+				<MyMesh position={[-2, 0, 0]} />
+			</MyCanvas>
+		</>
 	)
 }
 

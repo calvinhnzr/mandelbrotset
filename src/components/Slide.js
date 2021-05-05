@@ -56,13 +56,13 @@ const Slide = (props) => {
 				<NumberLine handleKeyDown={props.handleKeyDown} />
 			) : null}
 
-			{item.num === 5 ? (
+			{/* {item.num === 5 ? (
 				<MyCanvas>
 					<MyAnimatedMesh />
 					<MyMesh position={[0, 0, 0]} />
 					<MyMesh position={[-2, 0, 0]} />
 				</MyCanvas>
-			) : null}
+			) : null} */}
 
 			{item.headline ? <Headline headline={item.headline} /> : null}
 		</StyledSlide>

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 
 // [BUG] floating point precision
+// [BUG] pressing tab forces slide move
 
 const StyledContainer = styled.div`
 	margin-bottom: 1rem;
