@@ -68,7 +68,7 @@ const NumberLine = (props) => {
 					/>
 				</StyledStartingPoint>
 				<StyledIteration>
-					<StyledHeadline>Iteration</StyledHeadline>
+					{/* <StyledHeadline>Iteration</StyledHeadline> */}
 				</StyledIteration>
 			</StyledContainer>
 			<StyledCanvas></StyledCanvas>
