@@ -8,7 +8,7 @@ import MyMesh from "./MyMesh"
 
 const StyledNumAxis = styled.span`
 	font-family: "Roboto";
-	font-size: 1rem;
+	font-size: ${(props) => (props.colored ? "1.4rem" : "1rem")};
 	color: ${(props) => (props.colored ? "#437ef1" : "white")};
 `
 
@@ -100,7 +100,7 @@ const MyGraph = (props) => {
 			<MyGrid />
 			<MyMesh position={[props.x, 0, 0]} size={0.1} />
 			<Html center={true} position={[props.x, 0.3, 0]} distanceFactor={5}>
-				<StyledNumAxis colored>x</StyledNumAxis>
+				<StyledNumAxis colored>&#129312;</StyledNumAxis>
 			</Html>
 		</MyCanvas>
 	)
