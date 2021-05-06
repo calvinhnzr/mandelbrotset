@@ -1,12 +1,15 @@
 import { Line, Html } from "@react-three/drei"
 import styled from "styled-components"
 import MyCanvas from "./MyCanvas"
+import MyMesh from "./MyMesh"
+
+// [BUG] canvas sharpness
+// [BUG] warning: multiply threejs imports
 
 const StyledNumAxis = styled.span`
 	font-family: "Roboto";
 	font-size: 1rem;
-	color: white;
-	/* outline: 1px solid white; */
+	color: ${(props) => (props.colored ? "#437ef1" : "white")};
 `
 
 const MyGrid = () => {
@@ -16,8 +19,8 @@ const MyGrid = () => {
 				name="grid"
 				points={[
 					// l h 5
-					[props.x, 1.5, 0],
-					[props.x, -1.5, 0],
+					[props.x, 1.5, -0.2],
+					[props.x, -1.5, -0.2],
 				]}
 				dashed={true}
 				dashSize={1}
@@ -46,8 +49,8 @@ const MyAxis = () => {
 				name="xAxis"
 				points={[
 					// l h t
-					[props.x, 0, 0.2],
-					[props.x * -1, 0, 0.2],
+					[props.x, 0, 0],
+					[props.x * -1, 0, 0],
 				]}
 				color="white"
 				lineWidth={3}
@@ -62,15 +65,15 @@ const MyAxis = () => {
 					name="xAxis"
 					points={[
 						// l h t
-						[props.x, 0, 0.2],
-						[props.x, -0.1, 0.2],
+						[props.x, 0, 0],
+						[props.x, -0.1, 0],
 					]}
 					color="white"
 					lineWidth={3}
 				/>
 				<Html
 					center={true}
-					position={[props.x, -0.3, 0.2]}
+					position={[props.x, -0.3, 0]}
 					distanceFactor={5}>
 					<StyledNumAxis>{props.x}</StyledNumAxis>
 				</Html>
@@ -90,12 +93,15 @@ const MyAxis = () => {
 	)
 }
 
-const MyGraph = () => {
+const MyGraph = (props) => {
 	return (
 		<MyCanvas>
 			<MyAxis />
 			<MyGrid />
-			{/* <MyMesh position={[0, 0, 0]} size={0.5} /> */}
+			<MyMesh position={[props.x, 0, 0]} size={0.1} />
+			<Html center={true} position={[props.x, 0.3, 0]} distanceFactor={5}>
+				<StyledNumAxis colored>x</StyledNumAxis>
+			</Html>
 		</MyCanvas>
 	)
 }

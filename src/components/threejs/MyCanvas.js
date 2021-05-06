@@ -1,5 +1,4 @@
 import { useState, useRef } from "react"
-
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 import { FaLock, FaLockOpen } from "react-icons/fa"
@@ -12,7 +11,6 @@ const StyledCanvas = styled.div`
 	grid-column: 6 / 12;
 	/* background-color: #1e1f21; */
 	/* background-color: #437ef1; */
-
 	position: relative;
 `
 
@@ -25,7 +23,6 @@ const StyledLock = styled.button`
 	height: 2rem;
 	bottom: 1rem;
 	right: 1rem;
-
 	background: none;
 	cursor: pointer;
 
@@ -33,6 +30,7 @@ const StyledLock = styled.button`
 		right: 4rem;
 		color: #363738;
 		font-family: "Roboto";
+		font-weight: bold;
 		font-size: 1.7rem;
 		text-align: center;
 		line-height: 0.8;
@@ -83,8 +81,8 @@ const MyCanvas = (props) => {
 					enableZoom={false}
 				/>
 				{props.children}
-				<ambientLight intensity={0.1} />
-				<directionalLight position={[0, 0, 5]} intensity={0.2} />
+				<ambientLight intensity={0.5} />
+				<directionalLight position={[0, 3, 5]} intensity={0.3} />
 			</Canvas>
 		</StyledCanvas>
 	)

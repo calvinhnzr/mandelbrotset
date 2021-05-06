@@ -56,7 +56,8 @@ const NumberLine = (props) => {
 					/>
 				</StyledContainer>
 			</StyledNumberLine>
-			<MyGraph />
+			{/* get  */}
+			<MyGraph x={num} />
 		</>
 	)
 }
