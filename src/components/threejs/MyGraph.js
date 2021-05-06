@@ -1,8 +1,6 @@
 import { Line, Html } from "@react-three/drei"
 import styled from "styled-components"
-import { TextGeometry } from "three"
 import MyCanvas from "./MyCanvas"
-import MyMesh from "./MyMesh"
 
 const StyledNumAxis = styled.span`
 	font-family: "Roboto";

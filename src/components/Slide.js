@@ -4,12 +4,9 @@ import Headline from "./Headline"
 
 import ExponentSequence from "./math/ExponentSequence"
 import NumberLine from "./math/NumberLine"
-import MyCanvas from "./threejs/MyCanvas"
 import MyKey from "./styled/StyledKey"
 
 import styled from "styled-components"
-import MyMesh from "./threejs/MyMesh"
-import MyAnimatedMesh from "./threejs/MyAnimatedMesh"
 
 const StyledSlide = styled.section`
 	width: 100%;
@@ -55,14 +52,6 @@ const Slide = (props) => {
 			{item.num === 3 ? (
 				<NumberLine handleKeyDown={props.handleKeyDown} />
 			) : null}
-
-			{/* {item.num === 5 ? (
-				<MyCanvas>
-					<MyAnimatedMesh />
-					<MyMesh position={[0, 0, 0]} />
-					<MyMesh position={[-2, 0, 0]} />
-				</MyCanvas>
-			) : null} */}
 
 			{item.headline ? <Headline headline={item.headline} /> : null}
 		</StyledSlide>

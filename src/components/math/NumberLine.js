@@ -5,9 +5,6 @@ import MyInput from "../styled/StyledInput"
 import MyList from "../styled/StyledList"
 
 import MyGraph from "../threejs/MyGraph"
-import MyCanvas from "../threejs/MyCanvas"
-import MyMesh from "../threejs/MyMesh"
-import MyAnimatedMesh from "../threejs/MyAnimatedMesh"
 
 const StyledNumberLine = styled.div`
 	/* outline: 1px solid white; */
@@ -24,20 +21,6 @@ const StyledContainer = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-`
-
-const StyledHeadline = styled.h4`
-	font-family: "Roboto";
-	font-size: 1.3rem;
-	font-weight: 100;
-	color: white;
-	margin-bottom: 1rem;
-`
-
-const StyledCanvas = styled.div`
-	/* outline: 1px solid red; */
-	/* width: 50%; */
-	/* margin: 1rem; */
 `
 
 const NumberLine = (props) => {
@@ -74,12 +57,6 @@ const NumberLine = (props) => {
 				</StyledContainer>
 			</StyledNumberLine>
 			<MyGraph />
-			{/* 			
-			<MyCanvas>
-				<MyAnimatedMesh />
-				<MyMesh position={[0, 0, 0]} />
-				<MyMesh position={[-2, 0, 0]} />
-			</MyCanvas> */}
 		</>
 	)
 }
