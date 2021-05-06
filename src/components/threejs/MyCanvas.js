@@ -7,33 +7,18 @@ const StyledCanvas = styled.div`
 	grid-row-start: 2;
 	grid-row-end: 6;
 	grid-column: 6 / 12;
+	/* background-color: #1e1f21; */
+	/* background-color: #437ef1; */
 `
 
 const MyCanvas = (props) => {
 	return (
 		<StyledCanvas>
-			<Canvas>
+			<Canvas dpr={[1, 2]} camera={{ position: [0, 0, 2.6] }}>
 				<OrbitControls />
 				{props.children}
 				<ambientLight intensity={0.1} />
 				<directionalLight position={[0, 0, 5]} intensity={0.2} />
-				<Line
-					points={[
-						// l h t
-						[-3.5, -0.5, 0.5],
-						[3.5, -0.5, 0.5],
-					]}
-					color="#437ef1"
-					lineWidth={3}
-				/>
-				<Line
-					points={[
-						[0, -0.5, 0.5],
-						[0, 1, 0.5],
-					]}
-					color="#437ef1"
-					lineWidth={3}
-				/>
 			</Canvas>
 		</StyledCanvas>
 	)

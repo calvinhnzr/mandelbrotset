@@ -4,6 +4,7 @@ import styled from "styled-components"
 import MyInput from "../styled/StyledInput"
 import MyList from "../styled/StyledList"
 
+import MyGraph from "../threejs/MyGraph"
 import MyCanvas from "../threejs/MyCanvas"
 import MyMesh from "../threejs/MyMesh"
 import MyAnimatedMesh from "../threejs/MyAnimatedMesh"
@@ -72,11 +73,13 @@ const NumberLine = (props) => {
 					/>
 				</StyledContainer>
 			</StyledNumberLine>
+			<MyGraph />
+			{/* 			
 			<MyCanvas>
 				<MyAnimatedMesh />
 				<MyMesh position={[0, 0, 0]} />
 				<MyMesh position={[-2, 0, 0]} />
-			</MyCanvas>
+			</MyCanvas> */}
 		</>
 	)
 }
