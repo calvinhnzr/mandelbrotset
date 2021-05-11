@@ -3,7 +3,7 @@ const MyMesh = (props) => {
 	return (
 		<mesh position={props.position} onClick={() => console.log(true)}>
 			<boxGeometry args={[size, size, size]} />
-			<meshPhongMaterial color="#437ef1" />
+			<meshPhongMaterial color={props.color} />
 		</mesh>
 	)
 }

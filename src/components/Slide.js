@@ -4,6 +4,7 @@ import Headline from "./Headline"
 
 import ExponentSequence from "./math/ExponentSequence"
 import NumberLine from "./math/NumberLine"
+import Complex from "./math/ComplexNumber"
 import MyKey from "./styled/StyledKey"
 
 import styled from "styled-components"
@@ -52,6 +53,8 @@ const Slide = (props) => {
 			{item.num === 3 ? (
 				<NumberLine handleKeyDown={props.handleKeyDown} />
 			) : null}
+
+			{item.num === 4 ? <Complex /> : null}
 
 			{item.headline ? <Headline headline={item.headline} /> : null}
 		</StyledSlide>

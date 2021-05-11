@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import MyInput from "../styled/StyledInput"
@@ -24,15 +24,20 @@ const StyledContainer = styled.div`
 `
 
 const NumberLine = (props) => {
-	const [num, setNum] = useState("")
-	//const iterations = 5
+	const [start, setStart] = useState("")
+	const [array] = useState([])
+	const iterations = 4
 
 	const handleChange = (e) => {
-		let num = e.target.value
-		let length = num.toString().length
+		e.preventDefault()
 
-		if (length <= 5) {
-			setNum(e.target.value)
+		// set starting point
+		if (e.target.value.toString().length <= 5) setStart(e.target.value)
+		// set iteration
+		let myNum = start
+		for (let i = 0; i < iterations; i++) {
+			myNum = Math.pow(myNum, 2)
+			array[i] = myNum
 		}
 	}
 
@@ -44,20 +49,21 @@ const NumberLine = (props) => {
 						type="number"
 						min="-5"
 						max="5"
-						value={num}
+						value={start}
 						onChange={handleChange}
 						placeholder="float"
 						handleKeyDown={props.handleKeyDown}
 					/>
 					<MyList
 						iterations={4}
-						startingPoint={num}
+						startingPoint={start}
 						myStyle="numberLine"
+						array={array}
 					/>
 				</StyledContainer>
 			</StyledNumberLine>
 			{/* get  */}
-			<MyGraph x={num} />
+			<MyGraph x={start} numbers={array} />
 		</>
 	)
 }

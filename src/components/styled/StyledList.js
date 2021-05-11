@@ -60,6 +60,7 @@ const StyledElements = styled.li`
 
 const List = (props) => {
 	// calculate exponent
+
 	const myArr = []
 	const numOfIterations = props.iterations
 	let myStartingPoint = props.startingPoint
@@ -72,7 +73,7 @@ const List = (props) => {
 	return (
 		<StyledList>
 			{myStartingPoint !== 0
-				? myArr.map((item, index) => (
+				? props.array.map((item, index) => (
 						<StyledElements
 							key={index}
 							className={props.myStyle}

@@ -5,7 +5,7 @@ import { FaLock, FaLockOpen } from "react-icons/fa"
 import styled from "styled-components"
 
 const StyledCanvas = styled.div`
-	/* outline: 1px solid white; */
+	outline: 1px solid white;
 	grid-row-start: 2;
 	grid-row-end: 6;
 	grid-column: 6 / 12;
