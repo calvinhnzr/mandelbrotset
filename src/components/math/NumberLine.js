@@ -5,6 +5,7 @@ import MyInput from "../styled/StyledInput"
 import MyList from "../styled/StyledList"
 
 import MyGraph from "../threejs/MyGraph"
+import MyAxisX from "../threejs/MyAxisX"
 
 const StyledNumberLine = styled.div`
 	/* outline: 1px solid white; */
@@ -63,7 +64,9 @@ const NumberLine = (props) => {
 				</StyledContainer>
 			</StyledNumberLine>
 			{/* get  */}
-			<MyGraph x={start} numbers={array} />
+			<MyGraph x={start} numbers={array}>
+				<MyAxisX null={true} />
+			</MyGraph>
 		</>
 	)
 }

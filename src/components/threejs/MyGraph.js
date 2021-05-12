@@ -4,7 +4,6 @@ import styled from "styled-components"
 import MyCanvas from "./MyCanvas"
 import MyMesh from "./MyMesh"
 import MyGrid from "./MyGrid"
-import MyAxis from "./MyAxis"
 
 // [BUG] canvas sharpness
 // [BUG] warning: multiply threejs imports
@@ -17,8 +16,8 @@ const StyledNumAxis = styled.span`
 
 const MyGraph = (props) => {
 	return (
-		<MyCanvas>
-			<MyAxis />
+		<MyCanvas position={[0, 0, 2.6]}>
+			{props.children}
 			<MyGrid />
 			{props.numbers.map((item, index) => (
 				<MyMesh

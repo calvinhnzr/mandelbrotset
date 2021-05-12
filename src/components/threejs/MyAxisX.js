@@ -7,7 +7,7 @@ const StyledNumAxis = styled.span`
 	color: ${(props) => (props.colored ? "#437ef1" : "white")};
 `
 
-const MyAxis = () => {
+const MyAxisX = (props) => {
 	const MyLine = (props) => {
 		return (
 			<Line
@@ -48,11 +48,11 @@ const MyAxis = () => {
 			<MyLine x={3.5} />
 			<Dots x={-2} />
 			<Dots x={-1} />
-			<Dots x={0} />
+			{props.null ? <Dots x={0} /> : null}
 			<Dots x={1} />
 			<Dots x={2} />
 		</>
 	)
 }
 
-export default MyAxis
+export default MyAxisX

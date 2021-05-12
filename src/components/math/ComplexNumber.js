@@ -1,10 +1,15 @@
 import styled from "styled-components"
+import MyAxisY from "../threejs/MyAxisY"
 import Graph from "../threejs/MyGraph"
+import ComplexGraph from "../threejs/MyComplexGraph"
+
+import MyAxisX from "../threejs/MyAxisX"
 
 // import { useState, useEffect } from "react"
 
 const StyledComplex = styled.div``
-const Complex = () => {
+
+const Complex = (props) => {
 	// const [re, setRe] = useState(2)
 	// const [im, setIm] = useState(7)
 
@@ -15,9 +20,12 @@ const Complex = () => {
 
 	// let squareComplex = console.log(`${re} + ${im}i`)
 
+	const numbers = [1, 1, 1, 1]
+
 	return (
 		<>
 			<StyledComplex></StyledComplex>
+			<ComplexGraph></ComplexGraph>
 		</>
 	)
 }

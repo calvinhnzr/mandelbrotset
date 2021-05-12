@@ -5,12 +5,16 @@ import { FaLock, FaLockOpen } from "react-icons/fa"
 import styled from "styled-components"
 
 const StyledCanvas = styled.div`
-	outline: 1px solid white;
+	/* outline: 1px solid white; */
+	/* border: 3px solid #363738; */
+	/* box-shadow: 7px 8px 12px 0px #00000073 inset; */
+	border-radius: 0.5rem;
 	grid-row-start: 2;
 	grid-row-end: 6;
 	grid-column: 6 / 12;
-	/* background-color: #1e1f21; */
-	/* background-color: #437ef1; */
+
+	background-color: #191a1b;
+
 	position: relative;
 `
 
@@ -74,7 +78,7 @@ const MyCanvas = (props) => {
 		<StyledCanvas>
 			<MyReset myOrbitControls={myOrbitControls} />
 			<MyLock active={active} setActive={setActive} />
-			<Canvas dpr={[1, 2]} camera={{ position: [0, 0, 2.6] }} reset>
+			<Canvas dpr={[1, 2]} camera={{ position: props.position }} reset>
 				<OrbitControls
 					ref={myOrbitControls}
 					enabled={active}
