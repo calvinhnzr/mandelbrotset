@@ -26,20 +26,23 @@ const StyledContainer = styled.div`
 
 const NumberLine = (props) => {
 	const [start, setStart] = useState("")
-	const [array] = useState([])
+	const [array, setArray] = useState([])
 	const iterations = 4
 
 	const handleChange = (e) => {
 		e.preventDefault()
 
 		// set starting point
+
 		if (e.target.value.toString().length <= 5) setStart(e.target.value)
-		// set iteration
-		let myNum = start
-		for (let i = 0; i < iterations; i++) {
-			myNum = Math.pow(myNum, 2)
-			array[i] = myNum
-		}
+
+		if (e.target.value.toString().length <= 5)
+			setArray([
+				Math.pow(e.target.value, 2),
+				Math.pow(e.target.value, 4),
+				Math.pow(e.target.value, 8),
+				Math.pow(e.target.value, 16),
+			])
 	}
 
 	return (

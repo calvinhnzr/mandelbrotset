@@ -13,20 +13,37 @@ const StyledExponentSequence = styled.div`
 
 const ExponentSequence = (props) => {
 	const [start, setStart] = useState("")
-	const [array] = useState([])
+	const [array, setArray] = useState([])
+
 	const iterations = 4
 
 	const handleChange = (e) => {
 		e.preventDefault()
 
 		// set starting point
+
 		if (e.target.value.toString().length <= 1) setStart(e.target.value)
+
+		if (e.target.value.toString().length <= 1)
+			setArray([
+				Math.pow(e.target.value, 2),
+				Math.pow(e.target.value, 4),
+				Math.pow(e.target.value, 8),
+				Math.pow(e.target.value, 16),
+			])
+
 		// set iteration
-		let myNum = start
-		for (let i = 0; i < iterations; i++) {
-			myNum = Math.pow(myNum, 2)
-			array[i] = myNum
-		}
+		// let myNum = start
+		// for (let i = 0; i < iterations; i++) {
+		// 	myNum = Math.pow(myNum, 2)
+		// 	// array[i] = myNum
+		// 	setArray([
+		// 		Math.pow(start, 2),
+		// 		Math.pow(start, 4),
+		// 		Math.pow(start, 8),
+		// 		Math.pow(start, 16),
+		// 	])
+		// }
 	}
 
 	return (
@@ -42,7 +59,7 @@ const ExponentSequence = (props) => {
 			/>
 			<MyList
 				iterations={iterations}
-				startingPoint={start}
+				startingPoint={array}
 				myStyle="sequence"
 				array={array}
 			/>
