@@ -3,7 +3,7 @@ const MyMesh = (props) => {
 	return (
 		<mesh position={props.position} onClick={() => console.log(true)}>
 			<boxGeometry args={[size, size, size]} />
-			<meshPhongMaterial color={props.color} />
+			<meshPhongMaterial color={props.color} wireframe />
 		</mesh>
 	)
 }

@@ -82,7 +82,7 @@ const MyCanvas = (props) => {
 				<OrbitControls
 					ref={myOrbitControls}
 					enabled={active}
-					enableZoom={false}
+					enableZoom={true}
 				/>
 				{props.children}
 				<ambientLight intensity={0.5} />

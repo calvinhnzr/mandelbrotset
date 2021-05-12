@@ -32,7 +32,6 @@ const MyAxisY = (props) => {
 						[-0.1, props.x, 0],
 					]}
 					color="white"
-					lineWidth={3}
 				/>
 				<Html
 					center={true}

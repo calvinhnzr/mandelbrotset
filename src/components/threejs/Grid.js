@@ -17,8 +17,9 @@ const MyLine = (props) => {
 let nums = [-2, -1, 0, 1, 2]
 
 const Horizontal = () => {
-	return nums.map((item) => (
+	return nums.map((item, index) => (
 		<MyLine
+			key={index}
 			points={[
 				[item, 2.5, -0.2],
 				[item, -2.5, -0.2],
@@ -28,8 +29,9 @@ const Horizontal = () => {
 }
 
 const Vertical = () => {
-	return nums.map((item) => (
+	return nums.map((item, index) => (
 		<MyLine
+			key={index}
 			points={[
 				[2.5, item, -0.2],
 				[-2.5, item, -0.2],

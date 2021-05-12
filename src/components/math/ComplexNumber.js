@@ -1,31 +1,38 @@
-import styled from "styled-components"
-import MyAxisY from "../threejs/MyAxisY"
-import Graph from "../threejs/MyGraph"
-import ComplexGraph from "../threejs/MyComplexGraph"
+import { useState, useEffect } from "react"
 
-import MyAxisX from "../threejs/MyAxisX"
+import styled from "styled-components"
+import ComplexGraph from "../threejs/MyComplexGraph"
+import MyMesh from "../threejs/MyMesh"
+
+import Container from "../styled/Container"
 
 // import { useState, useEffect } from "react"
 
 const StyledComplex = styled.div``
 
 const Complex = (props) => {
-	// const [re, setRe] = useState(2)
-	// const [im, setIm] = useState(7)
+	const [re, setRe] = useState(2)
+	const [im, setIm] = useState(7)
 
-	// useEffect(() => {
-	// 	setRe(re * re - im * im)
-	// 	setIm(2 * (re * im))
-	// }, [])
+	useEffect(() => {
+		setRe(re * re - im * im)
+		setIm(2 * (re * im))
+	}, [])
 
-	// let squareComplex = console.log(`${re} + ${im}i`)
-
-	const numbers = [1, 1, 1, 1]
+	let squareComplex = `${re} + ${im}i`
 
 	return (
 		<>
-			<StyledComplex></StyledComplex>
-			<ComplexGraph></ComplexGraph>
+			<Container>
+				<p style={{ color: "white" }}>{squareComplex}</p>
+			</Container>
+			<ComplexGraph>
+				<MyMesh
+					position={[props.x, 0, 0]}
+					size={0.12}
+					color="#437ef1"
+				/>
+			</ComplexGraph>
 		</>
 	)
 }

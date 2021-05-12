@@ -1,4 +1,14 @@
-import { Line } from "@react-three/drei"
+import { Line, Html } from "@react-three/drei"
+import styled from "styled-components"
+
+const StyledNumAxis = styled.span`
+	/* display: none; */
+	opacity: 0.1;
+	font-family: "Roboto";
+	font-weight: 100;
+	font-size: ${(props) => (props.colored ? "1.2rem" : "1rem")};
+	color: ${(props) => (props.colored ? "#437ef1" : "white")};
+`
 
 const MyLine = (props) => {
 	return (
@@ -16,12 +26,30 @@ const Dots = () => {
 					[item * 2, -0.05, 0],
 				]}
 			/>
+
+			{item ? (
+				<Html
+					center={true}
+					position={[item * 2, -0.2, 0]}
+					distanceFactor={5}>
+					<StyledNumAxis>{item}</StyledNumAxis>
+				</Html>
+			) : null}
+
 			<MyLine
 				points={[
 					[0.05, item * 2, 0],
 					[-0.05, item * 2, 0],
 				]}
 			/>
+			{item ? (
+				<Html
+					center={true}
+					position={[-0.2, item * 2, 0]}
+					distanceFactor={5}>
+					<StyledNumAxis>{item}</StyledNumAxis>
+				</Html>
+			) : null}
 		</>
 	))
 }
