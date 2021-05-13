@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const StyledNumAxis = styled.span`
 	/* display: none; */
-	opacity: 0.1;
+	opacity: 1;
 	font-family: "Roboto";
 	font-weight: 100;
 	font-size: ${(props) => (props.colored ? "1.2rem" : "1rem")};

@@ -28,8 +28,8 @@ const MyAxisX = (props) => {
 				<Line
 					name="xAxis"
 					points={[
-						[props.x, 0, 0],
-						[props.x, -0.1, 0],
+						[props.x, 0.05, 0],
+						[props.x, -0.05, 0],
 					]}
 					color="white"
 					lineWidth={3}
@@ -45,7 +45,7 @@ const MyAxisX = (props) => {
 	}
 	return (
 		<>
-			<MyLine x={3.5} />
+			<MyLine x={2.5} />
 			<Dots x={-2} />
 			<Dots x={-1} />
 			{props.null ? <Dots x={0} /> : null}

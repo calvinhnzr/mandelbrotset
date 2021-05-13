@@ -9,7 +9,7 @@ const ComplexGraph = (props) => {
 			<MyCanvas position={[0, 0, 3.5]}>
 				{props.children}
 				<MyCircle />
-				<Grid />
+				{/* <Grid /> */}
 				<Axis />
 			</MyCanvas>
 		</>

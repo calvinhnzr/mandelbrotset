@@ -5,6 +5,7 @@ import ComplexGraph from "../threejs/MyComplexGraph"
 import MyMesh from "../threejs/MyMesh"
 
 import Container from "../styled/Container"
+import Formula from "../styled/Formula"
 
 // import { useState, useEffect } from "react"
 
@@ -13,6 +14,8 @@ const StyledComplex = styled.div``
 const Complex = (props) => {
 	const [re, setRe] = useState(2)
 	const [im, setIm] = useState(7)
+
+	const [list, setList] = useState([[], []])
 
 	useEffect(() => {
 		setRe(re * re - im * im)
@@ -24,7 +27,14 @@ const Complex = (props) => {
 	return (
 		<>
 			<Container>
-				<p style={{ color: "white" }}>{squareComplex}</p>
+				<Formula re={re} />
+				{/* 
+					formel
+					input
+					iteration list
+				
+				
+				*/}
 			</Container>
 			<ComplexGraph>
 				<MyMesh

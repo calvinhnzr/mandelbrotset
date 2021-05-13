@@ -6,8 +6,6 @@ const MyGrid = () => {
 			<Line
 				name="grid"
 				points={[
-					// l h t
-					// x y z
 					[props.x, 1.5, -0.2],
 					[props.x, -1.5, -0.2],
 				]}
@@ -21,11 +19,8 @@ const MyGrid = () => {
 	}
 	return (
 		<>
-			<MyLine x={-2} />
 			<MyLine x={-1} />
-			<MyLine x={0} />
 			<MyLine x={1} />
-			<MyLine x={2} />
 		</>
 	)
 }

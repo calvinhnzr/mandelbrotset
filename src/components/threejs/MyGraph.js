@@ -16,7 +16,7 @@ const StyledNumAxis = styled.span`
 
 const MyGraph = (props) => {
 	return (
-		<MyCanvas position={[0, 0, 2.6]}>
+		<MyCanvas position={[0, 0, 2.8]}>
 			{props.children}
 			<MyGrid />
 			{props.numbers.map((item, index) => (
