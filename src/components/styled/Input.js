@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import styled from "styled-components"
 
 const StyledInput = styled.input`
@@ -14,6 +15,23 @@ const StyledInput = styled.input`
 `
 
 const Input = (props) => {
+	const [placeholder, setPlaceholder] = useState("")
+
+	useEffect(() => {
+		if (props.placeholder === "int") {
+			intPlaceholder()
+		} else if (props.placeholder === "float") {
+			floatPlaceholder()
+		} else {
+			setPlaceholder(8)
+		}
+	}, [props.placeholder])
+
+	const intPlaceholder = () => setPlaceholder(Math.ceil(Math.random() * 9))
+	const floatPlaceholder = () => {
+		setPlaceholder((Math.random() * 2).toFixed(2))
+	}
+
 	return (
 		<StyledInput
 			type={props.type}
@@ -28,6 +46,7 @@ const Input = (props) => {
 			onBlur={() =>
 				window.addEventListener("keydown", props.handleKeyDown)
 			}
+			placeholder={placeholder}
 		/>
 	)
 }

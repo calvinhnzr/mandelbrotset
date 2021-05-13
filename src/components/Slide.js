@@ -54,7 +54,9 @@ const Slide = (props) => {
 				<NumberLine handleKeyDown={props.handleKeyDown} />
 			) : null}
 
-			{item.num === 4 ? <Complex /> : null}
+			{item.num === 4 ? (
+				<Complex handleKeyDown={props.handleKeyDown} />
+			) : null}
 
 			{item.headline ? <Headline headline={item.headline} /> : null}
 		</StyledSlide>

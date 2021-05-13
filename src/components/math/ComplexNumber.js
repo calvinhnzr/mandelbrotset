@@ -27,7 +27,7 @@ const Complex = (props) => {
 	return (
 		<>
 			<Container>
-				<Formula re={re} />
+				<Formula re={re} handleKeyDown={props.handleKeyDown} />
 				{/* 
 					formel
 					input
