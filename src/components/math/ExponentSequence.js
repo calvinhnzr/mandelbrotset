@@ -24,13 +24,14 @@ const ExponentSequence = (props) => {
 
 		if (e.target.value.toString().length <= 1) setStart(e.target.value)
 
-		if (e.target.value.toString().length <= 1)
+		if (e.target.value.toString().length <= 1) {
 			setArray([
 				Math.pow(e.target.value, 2),
 				Math.pow(e.target.value, 4),
 				Math.pow(e.target.value, 8),
 				Math.pow(e.target.value, 16),
 			])
+		}
 
 		// set iteration
 		// let myNum = start

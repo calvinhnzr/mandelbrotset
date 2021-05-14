@@ -12,34 +12,54 @@ import Formula from "../styled/Formula"
 const StyledComplex = styled.div``
 
 const Complex = (props) => {
-	const [re, setRe] = useState(2)
-	const [im, setIm] = useState(7)
+	const [re, setRe] = useState()
+	const [im, setIm] = useState()
 
-	const [list, setList] = useState([[], []])
+	const multiFactor = 2
+	let re1 = re * re - im * im
+	let im1 = 2 * (re * im)
 
-	useEffect(() => {
-		setRe(re * re - im * im)
-		setIm(2 * (re * im))
+	// const [list, setList] = useState([[], []])
+
+	let firstIte = useEffect(() => {
+		// 	setRe(re * re - im * im)
+		// 	setIm(2 * (re * im))
+		// setList([[re * re - im * im], [2 * (re * im)]])
 	}, [])
-
-	let squareComplex = `${re} + ${im}i`
 
 	return (
 		<>
 			<Container>
-				<Formula re={re} handleKeyDown={props.handleKeyDown} />
+				<Formula
+					re={re}
+					im={im}
+					setRe={setRe}
+					setIm={setIm}
+					handleKeyDown={props.handleKeyDown}
+				/>
+				<span
+					style={{
+						color: "white",
+						marginTop: "2rem",
+						fontFamily: "Roboto",
+						fontSize: "1.3rem",
+						fontWeight: "100",
+					}}>
+					x_0 = 0 <br />
+					<br />
+					z_(n+1) ={" "}
+					<span style={{ fontWeight: "bold" }}>((z_n)^2)</span> + c
+				</span>
 				{/* 
 					formel
 					input
 					iteration list
-				
-				
 				*/}
 			</Container>
 			<ComplexGraph>
 				<MyMesh
-					position={[props.x, 0, 0]}
-					size={0.12}
+					position={[re ? re * 2 : 0, im ? im * 2 : 0, 0]}
+					size={0.15}
 					color="#437ef1"
 				/>
 			</ComplexGraph>

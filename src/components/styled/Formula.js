@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import Input from "./Input"
@@ -36,9 +35,6 @@ const StyledFormula = styled.div`
 `
 
 const Formula = (props) => {
-	const [re, setRe] = useState()
-	const [im, setIm] = useState()
-
 	return (
 		<StyledFormula>
 			<span style={{ fontWeight: "bold" }}>x = </span>
@@ -49,8 +45,8 @@ const Formula = (props) => {
 					min="-2"
 					max="2"
 					placeholder="float"
-					value={re}
-					onChange={(e) => setRe(e.target.value)}
+					value={props.re}
+					onChange={(e) => props.setRe(e.target.value)}
 					handleKeyDown={props.handleKeyDown}
 				/>
 				<span>+</span>
@@ -59,8 +55,8 @@ const Formula = (props) => {
 					min="-2"
 					max="2"
 					placeholder="float"
-					value={im}
-					onChange={(e) => setIm(e.target.value)}
+					value={props.im}
+					onChange={(e) => props.setIm(e.target.value)}
 					handleKeyDown={props.handleKeyDown}
 				/>
 				<span>i )</span>
