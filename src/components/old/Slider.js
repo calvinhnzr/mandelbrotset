@@ -2,7 +2,6 @@ import Slide from "./Slide"
 import styled from "styled-components"
 
 const StyledSlider = styled.div`
-	/* outline: 1px solid red; */
 	height: 100%;
 	width: 100%;
 	position: relative;
@@ -15,15 +14,14 @@ const StyledMove = styled.div`
 	will-change: transform;
 	width: auto;
 	height: 100%;
-
 	display: flex;
 	flex-wrap: nowrap;
-
 	transform: translateX(${(props) => props.currentSlide * -100}%);
 `
 
 const Slider = (props) => {
 	const max = props.data.default.slides.length
+
 	const renderSlides = () =>
 		props.data.default.slides.map((item, index) => (
 			<Slide
@@ -35,7 +33,7 @@ const Slider = (props) => {
 
 	return (
 		<StyledSlider>
-			<StyledMove max={max} currentSlide={props.currentSlide}>
+			<StyledMove currentSlide={props.currentSlide}>
 				{renderSlides()}
 			</StyledMove>
 		</StyledSlider>

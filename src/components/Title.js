@@ -11,7 +11,7 @@ const StyledTitle = styled.h1`
 `
 
 const Title = (props) => {
-	return <StyledTitle>{props.title}</StyledTitle>
+	return <StyledTitle>{props.value}</StyledTitle>
 }
 
 export default Title

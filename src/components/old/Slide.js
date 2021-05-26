@@ -1,11 +1,11 @@
-import Title from "./Title"
-import SubTitle from "./SubTitle"
-import Headline from "./Headline"
+import Title from "../Title"
+import SubTitle from "../SubTitle"
+import Headline from "../Headline"
 
-import ExponentSequence from "./math/ExponentSequence"
-import NumberLine from "./math/NumberLine"
-import Complex from "./math/ComplexNumber"
-import MyKey from "./styled/StyledKey"
+import ExponentSequence from "../math/ExponentSequence"
+import NumberLine from "../math/NumberLine"
+import Complex from "../math/ComplexNumber"
+import MyKey from "../styled/StyledKey"
 
 import styled from "styled-components"
 
@@ -14,8 +14,8 @@ const StyledSlide = styled.section`
 	height: 100%;
 	flex: 0 0 auto;
 
-	scroll-behavior: smooth;
-	-webkit-overflow-scrolling: touch;
+	/* scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch; */
 
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);

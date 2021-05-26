@@ -4,7 +4,9 @@ import styled from "styled-components"
 import ComplexGraph from "../threejs/MyComplexGraph"
 import MyMesh from "../threejs/MyMesh"
 
-import Container from "../styled/Container"
+import Cube from "../threejs/Cube"
+
+import Aside from "../styled/Aside"
 import Formula from "../styled/Formula"
 
 // import { useState, useEffect } from "react"
@@ -29,7 +31,7 @@ const Complex = (props) => {
 
 	return (
 		<>
-			<Container>
+			<Aside>
 				<Formula
 					re={re}
 					im={im}
@@ -55,12 +57,13 @@ const Complex = (props) => {
 					input
 					iteration list
 				*/}
-			</Container>
+			</Aside>
 			<ComplexGraph>
+				<Cube />
 				<MyMesh
 					position={[re ? re * 2 : 0, im ? im * 2 : 0, 0]}
 					size={0.15}
-					color="#437ef1"
+					color="#ea5b89"
 				/>
 			</ComplexGraph>
 		</>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 import Slider from "./Slider"
-import Progress from "./Progress"
+import Progress from "../Progress"
 import styled from "styled-components"
 
 // add: double click on screen opens controls
@@ -120,7 +120,7 @@ const Control = (props) => {
 				handleKeyDown={handleKeyDown}
 			/>
 
-			<Progress value={currentSlide + 1} max={maxSlides} />
+			<Progress current={currentSlide + 1} max={maxSlides} />
 		</StyledControl>
 	)
 }

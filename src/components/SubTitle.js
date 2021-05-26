@@ -12,7 +12,7 @@ const StyledSubTitle = styled.h2`
 `
 
 const SubTitle = (props) => {
-	return <StyledSubTitle>{props.subTitle}</StyledSubTitle>
+	return <StyledSubTitle>{props.value}</StyledSubTitle>
 }
 
 export default SubTitle

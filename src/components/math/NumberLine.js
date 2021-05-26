@@ -4,6 +4,8 @@ import styled from "styled-components"
 import MyInput from "../styled/StyledInput"
 import MyList from "../styled/StyledList"
 
+import Cube from "../threejs/Cube"
+import MyMesh from "../threejs/MyMesh"
 import MyGraph from "../threejs/MyGraph"
 import MyAxisX from "../threejs/MyAxisX"
 
@@ -27,6 +29,7 @@ const StyledContainer = styled.div`
 const NumberLine = (props) => {
 	const [start, setStart] = useState("")
 	const [array, setArray] = useState([])
+
 	const iterations = 4
 
 	const handleChange = (e) => {
@@ -66,8 +69,10 @@ const NumberLine = (props) => {
 					/>
 				</StyledContainer>
 			</StyledNumberLine>
-			{/* get  */}
 			<MyGraph x={start} numbers={array}>
+				{/* <Cube x={start} setX={setStart} /> */}
+
+				<MyMesh position={[start, 0, 0]} size={0.12} color="#437ef1" />
 				<MyAxisX null={true} />
 			</MyGraph>
 		</>

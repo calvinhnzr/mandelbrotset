@@ -11,7 +11,7 @@ const StyledHeadline = styled.h3`
 `
 
 const Headline = (props) => {
-	return <StyledHeadline>{props.headline}</StyledHeadline>
+	return <StyledHeadline>{props.value}</StyledHeadline>
 }
 
 export default Headline

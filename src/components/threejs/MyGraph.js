@@ -27,7 +27,6 @@ const MyGraph = (props) => {
 					color="red"
 				/>
 			))}
-			<MyMesh position={[props.x, 0, 0]} size={0.12} color="#437ef1" />
 			<Html center={true} position={[props.x, 0.3, 0]} distanceFactor={5}>
 				<StyledNumAxis colored>x</StyledNumAxis>
 			</Html>

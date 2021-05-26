@@ -16,21 +16,21 @@ const MyLine = (props) => {
 	)
 }
 let nums = [-1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1]
-
+let multiFactor = 2
 const Dots = () => {
 	return nums.map((item) => (
 		<>
 			<MyLine
 				points={[
-					[item * 2, 0.05, 0],
-					[item * 2, -0.05, 0],
+					[item * multiFactor, 0.05, 0],
+					[item * multiFactor, -0.05, 0],
 				]}
 			/>
 
 			{item ? (
 				<Html
 					center={true}
-					position={[item * 2, -0.2, 0]}
+					position={[item * multiFactor, -0.2, 0]}
 					distanceFactor={5}>
 					<StyledNumAxis>{item}</StyledNumAxis>
 				</Html>
@@ -38,8 +38,8 @@ const Dots = () => {
 
 			<MyLine
 				points={[
-					[0.05, item * 2, 0],
-					[-0.05, item * 2, 0],
+					[0.05, item * multiFactor, 0],
+					[-0.05, item * multiFactor, 0],
 				]}
 			/>
 			{item ? (
