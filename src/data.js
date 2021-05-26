@@ -8,7 +8,7 @@ export const mydata = {
 			id: 1,
 			components: [
 				<Title value="Mandelbrotset" />,
-				<SubTitle value="„Wenn Mathematik mal schön ist.“" />,
+				<SubTitle value="„Wenn Mathematik mal&nbsp;schön ist.“" />,
 			],
 		},
 		{

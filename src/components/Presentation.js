@@ -1,12 +1,14 @@
 import styled from "styled-components"
 
 const StyledPresentation = styled.div`
-	outline: 1px solid red;
 	height: 100%;
 	width: 100%;
 	position: relative;
-	overflow-y: hidden;
-	overflow-x: hidden;
+
+	@media only screen and (min-width: 960px) {
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
 `
 
 const StyledMove = styled.div`
@@ -16,7 +18,11 @@ const StyledMove = styled.div`
 	height: 100%;
 	display: flex;
 	flex-wrap: nowrap;
-	transform: translateX(${(props) => props.current * -100}%);
+	flex-direction: column;
+	@media only screen and (min-width: 960px) {
+		flex-direction: row;
+		transform: translateX(${(props) => props.current * -100}%);
+	}
 `
 
 const Presentation = (props) => {
