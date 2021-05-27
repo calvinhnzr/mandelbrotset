@@ -8,8 +8,8 @@ const StyledCard = styled.section`
 	flex: 0 0 auto;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: repeat(6, 1fr);
-	gap: 1rem;
+	grid-template-rows: repeat(12, 1fr);
+	/* gap: 1rem; */
 	margin-bottom: 1.3rem;
 
 	&:first-of-type {

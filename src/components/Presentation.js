@@ -4,7 +4,6 @@ const StyledPresentation = styled.div`
 	height: 100%;
 	width: 100%;
 	position: relative;
-
 	@media only screen and (min-width: 960px) {
 		overflow-x: hidden;
 		overflow-y: hidden;

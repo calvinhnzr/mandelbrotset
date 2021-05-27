@@ -2,6 +2,8 @@ import Title from "./components/Title"
 import SubTitle from "./components/SubTitle"
 import Headline from "./components/Headline"
 
+import Scene from "./components/three/Scene"
+
 export const mydata = {
 	cards: [
 		{
@@ -13,12 +15,12 @@ export const mydata = {
 		},
 		{
 			id: 2,
-			components: [<Headline value="Zahlen Quadrieren..." />],
+			components: [<Headline value="Zahlen Quadrieren" />],
 			color: "#437EF1",
 		},
 		{
 			id: 3,
-			components: [<Headline value="...am Zahlenstrahl" />],
+			components: [<Headline value="Am Zahlenstrahl" />, <Scene />],
 			color: "#437EF1",
 		},
 		{

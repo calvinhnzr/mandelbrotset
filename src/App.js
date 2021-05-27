@@ -4,11 +4,10 @@ import { createGlobalStyle } from "styled-components"
 import { mydata } from "./data"
 import Presentation from "./components/Presentation"
 import Progress from "./components/Progress"
-import Info from "./components/Info"
+// import Info from "./components/Info"
 import Card from "./components/Card"
 
 const GlobalStyle = createGlobalStyle`
-	@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
   h1, h2, h3, h4, p {
 		color: white;
 		font-family: "Roboto", sans-serif !important;
@@ -65,7 +64,7 @@ function App() {
 				})}
 			</Presentation>
 			<Progress current={current + 1} max={max} />
-			<Info />
+			{/* <Info /> */}
 		</div>
 	)
 }

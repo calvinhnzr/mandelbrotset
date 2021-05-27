@@ -7,7 +7,7 @@ const StyledSubTitle = styled.h2`
 	font-size: 1.9rem;
 	line-height: 1.1;
 	grid-column: 2 / 12;
-	grid-row: 4 / 5;
+	grid-row: 7 / 8;
 
 	@media only screen and (min-width: 960px) {
 		font-size: 2.25rem;
