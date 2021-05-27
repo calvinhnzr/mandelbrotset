@@ -2,13 +2,11 @@ import styled from "styled-components"
 
 const StyledFormula = styled.div`
 	/* outline: 1px solid white; */
-
 	grid-row: 3 / 4;
 	grid-column: 2 / 12;
 	align-items: center;
 	width: fit-content;
 	position: relative;
-
 	&::after {
 		content: "2";
 		position: absolute;
@@ -26,7 +24,6 @@ const StyledFormula = styled.div`
 		font-weight: 100;
 		letter-spacing: 1px;
 		color: white;
-		margin-right: 0.5rem;
 	}
 `
 

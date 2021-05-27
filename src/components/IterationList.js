@@ -1,12 +1,27 @@
 import styled from "styled-components"
 
 const StyledList = styled.ol`
+	/* outline: 1px solid white; */
+
 	grid-column: 2 / 12;
 	grid-row: 4 / 12;
 	height: auto;
-	margin-top: 2rem;
+
+	&.sequence {
+		grid-row: 4 / 12;
+		margin-top: 2rem;
+	}
+	&.numberLine {
+		grid-row: 9 / 12;
+	}
+
 	@media only screen and (min-width: 960px) {
 		margin-top: 0;
+
+		&.numberLine {
+			grid-row: 4 / 11;
+			grid-column: 2 / 5;
+		}
 	}
 `
 
@@ -14,7 +29,6 @@ const StyledElements = styled.li`
 	width: fit-content;
 	position: relative;
 	letter-spacing: 1px;
-
 	&.sequence {
 		font-size: 1.7rem;
 		margin-bottom: 1.5rem;
@@ -75,7 +89,7 @@ const IterationList = (props) => {
 	}
 
 	return (
-		<StyledList>
+		<StyledList className={props.myStyle}>
 			{myStartingPoint !== 0
 				? props.array.map((item, index) => (
 						<StyledElements

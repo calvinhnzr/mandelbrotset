@@ -1,17 +1,17 @@
 import { useState } from "react"
 
-import Card from "./Card"
+import Card from "./components/Card"
 
-import Title from "./Title"
-import SubTitle from "./SubTitle"
-import Headline from "./Headline"
-
-import Scene from "./three/Scene"
+import Title from "./components/Title"
+import SubTitle from "./components/SubTitle"
+import Headline from "./components/Headline"
 
 // templates
-import SquareNumbers from "../templates/SquareNumbers"
+import SquareNumbers from "./templates/SquareNumbers"
+import OnNumberLine from "./templates/OnNumberLine"
+import SquareComplexNumbers from "./templates/SquareComplexNumbers"
 
-const Data = (props) => {
+const Data = () => {
 	const [content, setContent] = useState([
 		{
 			id: 1,
@@ -26,16 +26,16 @@ const Data = (props) => {
 			color: "#437EF1",
 			components: [
 				<Headline value="Zahlen Quadrieren" />,
-				<SquareNumbers
-					color="#437EF1"
-					handleKeyDown={props.handleKeyDown}
-				/>,
+				<SquareNumbers color="#437EF1" />,
 			],
 		},
 		{
 			id: 3,
-			color: "#EA5B89",
-			components: [<Headline value="Am Zahlenstrahl" />, <Scene />],
+			color: "#437EF1",
+			components: [
+				<Headline value="Am Zahlenstrahl" />,
+				<OnNumberLine color="#437EF1" />,
+			],
 		},
 		{
 			id: 4,
@@ -60,7 +60,10 @@ const Data = (props) => {
 		{
 			id: 8,
 			color: "#EA5B89",
-			components: [<Headline value="Komplexe Zahlen Quadrieren" />],
+			components: [
+				<Headline value="Komplexe Zahlen Quadrieren" />,
+				<SquareComplexNumbers color="#EA5B89" />,
+			],
 		},
 		{
 			id: 9,

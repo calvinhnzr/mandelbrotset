@@ -7,7 +7,7 @@ const myColor = "#363738"
 num *= 2
 x *= 2
 
-const MyCircle = () => {
+const Circle = () => {
 	return (
 		<>
 			<CubicBezierLine
@@ -62,4 +62,4 @@ const MyCircle = () => {
 	)
 }
 
-export default MyCircle
+export default Circle

@@ -1,6 +1,6 @@
 import MyCanvas from "./MyCanvas"
-import Axis from "./Axis"
-import MyCircle from "./MyCircle"
+import Axis from "../three/Axis"
+import MyCircle from "../three/Circle"
 
 const ComplexGraph = (props) => {
 	return (

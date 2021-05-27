@@ -4,12 +4,11 @@ import { OrbitControls } from "@react-three/drei"
 import { FaLock, FaLockOpen } from "react-icons/fa"
 import styled from "styled-components"
 
-import MyMesh from "../threejs/MyMesh"
-
 const StyledScene = styled.div`
 	position: relative;
 	grid-column: 2 / 12;
-	grid-row: 4 / 8;
+	grid-row: 4 / 9;
+	/* margin-bottom: 1rem; */
 	background-color: #191a1b;
 	border-radius: 0.5rem;
 	@media only screen and (min-width: 960px) {
@@ -20,7 +19,6 @@ const StyledScene = styled.div`
 
 const StyledLock = styled.button`
 	z-index: 100;
-	/* outline: 1px solid blue; */
 	border: none;
 	position: absolute;
 	width: 2rem;
@@ -71,7 +69,7 @@ const MyLock = (props) => {
 	)
 }
 
-const Scene = () => {
+const Scene = (props) => {
 	const [active, setActive] = useState(false)
 	const myOrbitControls = useRef()
 
@@ -79,7 +77,14 @@ const Scene = () => {
 		<StyledScene>
 			<MyReset myOrbitControls={myOrbitControls} />
 			<MyLock active={active} setActive={setActive} />
-			<Canvas dpr={[1, 2]}>
+			<Canvas
+				dpr={[1, 2]}
+				camera={{
+					fov: 75,
+					near: 0.1,
+					far: 1000,
+					position: [0, 0, 3.7],
+				}}>
 				<OrbitControls
 					ref={myOrbitControls}
 					enabled={active}
@@ -87,18 +92,7 @@ const Scene = () => {
 				/>
 				<ambientLight intensity={0.5} />
 				<directionalLight position={[0, 3, 5]} intensity={0.3} />
-				<MyMesh color={"#EA5B89"} />
-				{/* 
-          - grid
-          - axis
-          - num on axis, dots
-          - element
-          - lock
-          - reset
-          - iterations
-        
-        
-        */}
+				{props.children}
 			</Canvas>
 		</StyledScene>
 	)

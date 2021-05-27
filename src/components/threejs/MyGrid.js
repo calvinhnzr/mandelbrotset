@@ -1,4 +1,4 @@
-import { Line, Html } from "@react-three/drei"
+import { Line } from "@react-three/drei"
 
 const MyGrid = () => {
 	const MyLine = (props) => {

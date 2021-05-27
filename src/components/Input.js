@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 const StyledInput = styled.input`
 	background-color: #363738;
+	color: white;
 	border: none;
 	border-radius: 0.2rem;
 	height: auto;
@@ -12,7 +13,10 @@ const StyledInput = styled.input`
 	min-width: 4rem;
 	padding: 0.5rem;
 	font-size: 2rem;
-	color: white;
+
+	@media only screen and (min-width: 960px) {
+		max-width: 100%;
+	}
 `
 
 const Input = (props) => {

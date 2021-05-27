@@ -57,7 +57,7 @@ const Dots = () => {
 const Axis = () => {
 	return (
 		<>
-			<Dots />
+			{/* <Dots /> */}
 			<MyLine
 				points={[
 					[2.5, 0, 0],

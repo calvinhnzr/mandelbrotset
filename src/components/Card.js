@@ -10,7 +10,7 @@ const StyledCard = styled.section`
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(12, 1fr);
 	gap: 1rem;
-	row-gap: 2.5rem;
+	row-gap: 2.25rem;
 	margin-bottom: 1.3rem;
 	&:first-of-type {
 		gap: 1rem;
