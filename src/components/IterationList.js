@@ -1,27 +1,33 @@
 import styled from "styled-components"
 
 const StyledList = styled.ol`
-	height: 100%;
+	grid-column: 2 / 12;
+	grid-row: 4 / 12;
+	height: auto;
 	margin-top: 2rem;
+	@media only screen and (min-width: 960px) {
+		margin-top: 0;
+	}
 `
 
 const StyledElements = styled.li`
-	font-family: "Roboto";
 	width: fit-content;
-	color: white;
 	position: relative;
 	letter-spacing: 1px;
 
 	&.sequence {
-		font-size: 1.5rem;
-		/* outline: 1px solid red; */
-		margin-bottom: 2.5rem;
-		margin-left: ${(props) => props.marginLeft}rem;
+		font-size: 1.7rem;
+		margin-bottom: 1.5rem;
 		list-style: none;
 		&::after {
 			font-size: 1.3rem;
 		}
+		@media only screen and (min-width: 960px) {
+			margin-left: ${(props) => props.marginLeft}rem;
+			margin-bottom: 2.5rem;
+		}
 	}
+
 	&.numberLine {
 		font-size: 1.2rem;
 		font-weight: 100;
@@ -48,7 +54,7 @@ const StyledElements = styled.li`
 		content: "2";
 		font-family: "Roboto";
 		font-weight: bold;
-		color: #437ef1;
+		color: ${(props) => props.color};
 	}
 
 	&:last-of-type {
@@ -58,9 +64,7 @@ const StyledElements = styled.li`
 	}
 `
 
-const List = (props) => {
-	// calculate exponent
-
+const IterationList = (props) => {
 	const myArr = []
 	const numOfIterations = props.iterations
 	let myStartingPoint = props.startingPoint
@@ -77,7 +81,8 @@ const List = (props) => {
 						<StyledElements
 							key={index}
 							className={props.myStyle}
-							marginLeft={2 * (index + 3.2)}>
+							marginLeft={2 * (index + 3.2)}
+							color={props.color}>
 							{item}
 						</StyledElements>
 				  ))
@@ -86,4 +91,4 @@ const List = (props) => {
 	)
 }
 
-export default List
+export default IterationList

@@ -7,7 +7,7 @@ import MyMesh from "../threejs/MyMesh"
 import Cube from "../threejs/Cube"
 
 import Aside from "../styled/Aside"
-import Formula from "../styled/Formula"
+import Formula from "../Formula"
 
 // import { useState, useEffect } from "react"
 

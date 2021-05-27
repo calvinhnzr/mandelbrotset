@@ -9,10 +9,11 @@ const StyledCard = styled.section`
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-template-rows: repeat(12, 1fr);
-	/* gap: 1rem; */
+	gap: 1rem;
+	row-gap: 2.5rem;
 	margin-bottom: 1.3rem;
-
 	&:first-of-type {
+		gap: 1rem;
 		background-color: #191a1b;
 		margin-bottom: 0;
 		height: 100%;
@@ -21,6 +22,9 @@ const StyledCard = styled.section`
 	@media only screen and (min-width: 960px) {
 		margin-bottom: 0;
 		height: 100%;
+		&:first-of-type {
+			/* background-color: #202123; */
+		}
 	}
 `
 

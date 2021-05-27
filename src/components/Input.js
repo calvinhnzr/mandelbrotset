@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { Context } from "../Context"
+
 import styled from "styled-components"
 
 const StyledInput = styled.input`
@@ -7,15 +9,15 @@ const StyledInput = styled.input`
 	border-radius: 0.2rem;
 	height: auto;
 	max-width: 6rem;
-	/* min-width: 4rem; */
+	min-width: 4rem;
 	padding: 0.5rem;
-	font-family: "Roboto";
-	font-size: 1.6rem;
+	font-size: 2rem;
 	color: white;
 `
 
 const Input = (props) => {
 	const [placeholder, setPlaceholder] = useState("")
+	const { setInputOnFocus } = useContext(Context)
 
 	useEffect(() => {
 		if (props.placeholder === "int") {
@@ -40,13 +42,10 @@ const Input = (props) => {
 			step={props.placeholder === "float" ? "0.01" : "1"}
 			value={props.value}
 			onChange={props.onChange}
-			onFocus={() =>
-				window.removeEventListener("keydown", props.handleKeyDown)
-			}
-			onBlur={() =>
-				window.addEventListener("keydown", props.handleKeyDown)
-			}
 			placeholder={placeholder}
+			onFocus={() => setInputOnFocus(true)}
+			onBlur={() => setInputOnFocus(false)}
+			step={props.placeholder === "float" ? "0.01" : "1"}
 		/>
 	)
 }

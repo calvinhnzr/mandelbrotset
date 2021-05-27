@@ -1,3 +1,5 @@
+import { useContext } from "react"
+import { Context } from "../Context"
 import styled from "styled-components"
 
 const myDarkGrey = "#202123"
@@ -22,6 +24,7 @@ const StyledProgress = styled.progress`
 			appearance: none;
 			border: none;
 			color: ${myDarkGrey};
+
 			background-color: ${myBlue};
 		}
 		&[value]::-webkit-progress-value {
@@ -34,8 +37,14 @@ const StyledProgress = styled.progress`
 	}
 `
 
-const Progress = (props) => (
-	<StyledProgress value={props.current} max={props.max}></StyledProgress>
-)
+const Progress = (props) => {
+	const { currentPage } = useContext(Context)
+
+	return (
+		<StyledProgress
+			value={currentPage + 1}
+			max={props.max}></StyledProgress>
+	)
+}
 
 export default Progress

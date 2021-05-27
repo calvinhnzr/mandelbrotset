@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styled from "styled-components"
 
-import MyInput from "../styled/StyledInput"
+import MyInput from "../StyledInput"
 import MyList from "../styled/StyledList"
 
 import Cube from "../threejs/Cube"
