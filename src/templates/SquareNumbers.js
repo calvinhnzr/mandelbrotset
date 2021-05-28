@@ -1,14 +1,65 @@
 import { useState } from "react"
+import getWindowDimensions from "../hooks/useWindowDimensions"
 
+import Slider from "../components/Slider"
 import Input from "../components/Input"
 import Formula from "../components/Formula"
 import IterationList from "../components/IterationList"
+import styled from "styled-components"
+
+const StyledStart = styled.span`
+	background-color: #363738;
+	border-radius: 0.2rem;
+	padding: 0.5rem;
+	font-weight: bold;
+`
 
 const SquareNumbers = (props) => {
 	const [start, setStart] = useState("")
+
 	const [array, setArray] = useState([])
+	const { height, width } = getWindowDimensions()
 
 	const iterations = 4
+	const max = 9
+	const min = 1
+
+	const renderInput = () => {
+		if (width >= 960) {
+			return (
+				<Formula color={props.color}>
+					<span>x = </span>
+					<Input
+						type="number"
+						min="1"
+						max="9"
+						placeholder="int"
+						value={start}
+						onChange={handleChange}
+					/>
+				</Formula>
+			)
+		} else {
+			return (
+				<>
+					<Formula color={props.color}>
+						<div>
+							<span>x = </span>
+							<StyledStart>{start ? start : 0}</StyledStart>
+						</div>
+					</Formula>
+					<Slider
+						min={min}
+						max={max}
+						step="1"
+						value={start}
+						setStart={setStart}
+						onChange={handleChange}
+					/>
+				</>
+			)
+		}
+	}
 
 	const handleChange = (e) => {
 		e.preventDefault()
@@ -25,17 +76,7 @@ const SquareNumbers = (props) => {
 
 	return (
 		<>
-			<Formula color={props.color}>
-				<span>x = </span>
-				<Input
-					type="number"
-					min="1"
-					max="9"
-					placeholder="int"
-					value={start}
-					onChange={handleChange}
-				/>
-			</Formula>
+			{renderInput()}
 			<IterationList
 				iterations={iterations}
 				startingPoint={start}

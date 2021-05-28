@@ -7,6 +7,7 @@ export const Provider = (props) => {
 	const [inputOnFocus, setInputOnFocus] = useState(false)
 	// display current page
 	const [currentPage, setCurrentPage] = useState(0)
+	const [hasTouch, setHasTouch] = useState(false)
 
 	return (
 		<Context.Provider
@@ -15,6 +16,8 @@ export const Provider = (props) => {
 				setInputOnFocus,
 				currentPage,
 				setCurrentPage,
+				hasTouch,
+				setHasTouch,
 			}}>
 			{props.children}
 		</Context.Provider>

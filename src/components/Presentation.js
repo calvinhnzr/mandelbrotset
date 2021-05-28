@@ -20,6 +20,11 @@ const StyledMove = styled.div`
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
+
+	scroll-snap-type: mandatory;
+	scroll-snap-points-y: repeat(100%);
+	scroll-snap-type: y mandatory;
+
 	@media only screen and (min-width: 960px) {
 		flex-direction: row;
 		transform: translateX(${(props) => props.current * -100}%);
@@ -30,6 +35,7 @@ const Presentation = (props) => {
 	const [showInfo, setShowInfo] = useState(false)
 
 	const { currentPage, setCurrentPage } = useContext(Context)
+	const { hasTouch, setHasTouch } = useContext(Context)
 	const { inputOnFocus } = useContext(Context)
 
 	let max = 11
@@ -57,6 +63,15 @@ const Presentation = (props) => {
 		}
 	}
 
+	// Experimental
+	const handleTouch = () => {
+		if ("ontouchstart" in document.documentElement) {
+			setHasTouch(true)
+		} else {
+			setHasTouch(false)
+		}
+	}
+
 	const increment = () => (!(currentPage >= max - 1) ? 1 : 0)
 	const decrement = () => (!(currentPage <= 0) ? 1 : 0)
 
@@ -67,6 +82,9 @@ const Presentation = (props) => {
 		} else {
 			window.addEventListener("keydown", handleKeyDown)
 		}
+
+		// Experimental
+		handleTouch()
 
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown)

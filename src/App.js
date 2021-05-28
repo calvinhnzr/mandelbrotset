@@ -1,9 +1,8 @@
 import { Provider } from "./Context"
 import { createGlobalStyle } from "styled-components"
+import Data from "./Data"
 import Presentation from "./components/Presentation"
 import Progress from "./components/Progress"
-
-import Data from "./Data"
 
 const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, p, li {

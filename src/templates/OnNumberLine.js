@@ -34,6 +34,8 @@ const OnNumberLine = (props) => {
 		<>
 			<Formula color={props.color}>
 				<span>x = </span>
+				{/* check if touch */}
+
 				<Input
 					type="number"
 					min="-2"

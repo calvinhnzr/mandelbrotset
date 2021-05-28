@@ -2,11 +2,9 @@ import styled from "styled-components"
 
 const StyledList = styled.ol`
 	/* outline: 1px solid white; */
-
 	grid-column: 2 / 12;
 	grid-row: 4 / 12;
 	height: auto;
-
 	&.sequence {
 		grid-row: 4 / 12;
 		margin-top: 2rem;

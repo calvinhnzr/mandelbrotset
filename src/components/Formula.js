@@ -19,9 +19,10 @@ const StyledFormula = styled.div`
 	}
 	& span {
 		width: fit-content;
+
 		font-family: "Roboto";
 		font-size: 2rem;
-		font-weight: 100;
+		font-weight: 400;
 		letter-spacing: 1px;
 		color: white;
 	}

@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react"
+
 import { Context } from "../Context"
 
 import styled from "styled-components"
@@ -7,10 +8,11 @@ const StyledInput = styled.input`
 	background-color: #363738;
 	color: white;
 	border: none;
-	border-radius: 0.2rem;
+	width: fit-content;
 	height: auto;
 	max-width: 6rem;
 	min-width: 4rem;
+	border-radius: 0.2rem;
 	padding: 0.5rem;
 	font-size: 2rem;
 
@@ -49,7 +51,6 @@ const Input = (props) => {
 			placeholder={placeholder}
 			onFocus={() => setInputOnFocus(true)}
 			onBlur={() => setInputOnFocus(false)}
-			step={props.placeholder === "float" ? "0.01" : "1"}
 		/>
 	)
 }

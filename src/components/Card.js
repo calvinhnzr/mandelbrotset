@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 const StyledCard = styled.section`
 	/* outline: 1px solid white; */
+
 	background-color: #202123;
 	width: 100%;
 	height: 100vh;

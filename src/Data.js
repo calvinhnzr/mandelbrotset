@@ -12,7 +12,7 @@ import OnNumberLine from "./templates/OnNumberLine"
 import SquareComplexNumbers from "./templates/SquareComplexNumbers"
 
 const Data = () => {
-	const [content, setContent] = useState([
+	const [content] = useState([
 		{
 			id: 1,
 			color: "#437EF1",
