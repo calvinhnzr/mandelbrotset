@@ -45,7 +45,13 @@ const SquareNumbers = (props) => {
 					<Formula color={props.color}>
 						<div>
 							<span>x = </span>
-							<StyledStart>{start ? start : 0}</StyledStart>
+							<StyledStart>
+								{start > 0 ? (
+									start
+								) : (
+									<span style={{ color: "#8e8e8e" }}>0</span>
+								)}
+							</StyledStart>
 						</div>
 					</Formula>
 					<Slider

@@ -15,15 +15,16 @@ const StyledPresentation = styled.div`
 const StyledMove = styled.div`
 	transition: 0.5s all linear;
 	will-change: transform;
+
 	width: auto;
 	height: 100%;
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
-
+	/* 
 	scroll-snap-type: mandatory;
 	scroll-snap-points-y: repeat(100%);
-	scroll-snap-type: y mandatory;
+	scroll-snap-type: y mandatory; */
 
 	@media only screen and (min-width: 960px) {
 		flex-direction: row;
