@@ -2,6 +2,8 @@ import { useState } from "react"
 import styled from "styled-components"
 import getWindowDimensions from "../hooks/useWindowDimensions"
 
+import { roundNumber } from "../helpers"
+
 import Slider from "../components/Slider"
 import Input from "../components/Input"
 import Formula from "../components/Formula"
@@ -24,14 +26,20 @@ const OnNumberLine = (props) => {
 	const [array, setArray] = useState([])
 	const { width } = getWindowDimensions()
 
+	/*
+	let list = []
+	let myNum
+	for (let i = 2; i <= 16; i *= 2) {
+		myNum = Math.pow(start, i)
+		list.push(myNum)
+	}*/
+
 	const iterations = 4
 	const min = -2
 	const max = 2
 
 	const handleChange = (e) => {
 		e.preventDefault()
-
-		// set starting point
 
 		if (e.target.value.toString().length <= 5) setStart(e.target.value)
 
@@ -104,10 +112,14 @@ const OnNumberLine = (props) => {
 				<MyAxisX null />
 				<MyGrid />
 				<MyMesh position={[start, 0, 0]} size={0.2} color="#437ef1" />
+
+				{/* only render if position x < 100 */}
+				{/* math ceil  */}
+
 				{array.map((item, index) => (
 					<MyMesh
 						key={index}
-						position={[item, 0, 0]}
+						position={[roundNumber(item), 0, 0]}
 						size={0.1}
 						color="red"
 					/>

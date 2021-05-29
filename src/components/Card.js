@@ -5,7 +5,7 @@ const StyledCard = styled.section`
 
 	background-color: #202123;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	flex: 0 0 auto;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
