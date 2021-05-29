@@ -7,6 +7,10 @@ const StyledContainer = styled.div`
 	margin-top: 0.7rem;
 	grid-row: 3 / 4;
 	grid-column: 6 / 12;
+
+	&.numberLine {
+		grid-column: 7 / 12;
+	}
 `
 
 const StyledSlider = styled.input`
@@ -16,6 +20,7 @@ const StyledSlider = styled.input`
 	height: 6px;
 	outline: none;
 	border-radius: 1rem;
+	background: ${(props) => (props.className ? "#191A1B" : null)} !important;
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
@@ -33,14 +38,16 @@ const StyledSlider = styled.input`
 `
 
 const Slider = (props) => {
-	let num = (props.value * 100) / 9
+	let num = (props.value * 100) / props.max
 
 	return (
-		<StyledContainer>
+		<StyledContainer className={props.className}>
 			<StyledSlider
+				className={props.className}
 				type="range"
-				min="0"
-				max="9"
+				min={props.min}
+				max={props.max}
+				step={props.step}
 				value={props.value ? props.value : 0}
 				// onChange={(e) => props.setStart(e.target.value)}
 				onChange={props.onChange}

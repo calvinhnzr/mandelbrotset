@@ -16,13 +16,12 @@ const StyledStart = styled.span`
 
 const SquareNumbers = (props) => {
 	const [start, setStart] = useState("")
-
 	const [array, setArray] = useState([])
-	const { height, width } = getWindowDimensions()
+	const { width } = getWindowDimensions()
 
 	const iterations = 4
 	const max = 9
-	const min = 1
+	const min = 0
 
 	const renderInput = () => {
 		if (width >= 960) {

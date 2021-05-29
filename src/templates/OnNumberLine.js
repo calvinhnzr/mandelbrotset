@@ -1,5 +1,7 @@
 import { useState } from "react"
+import getWindowDimensions from "../hooks/useWindowDimensions"
 
+import Slider from "../components/Slider"
 import Input from "../components/Input"
 import Formula from "../components/Formula"
 import Scene from "../components/three/Scene"
@@ -7,12 +9,23 @@ import IterationList from "../components/IterationList"
 
 import MyGrid from "../components/threejs/MyGrid"
 import MyAxisX from "../components/threejs/MyAxisX"
+import styled from "styled-components"
+
+const StyledStart = styled.span`
+	background-color: #363738;
+	border-radius: 0.2rem;
+	padding: 0.5rem;
+	font-weight: bold;
+`
 
 const OnNumberLine = (props) => {
 	const [start, setStart] = useState("")
 	const [array, setArray] = useState([])
+	const { width } = getWindowDimensions()
 
 	const iterations = 4
+	const min = -2
+	const max = 2
 
 	const handleChange = (e) => {
 		e.preventDefault()
@@ -30,21 +43,55 @@ const OnNumberLine = (props) => {
 			])
 	}
 
+	const renderInput = () => {
+		if (width >= 960) {
+			return (
+				<Formula color={props.color}>
+					<span>x = </span>
+					<Input
+						type="number"
+						min="-2"
+						max="2"
+						placeholder="float"
+						value={start}
+						onChange={handleChange}
+					/>
+				</Formula>
+			)
+		} else {
+			return (
+				<>
+					<Formula color={props.color}>
+						<div>
+							<span>x = </span>
+							<StyledStart>
+								{start != 0 ? (
+									start
+								) : (
+									<span style={{ color: "#8e8e8e" }}>
+										0.00
+									</span>
+								)}
+							</StyledStart>
+						</div>
+					</Formula>
+					<Slider
+						min={-2}
+						max={2}
+						step={0.01}
+						value={start}
+						setStart={setStart}
+						onChange={handleChange}
+						className="numberLine"
+					/>
+				</>
+			)
+		}
+	}
+
 	return (
 		<>
-			<Formula color={props.color}>
-				<span>x = </span>
-				{/* check if touch */}
-
-				<Input
-					type="number"
-					min="-2"
-					max="2"
-					placeholder="float"
-					value={start}
-					onChange={handleChange}
-				/>
-			</Formula>
+			{renderInput()}
 			<IterationList
 				iterations={iterations}
 				startingPoint={start}
@@ -53,7 +100,7 @@ const OnNumberLine = (props) => {
 				color={props.color}
 			/>
 			<Scene>
-				<MyAxisX null />
+				{/* <MyAxisX null /> */}
 				<MyGrid />
 			</Scene>
 		</>

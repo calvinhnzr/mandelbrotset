@@ -10,8 +10,6 @@ const StyledInput = styled.input`
 	border: none;
 	width: fit-content;
 	height: auto;
-	max-width: 6rem;
-	min-width: 4rem;
 	border-radius: 0.2rem;
 	padding: 0.5rem;
 	font-size: 2rem;
