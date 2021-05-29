@@ -9,7 +9,8 @@ import Headline from "./components/Headline"
 // templates
 import SquareNumbers from "./templates/SquareNumbers"
 import OnNumberLine from "./templates/OnNumberLine"
-import SquareComplexNumbers from "./templates/SquareComplexNumbers"
+// import SquareComplexNumbers from "./templates/SquareComplexNumbers"
+import Portrait from "./templates/Portrait"
 
 const Data = () => {
 	const [content] = useState([
@@ -68,6 +69,8 @@ const Data = () => {
 		{
 			id: 9,
 			color: "#F6F179",
+			sourse: "https://fineartamerica.com/featured/benoit-mandelbrot-emilio-segre-visual-archivesamerican-institute-of-physicsscience-photo-library.html",
+			components: <Portrait />,
 		},
 		{
 			id: 10,

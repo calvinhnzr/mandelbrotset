@@ -85,8 +85,8 @@ const OnNumberLine = (props) => {
 						</div>
 					</Formula>
 					<Slider
-						min={-2}
-						max={2}
+						min={min}
+						max={max}
 						step={0.01}
 						value={start}
 						setStart={setStart}
@@ -112,15 +112,11 @@ const OnNumberLine = (props) => {
 				<MyAxisX null />
 				<MyGrid />
 				<MyMesh position={[start, 0, 0]} size={0.2} color="#437ef1" />
-
-				{/* only render if position x < 100 */}
-				{/* math ceil  */}
-
 				{array.map((item, index) => (
 					<MyMesh
 						key={index}
 						position={[roundNumber(item), 0, 0]}
-						size={0.1}
+						size={0.15}
 						color="red"
 					/>
 				))}
