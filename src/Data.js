@@ -62,7 +62,7 @@ const Data = () => {
 			color: "#EA5B89",
 			components: [
 				<Headline value="Komplexe Zahlen Quadrieren" />,
-				<SquareComplexNumbers color="#EA5B89" />,
+				// <SquareComplexNumbers color="#EA5B89" />,
 			],
 		},
 		{
