@@ -9,6 +9,7 @@ import Headline from "./components/Headline"
 // templates
 import SquareNumbers from "./templates/SquareNumbers"
 import OnNumberLine from "./templates/OnNumberLine"
+import Syntax from "./templates/Syntax"
 // import SquareComplexNumbers from "./templates/SquareComplexNumbers"
 import Portrait from "./templates/Portrait"
 
@@ -51,7 +52,7 @@ const Data = () => {
 		{
 			id: 6,
 			color: "#EA5B89",
-			components: [<Headline value="Form" />],
+			components: [<Headline value="Form" />, <Syntax />],
 		},
 		{
 			id: 7,

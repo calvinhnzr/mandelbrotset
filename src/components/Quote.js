@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 const StyledQuote = styled.blockquote`
-	/* outline: 1px solid white; */
+	align-self: end;
+
 	grid-column: 2 / 12;
 	grid-row: 8 / 11;
 	display: flex;
@@ -15,6 +16,7 @@ const StyledQuote = styled.blockquote`
 	position: relative;
 	& > p {
 		margin-top: 1rem;
+		font-size: 1.2rem;
 		font-weight: bold;
 		color: #f6f179;
 	}
