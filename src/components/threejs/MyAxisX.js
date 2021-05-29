@@ -34,12 +34,12 @@ const MyAxisX = (props) => {
 					color="white"
 					lineWidth={3}
 				/>
-				<Html
+				{/* <Html
 					center={true}
 					position={[props.x, -0.3, 0]}
 					distanceFactor={5}>
 					<StyledNumAxis>{props.x}</StyledNumAxis>
-				</Html>
+				</Html> */}
 			</>
 		)
 	}

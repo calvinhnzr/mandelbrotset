@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styled from "styled-components"
 import getWindowDimensions from "../hooks/useWindowDimensions"
 
 import Slider from "../components/Slider"
@@ -9,7 +10,7 @@ import IterationList from "../components/IterationList"
 
 import MyGrid from "../components/threejs/MyGrid"
 import MyAxisX from "../components/threejs/MyAxisX"
-import styled from "styled-components"
+import MyMesh from "../components/threejs/MyMesh"
 
 const StyledStart = styled.span`
 	background-color: #363738;
@@ -100,8 +101,17 @@ const OnNumberLine = (props) => {
 				color={props.color}
 			/>
 			<Scene>
-				{/* <MyAxisX null /> */}
+				<MyAxisX null />
 				<MyGrid />
+				<MyMesh position={[start, 0, 0]} size={0.2} color="#437ef1" />
+				{array.map((item, index) => (
+					<MyMesh
+						key={index}
+						position={[item, 0, 0]}
+						size={0.1}
+						color="red"
+					/>
+				))}
 			</Scene>
 		</>
 	)
