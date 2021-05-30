@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import getWindowDimensions from "../hooks/useWindowDimensions"
 import styled from "styled-components"
 
@@ -7,7 +7,6 @@ const Card = styled.div`
 	width: 100%;
 	background-color: #191a1b;
 	border-radius: 0.5rem;
-	/* height: 22rem; */
 	display: flex;
 	flex-direction: column;
 	margin-right: ${(props) => props.myMargin}px;
@@ -54,10 +53,14 @@ const StyledProgressContainer = styled.div`
 `
 
 const StyledProgressBar = styled.div`
+	will-change: auto;
 	height: 7px;
 	background: #ea5b89;
 	object-fit: cover;
 	border-radius: 1rem;
+	width: 50%;
+	width: "";
+	width: ${(props) => props.barWidth}%;
 `
 
 const StyledSlideShow = styled.div`
@@ -94,21 +97,17 @@ const StyledSlideShow = styled.div`
 `
 
 const SlideShow = () => {
+	const [barWidth, setBarWidth] = useState("")
 	const carouselRef = useRef(null)
 	const barRef = useRef(null)
 	const cardRef = useRef(null)
 
 	const { width } = getWindowDimensions()
-
+	const blockLength = 2
 	let myMargin = width / 12
-	console.log(myMargin)
 
 	useEffect(() => {
-		const bar = barRef.current
 		const carousel = carouselRef.current
-		// set default width
-		const blockLength = 2
-		bar.style.width = 100 / blockLength + "%"
 		function progressBarScroll() {
 			let scrolled =
 				(((carousel.scrollLeft /
@@ -116,9 +115,9 @@ const SlideShow = () => {
 					100) /
 					blockLength) *
 				(blockLength - 1)
-
-			bar.style.width = Math.ceil(100 / blockLength + scrolled) + "%"
+			setBarWidth(Math.ceil(100 / blockLength + scrolled))
 		}
+
 		carousel.addEventListener("scroll", progressBarScroll, false)
 		return () => {
 			carousel.removeEventListener("scroll", progressBarScroll, false)
@@ -128,7 +127,7 @@ const SlideShow = () => {
 	const Progressbar = () => {
 		return (
 			<StyledProgressContainer>
-				<StyledProgressBar ref={barRef} />
+				<StyledProgressBar ref={barRef} barWidth={barWidth} />
 			</StyledProgressContainer>
 		)
 	}
