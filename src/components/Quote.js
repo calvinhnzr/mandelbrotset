@@ -18,6 +18,7 @@ const StyledQuote = styled.blockquote`
 		margin-top: 1rem;
 		font-size: 1.2rem;
 		font-weight: bold;
+		font-style: normal;
 		color: #f6f179;
 	}
 	@media only screen and (min-width: 960px) {

@@ -1,11 +1,11 @@
 import { Provider } from "./Context"
 import { createGlobalStyle } from "styled-components"
-import Data from "./Data"
+import NewData from "./NewData"
 import Presentation from "./components/Presentation"
 import Progress from "./components/Progress"
 
 const GlobalStyle = createGlobalStyle`
-  h1, h2, h3, h4, p, li {
+  h1, h2, h3, h4, h5,p, li {
 		color: white;
 		font-family: "Roboto", sans-serif !important;
 	}
@@ -20,7 +20,7 @@ function App() {
 			<div className="App">
 				<GlobalStyle />
 				<Presentation>
-					<Data />
+					<NewData />
 				</Presentation>
 				<Progress current={current + 1} max={max} />
 			</div>

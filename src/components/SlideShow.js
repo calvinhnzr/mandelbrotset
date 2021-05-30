@@ -3,7 +3,6 @@ import getWindowDimensions from "../hooks/useWindowDimensions"
 import styled from "styled-components"
 
 const Card = styled.div`
-	/* outline: 1px solid white; */
 	height: 100%;
 	width: 100%;
 	background-color: #191a1b;
@@ -14,10 +13,30 @@ const Card = styled.div`
 	margin-right: ${(props) => props.myMargin}px;
 	flex: 0 0 auto;
 	width: ${(props) => props.width - props.myMargin * 3}px;
-	padding: 0;
+	padding: 1.5rem;
 	position: relative;
+	& h5 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	& p {
+		font-size: 1.5rem;
+		font-weight: bold;
+
+		color: #ea5b89;
+		line-height: 1.2;
+	}
 	&:last-of-type {
-		margin: 0 !important;
+		margin: 0;
+	}
+	@media only screen and (min-width: 960px) {
+		margin: 0;
+		width: 100%;
+		flex: inherit;
+		padding: 2.5rem;
+		&:first-of-type {
+			margin-right: 4rem;
+		}
 	}
 `
 
@@ -28,21 +47,20 @@ const StyledProgressContainer = styled.div`
 	height: 7px;
 	border-radius: 1rem;
 	background-color: #191a1b;
+
+	@media only screen and (min-width: 960px) {
+		display: none;
+	}
 `
 
 const StyledProgressBar = styled.div`
 	height: 7px;
 	background: #ea5b89;
 	object-fit: cover;
-	width: calc(100% / 3);
-	width: "";
 	border-radius: 1rem;
 `
 
 const StyledSlideShow = styled.div`
-	/* outline: 1px solid red; */
-	/* padding: 4rem 0 3rem; */
-	/* padding-top: 1rem; */
 	grid-column: 1 / 13;
 	grid-row: 3 / 9;
 	display: flex;
@@ -52,7 +70,7 @@ const StyledSlideShow = styled.div`
 
 	&::-webkit-scrollbar {
 		width: 0px;
-		background: transparent; /* make scrollbar transparent */
+		background: transparent;
 	}
 	&::after {
 		content: "";
@@ -63,9 +81,19 @@ const StyledSlideShow = styled.div`
 		content: "";
 		min-width: ${(props) => props.myMargin}px;
 	}
+
+	@media only screen and (min-width: 960px) {
+		grid-column: 2 / 12;
+		grid-row: 3 / 11;
+		overflow: inherit;
+		&::after,
+		&::before {
+			display: none;
+		}
+	}
 `
 
-const SlideShow = (props) => {
+const SlideShow = () => {
 	const carouselRef = useRef(null)
 	const barRef = useRef(null)
 	const cardRef = useRef(null)
@@ -78,12 +106,8 @@ const SlideShow = (props) => {
 	useEffect(() => {
 		const bar = barRef.current
 		const carousel = carouselRef.current
-		const block = cardRef.current
-
 		// set default width
-
-		const blockLength = 3
-
+		const blockLength = 2
 		bar.style.width = 100 / blockLength + "%"
 		function progressBarScroll() {
 			let scrolled =
@@ -91,8 +115,9 @@ const SlideShow = (props) => {
 					(carousel.scrollWidth - carousel.clientWidth)) *
 					100) /
 					blockLength) *
-				(blockLength - 1) // (x - 1) / x
-			bar.style.width = 100 / blockLength + scrolled + "%"
+				(blockLength - 1)
+
+			bar.style.width = Math.ceil(100 / blockLength + scrolled) + "%"
 		}
 		carousel.addEventListener("scroll", progressBarScroll, false)
 		return () => {
@@ -111,9 +136,14 @@ const SlideShow = (props) => {
 	return (
 		<>
 			<StyledSlideShow ref={carouselRef} myMargin={myMargin}>
-				<Card ref={cardRef} myMargin={myMargin} width={width} />
-				<Card ref={cardRef} myMargin={myMargin} width={width} />
-				<Card ref={cardRef} myMargin={myMargin} width={width} />
+				<Card ref={cardRef} myMargin={myMargin} width={width}>
+					<h5>Kartesisch</h5>
+					<p>z = a + i * b</p>
+				</Card>
+				<Card ref={cardRef} myMargin={myMargin} width={width}>
+					<h5>Polar</h5>
+					<p>z = r * ( cos(phi) + i * sin(phi) )</p>
+				</Card>
 			</StyledSlideShow>
 			<Progressbar />
 		</>
