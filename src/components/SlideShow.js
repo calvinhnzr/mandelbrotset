@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react"
 import getWindowDimensions from "../hooks/useWindowDimensions"
 import styled from "styled-components"
 
+import MyMath from "./math/MyMath"
+
 const Card = styled.div`
 	height: 100%;
 	width: 100%;
@@ -14,6 +16,10 @@ const Card = styled.div`
 	width: ${(props) => props.width - props.myMargin * 3}px;
 	padding: 1.5rem;
 	position: relative;
+	& > span {
+		color: #ea5b89;
+		font-size: 1rem;
+	}
 	& h5 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
@@ -28,11 +34,15 @@ const Card = styled.div`
 	&:last-of-type {
 		margin: 0;
 	}
+
 	@media only screen and (min-width: 960px) {
 		margin: 0;
 		width: 100%;
 		flex: inherit;
 		padding: 2.5rem;
+		&span {
+			font-size: 1.5rem;
+		}
 		&:first-of-type {
 			margin-right: 4rem;
 		}
@@ -137,11 +147,11 @@ const SlideShow = () => {
 			<StyledSlideShow ref={carouselRef} myMargin={myMargin}>
 				<Card ref={cardRef} myMargin={myMargin} width={width}>
 					<h5>Kartesisch</h5>
-					<p>z = a + i * b</p>
+					<MyMath value={"z=a+b*i"} />
 				</Card>
 				<Card ref={cardRef} myMargin={myMargin} width={width}>
 					<h5>Polar</h5>
-					<p>z = r * ( cos(phi) + i * sin(phi) )</p>
+					<MyMath value={"z=r*(cos(\\varphi)+i*sin(\\varphi))"} />
 				</Card>
 			</StyledSlideShow>
 			<Progressbar />
