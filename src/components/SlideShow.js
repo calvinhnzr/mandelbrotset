@@ -147,11 +147,11 @@ const SlideShow = () => {
 			<StyledSlideShow ref={carouselRef} myMargin={myMargin}>
 				<Card ref={cardRef} myMargin={myMargin} width={width}>
 					<h5>Kartesisch</h5>
-					<MyMath value={"z=a+b*i"} />
+					<MyMath>{"z=a+b*i"}</MyMath>
 				</Card>
 				<Card ref={cardRef} myMargin={myMargin} width={width}>
 					<h5>Polar</h5>
-					<MyMath value={"z=r*(cos(\\varphi)+i*sin(\\varphi))"} />
+					<MyMath>{"z=r*(cos(\\varphi)+sin(\\varphi))*i"}</MyMath>
 				</Card>
 			</StyledSlideShow>
 			<Progressbar />
