@@ -40,7 +40,7 @@ const Card = styled.div`
 		width: 100%;
 		flex: inherit;
 		padding: 2.5rem;
-		&span {
+		& > span {
 			font-size: 1.5rem;
 		}
 		&:first-of-type {
