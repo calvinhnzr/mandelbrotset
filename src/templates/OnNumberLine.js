@@ -11,7 +11,7 @@ import Scene from "../components/three/Scene"
 import IterationList from "../components/IterationList"
 
 import MyGrid from "../components/threejs/MyGrid"
-import MyAxisX from "../components/threejs/MyAxisX"
+import MyAxisX from "../components/three/MyAxisX"
 import MyMesh from "../components/threejs/MyMesh"
 
 const StyledStart = styled.span`

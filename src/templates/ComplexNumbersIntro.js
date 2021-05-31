@@ -29,7 +29,7 @@ const List = styled.ul`
 		&::after {
 			float: right;
 			/* outline: 1px solid white; */
-			content: " nicht lösbar!";
+			/* content: " nicht lösbar!"; */
 			font-weight: 100;
 			@media only screen and (min-width: 960px) {
 				margin-left: 3rem;

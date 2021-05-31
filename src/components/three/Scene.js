@@ -80,10 +80,11 @@ const Scene = (props) => {
 			<Canvas
 				dpr={[1, 2]}
 				camera={{
-					fov: 75,
+					// default: 75
+					fov: 40,
 					near: 0.1,
 					far: 1000,
-					position: [0, 0, 3.7],
+					position: [0, 0, 7],
 				}}>
 				<OrbitControls
 					ref={myOrbitControls}
