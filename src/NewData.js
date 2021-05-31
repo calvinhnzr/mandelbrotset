@@ -7,6 +7,8 @@ import Headline from "./components/Headline"
 // templates
 import SquareNumbers from "./templates/SquareNumbers"
 import OnNumberLine from "./templates/OnNumberLine"
+import ComplexNumbersIntro from "./templates/ComplexNumbersIntro"
+
 import Syntax from "./templates/Syntax"
 import Portrait from "./templates/Portrait"
 
@@ -27,9 +29,7 @@ const NewData = () => {
 			</Card>
 			<Card>
 				<Headline value="Komplexe Zahlen" />
-			</Card>
-			<Card>
-				<Headline value="Komplexe Zahlenebene" />
+				<ComplexNumbersIntro />
 			</Card>
 			<Card>
 				<Headline value="Komplexe Zahlenebene" />

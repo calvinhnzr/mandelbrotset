@@ -3,6 +3,7 @@ import styled from "styled-components"
 const StyledCard = styled.section`
 	background-color: #202123;
 	width: 100%;
+	/* 100vh unstable on mobile */
 	height: 100vh;
 	flex: 0 0 auto;
 	display: grid;
