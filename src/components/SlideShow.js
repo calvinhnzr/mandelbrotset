@@ -151,7 +151,7 @@ const SlideShow = () => {
 				</Card>
 				<Card ref={cardRef} myMargin={myMargin} width={width}>
 					<h5>Polar</h5>
-					<MyMath>{"z=r*(cos(\\varphi)+sin(\\varphi))*i"}</MyMath>
+					<MyMath>{"z=r*(cos(\\varphi)+sin(\\varphi)*i)"}</MyMath>
 				</Card>
 			</StyledSlideShow>
 			<Progressbar />

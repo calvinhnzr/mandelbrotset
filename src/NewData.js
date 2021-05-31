@@ -22,8 +22,8 @@ const NewData = () => {
 				<SquareNumbers color="#437EF1" />
 			</Card>
 			<Card>
-				<Headline value="Am Zahlenstrahl" />,
-				<OnNumberLine color="#437EF1" />,
+				<Headline value="Am Zahlenstrahl" />
+				<OnNumberLine color="#437EF1" />
 			</Card>
 			<Card>
 				<Headline value="Komplexe Zahlen" />
