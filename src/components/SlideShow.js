@@ -17,12 +17,20 @@ const Card = styled.div`
 	padding: 1.5rem;
 	position: relative;
 	& > span {
-		color: #ea5b89;
-		font-size: 1rem;
+		color: white;
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+		&:first-of-type {
+			color: #ea5b89;
+		}
 	}
 	& h5 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
+	}
+	& h6 {
+		font-size: 1.2rem;
+		margin: 2rem 0 1rem;
 	}
 	& p {
 		font-size: 1.5rem;
@@ -148,10 +156,16 @@ const SlideShow = () => {
 				<Card ref={cardRef} myMargin={myMargin} width={width}>
 					<h5>Kartesisch</h5>
 					<MyMath>{"z=a+b*i"}</MyMath>
+					<h6>Umrechnung</h6>
+					<MyMath>{"a=r*cos(\\varphi)"}</MyMath>
+					<MyMath>{"b=i*r*sin(\\varphi)"}</MyMath>
 				</Card>
 				<Card ref={cardRef} myMargin={myMargin} width={width}>
 					<h5>Polar</h5>
 					<MyMath>{"z=r*(cos(\\varphi)+sin(\\varphi)*i)"}</MyMath>
+					<h6>Umrechnung</h6>
+					<MyMath>{"r=sqrt(a^2+b^2)"}</MyMath>
+					<MyMath>{"\\varphi=tan^{(-1)(b/a)}"}</MyMath>
 				</Card>
 			</StyledSlideShow>
 			<Progressbar />

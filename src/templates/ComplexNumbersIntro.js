@@ -3,7 +3,7 @@ import MyMath from "../components/math/MyMath"
 
 const Text = styled.p`
 	grid-column: 2 / 12;
-	grid-row-start: 3;
+	grid-row: 3 / 4;
 	font-size: 1.4rem;
 	line-height: 1.2;
 	@media only screen and (min-width: 960px) {
@@ -13,7 +13,7 @@ const Text = styled.p`
 
 const Container = styled.div`
 	grid-column: 2 / 12;
-	grid-row-start: 4;
+	grid-row: 4 / 11;
 
 	@media only screen and (min-width: 960px) {
 		width: fit-content;
