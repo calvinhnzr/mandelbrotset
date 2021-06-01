@@ -11,23 +11,15 @@ import Gallery from "../components/Gallery"
 import MyMath from "../components/math/MyMath"
 
 const SubText = styled.div`
-	/* outline: 1px solid white; */
 	grid-column: 2 / 12;
 	grid-row: 8 / 12;
+	position: relative;
 	display: flex;
-	flex-direction: column;
-	& > span {
-		color: white;
-		font-size: 1.1rem;
-		margin: 0.5rem 0;
-	}
+
 	@media only screen and (min-width: 960px) {
+		align-items: center;
 		grid-column: 8 / 12;
 		grid-row: 3 / 11;
-		align-self: center;
-		& > span {
-			font-size: 1.5rem;
-		}
 	}
 `
 
@@ -40,53 +32,31 @@ const Text = styled.p`
 	}
 `
 
+const HiddenContent = styled.div`
+	position: absolute;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	& > span {
+		color: white;
+		font-size: 1.1rem;
+		margin: 0.5rem 0;
+	}
+	@media only screen and (min-width: 960px) {
+		font-size: 1.5rem;
+		& > span {
+			font-size: 1.5rem !important;
+		}
+	}
+`
+
 const Calculation = () => {
 	const [current, setcurrent] = useState(0)
 	const images = [calc1, calc2, calc3, calc4, calc5, calc4]
 	const max = images.length
-
-	const subText = [
-		[
-			<Text>
-				Eindeutig definiert durch x-Wert und y-Wert. Gibt es andere
-				Möglichkeiten?
-			</Text>,
-			<MyMath>{"z=a+b*i"}</MyMath>,
-			<MyMath>{"z=3+2*i"}</MyMath>,
-		],
-		[<Text>Wie können wir die Länge des Vektors berechnen?</Text>],
-		[
-			<Text>Länge? Pythagoras!</Text>,
-			<MyMath>{"r=\\sqrt{3^2+3^2}"}</MyMath>,
-			<MyMath>{"r=3.6"}</MyMath>,
-		],
-		[
-			<Text>G bekannt, A bekannt, rechtwinklig.</Text>,
-			<MyMath>{"tan(G/A)"}</MyMath>,
-			<MyMath>{"=tan(\\varphi)"}</MyMath>,
-			<MyMath>{"=tan(3/2)"}</MyMath>,
-		],
-		[
-			<Text>Grafisch verstanden.</Text>,
-			<Text>Mathematische Darstellung?</Text>,
-			<MyMath>{"r=\\sqrt{3^2+2^2}"}</MyMath>,
-			<MyMath>{"\\varphi=tan^{(-1)}*(2/3)"}</MyMath>,
-		],
-		[
-			<MyMath>{"cos(\\varphi)=A/H"}</MyMath>,
-			<MyMath>{"cos(\\varphi)*H=A"}</MyMath>,
-			<MyMath>{"cos(\\varphi)*r=Re(z)"}</MyMath>,
-			<br />,
-			<MyMath>{"sin(\\varphi)=G/H"}</MyMath>,
-			<MyMath>{"sin(\\varphi)*H=G"}</MyMath>,
-			<MyMath>{"sin(\\varphi)*r=Im(z)"}</MyMath>,
-		],
-		[
-			<MyMath>{"z=r*cos(\\varphi)+i*r*sin(\\varphi)"}</MyMath>,
-			<MyMath>{"z=r*(cos(\\varphi)+i*r*sin(\\varphi))"}</MyMath>,
-			<MyMath>{"=r*cis(\\varphi)"}</MyMath>,
-		],
-	]
+	// fix mathjax does not load
+	const shown = { opacity: "1" }
+	const hidden = { opacity: "0" }
 
 	return (
 		<>
@@ -96,7 +66,50 @@ const Calculation = () => {
 				setcurrent={setcurrent}
 				max={max}
 			/>
-			<SubText>{subText[current]}</SubText>
+			<SubText>
+				<HiddenContent style={current == 0 ? shown : hidden}>
+					<Text>
+						Eindeutig definiert durch x-Wert und y-Wert. Gibt es
+						andere Möglichkeiten?
+					</Text>
+					<MyMath>{"z=a+b*i"}</MyMath>
+					<MyMath>{"z=3+2*i"}</MyMath>
+				</HiddenContent>
+				<HiddenContent style={current == 1 ? shown : hidden}>
+					<Text>Wie können wir die Länge des Vektors berechnen?</Text>
+				</HiddenContent>
+				<HiddenContent style={current == 2 ? shown : hidden}>
+					<Text>Länge? Pythagoras!</Text>
+					<MyMath>{"r=\\sqrt{3^2+3^2}"}</MyMath>
+					<MyMath>{"r=3.6"}</MyMath>
+				</HiddenContent>
+				<HiddenContent style={current == 3 ? shown : hidden}>
+					<Text>G bekannt, A bekannt, rechtwinklig.</Text>
+					<MyMath>{"tan(G/A)"}</MyMath>
+					<MyMath>{"=tan(\\varphi)"}</MyMath>
+					<MyMath>{"=tan(3/2)"}</MyMath>
+				</HiddenContent>
+				<HiddenContent style={current == 4 ? shown : hidden}>
+					<Text>Grafisch verstanden.</Text>
+					<Text>Mathematische Darstellung?</Text>
+					<MyMath>{"r=\\sqrt{3^2+2^2}"}</MyMath>
+					<MyMath>{"\\varphi=tan^{(-1)}*(2/3)"}</MyMath>
+				</HiddenContent>
+				<HiddenContent style={current == 5 ? shown : hidden}>
+					<MyMath>{"cos(\\varphi)=A/H"}</MyMath>
+					<MyMath>{"cos(\\varphi)*H=A"}</MyMath>
+					<MyMath>{"cos(\\varphi)*r=Re(z)"}</MyMath>
+					<br />
+					<MyMath>{"sin(\\varphi)=G/H"}</MyMath>
+					<MyMath>{"sin(\\varphi)*H=G"}</MyMath>
+					<MyMath>{"sin(\\varphi)*r=Im(z)"}</MyMath>
+				</HiddenContent>
+				<HiddenContent style={current == 6 ? shown : hidden}>
+					<MyMath>{"z=r*cos(\\varphi)+i*r*sin(\\varphi)"}</MyMath>
+					<MyMath>{"z=r*(cos(\\varphi)+i*r*sin(\\varphi))"}</MyMath>
+					<MyMath>{"=r*cis(\\varphi)"}</MyMath>
+				</HiddenContent>
+			</SubText>
 		</>
 	)
 }
