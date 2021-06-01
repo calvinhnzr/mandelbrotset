@@ -37,6 +37,8 @@ const OnNumberLine = (props) => {
 	const iterations = 4
 	const min = -2
 	const max = 2
+	// length of x axis
+	const length = [-2, -1, 1, 2]
 
 	const handleChange = (e) => {
 		e.preventDefault()
@@ -108,8 +110,8 @@ const OnNumberLine = (props) => {
 				myStyle="numberLine"
 				color={props.color}
 			/>
-			<Scene>
-				<MyAxisX null />
+			<Scene control>
+				<MyAxisX null length={length} />
 				<MyGrid />
 				<MyMesh position={[start, 0, 0]} size={0.2} color="#437ef1" />
 				{array.map((item, index) => (

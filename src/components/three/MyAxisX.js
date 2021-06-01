@@ -13,8 +13,8 @@ const MyAxisX = (props) => {
 			<Line
 				name="xAxis"
 				points={[
-					[props.x, 0, 0],
-					[props.x * -1, 0, 0],
+					[props.max, 0, 0],
+					[props.min, 0, 0],
 				]}
 				color="white"
 				lineWidth={3}
@@ -43,14 +43,18 @@ const MyAxisX = (props) => {
 			</>
 		)
 	}
+
 	return (
 		<>
-			<MyLine x={2.5} />
-			<Dots x={-2} />
-			<Dots x={-1} />
+			<MyLine
+				max={Math.max(...props.length) + 0.5}
+				min={Math.min(...props.length) - 0.5}
+			/>
+			{props.length.map((value, index) => (
+				<Dots key={index} x={value} />
+			))}
+
 			{props.null ? <Dots x={0} /> : null}
-			<Dots x={1} />
-			<Dots x={2} />
 		</>
 	)
 }

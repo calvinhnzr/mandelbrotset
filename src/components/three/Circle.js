@@ -1,11 +1,12 @@
 import { CubicBezierLine } from "@react-three/drei"
 
 let num = (4 * (Math.sqrt(2) - 1)) / 3
-let x = 1
+let x = 1.5
 const z = -0.1
 const myColor = "#363738"
-num *= 2
-x *= 2
+// multiply factor
+num *= 1.5
+x *= 1
 
 const Circle = () => {
 	return (
@@ -22,7 +23,7 @@ const Circle = () => {
 				dashSize={1}
 				dashScale={10}
 			/>
-			<CubicBezierLine
+			{/* <CubicBezierLine
 				// x y z
 				start={[x, 0, z]}
 				midA={[x, -num, z]}
@@ -45,7 +46,7 @@ const Circle = () => {
 				dashed={true}
 				dashSize={1}
 				dashScale={10}
-			/>
+			/> */}
 			<CubicBezierLine
 				// x y z
 				start={[-x, 0, z]}

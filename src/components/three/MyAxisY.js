@@ -13,8 +13,8 @@ const MyAxisY = (props) => {
 			<Line
 				name="xAxis"
 				points={[
-					[0, props.y, -0],
-					[0, props.y * -1, -0],
+					[0, props.max, -0],
+					[0, props.min, -0],
 				]}
 				color="white"
 				lineWidth={3}
@@ -28,16 +28,16 @@ const MyAxisY = (props) => {
 				<Line
 					name="yAxis"
 					points={[
-						[0, props.x, 0],
-						[-0.1, props.x, 0],
+						[0, props.y, 0],
+						[-0.1, props.y, 0],
 					]}
 					color="white"
 				/>
 				<Html
 					center={true}
-					position={[-0.3, props.x, 0]}
+					position={[-0.3, props.y, 0]}
 					distanceFactor={5}>
-					<StyledNumAxis>{props.x}</StyledNumAxis>
+					<StyledNumAxis>{props.y}</StyledNumAxis>
 				</Html>
 			</>
 		)
@@ -45,12 +45,14 @@ const MyAxisY = (props) => {
 
 	return (
 		<>
-			<MyLine y={3.5} />
-			<Dots x={-2} />
-			<Dots x={-1} />
-			{props.null ? <Dots x={0} /> : null}
-			<Dots x={1} />
-			<Dots x={2} />
+			<MyLine
+				max={Math.max(...props.length) + 0.5}
+				min={Math.min(...props.length) - 0.5}
+			/>
+			{props.length.map((value, index) => (
+				<Dots key={index} y={value} />
+			))}
+			{props.null ? <Dots y={0} /> : null}
 		</>
 	)
 }

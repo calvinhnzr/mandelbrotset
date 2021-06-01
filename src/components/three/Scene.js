@@ -8,9 +8,11 @@ const StyledScene = styled.div`
 	position: relative;
 	grid-column: 2 / 12;
 	grid-row: 4 / 9;
-	/* margin-bottom: 1rem; */
 	background-color: #191a1b;
 	border-radius: 0.5rem;
+	&.gauss {
+		grid-row: 3 / 8;
+	}
 	@media only screen and (min-width: 960px) {
 		grid-column: 6 / 12;
 		grid-row: 3 / 11;
@@ -74,9 +76,13 @@ const Scene = (props) => {
 	const myOrbitControls = useRef()
 
 	return (
-		<StyledScene>
-			<MyReset myOrbitControls={myOrbitControls} />
-			<MyLock active={active} setActive={setActive} />
+		<StyledScene className={props.className}>
+			{props.control ? (
+				<>
+					<MyReset myOrbitControls={myOrbitControls} />
+					<MyLock active={active} setActive={setActive} />
+				</>
+			) : null}
 			<Canvas
 				dpr={[1, 2]}
 				camera={{
@@ -92,7 +98,7 @@ const Scene = (props) => {
 					enableZoom={true}
 				/>
 				<ambientLight intensity={0.5} />
-				<directionalLight position={[0, 3, 5]} intensity={0.3} />
+				{/* <directionalLight position={[0, 3, 5]} intensity={0.3} /> */}
 				{props.children}
 			</Canvas>
 		</StyledScene>

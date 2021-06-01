@@ -40,7 +40,7 @@ const Presentation = (props) => {
 
 	const { width } = getWindowDimensions()
 
-	let max = 12
+	let max = 11
 
 	const handleKeyDown = (event) => {
 		event.preventDefault()
