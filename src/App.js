@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
 	let current = 1
-	let max = 11
+	let max = 16
 
 	return (
 		<Provider>

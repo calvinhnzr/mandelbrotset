@@ -9,7 +9,16 @@ import SquareNumbers from "./templates/SquareNumbers"
 import OnNumberLine from "./templates/OnNumberLine"
 import ComplexNumbersIntro from "./templates/ComplexNumbersIntro"
 import Gauss from "./templates/Gauss"
-import Syntax from "./templates/Syntax"
+import Form from "./templates/Form"
+import Calculation from "./templates/Calculation"
+import MultiplyComplex from "./templates/MultiplyComplex"
+import SquareComplex from "./templates/SquareComplex"
+import Fractal from "./templates/Fractal"
+import Mandelbrotset from "./templates/Mandelbrotset"
+import Juliaset from "./templates/Juliaset"
+import RealUse from "./templates/RealUse"
+import Look from "./templates/Look"
+
 import Portrait from "./templates/Portrait"
 
 const NewData = () => {
@@ -37,22 +46,45 @@ const NewData = () => {
 			</Card>
 			<Card>
 				<Headline value="Form" />
-				<Syntax />
+				<Form />
 			</Card>
 			<Card>
-				<Headline value="Berechnung" />
+				<Headline value="Umrechnung" />
+				<Calculation />
 			</Card>
 			<Card>
-				<Headline value="Komplexe Zahlen Quadrieren" />
+				<Headline value="Multiplikation" />
+				<MultiplyComplex />
+			</Card>
+			<Card>
+				<Headline value="Quadrieren" />
+				{/* <SquareComplex /> */}
 			</Card>
 			<Card>
 				<Portrait />
 			</Card>
 			<Card>
 				<Headline value="Was ist ein Fraktal?" />
+				{/* <Fractal /> */}
 			</Card>
 			<Card>
-				<Headline value="Was ist die jetzt Mandelbrotmenge?" />
+				<Headline value="Was ist die Mandelbrotmenge?" />
+				<Mandelbrotset />
+			</Card>
+			<Card>
+				<Headline value="Julia-Menge" />
+				<Juliaset />
+			</Card>
+			<Card>
+				<Headline value="Realanwedungen" />
+				<RealUse />
+			</Card>
+			<Card>
+				<Headline value="Ausblick" />
+				<Look />
+			</Card>
+			<Card>
+				<Title value="Fragen?" />
 			</Card>
 		</>
 	)

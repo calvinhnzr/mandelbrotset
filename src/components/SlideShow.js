@@ -165,7 +165,7 @@ const SlideShow = () => {
 					<MyMath>{"z=r*(cos(\\varphi)+sin(\\varphi)*i)"}</MyMath>
 					<h6>Umrechnung</h6>
 					<MyMath>{"r=\\sqrt{a^2+b^2}"}</MyMath>
-					<MyMath>{"\\varphi=tan^{(-1)*(b/a)}"}</MyMath>
+					<MyMath>{"\\varphi=tan^{(-1)}*(b/a)"}</MyMath>
 				</Card>
 			</StyledSlideShow>
 			<Progressbar />

@@ -7,7 +7,7 @@ import Scene from "../components/three/Scene"
 import Axis from "../components/three/Axis"
 import Circle from "../components/three/Circle"
 
-const SquareComplexNumbers = (props) => {
+const SquareComplex = (props) => {
 	const myStyle = { fontSize: "1.5rem" }
 
 	const [re, setRe] = useState()
@@ -26,7 +26,7 @@ const SquareComplexNumbers = (props) => {
 				<Input type="number" min="-2" max="2" placeholder="float" />
 				<span style={myStyle}> )</span>
 			</Formula>
-			<Scene>
+			<Scene control>
 				<Axis />
 				<Circle />
 				{/* 
@@ -41,4 +41,4 @@ const SquareComplexNumbers = (props) => {
 	)
 }
 
-export default SquareComplexNumbers
+export default SquareComplex

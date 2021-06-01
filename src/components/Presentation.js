@@ -40,7 +40,8 @@ const Presentation = (props) => {
 
 	const { width } = getWindowDimensions()
 
-	let max = 11
+	// max number of slides
+	let max = 16
 
 	const handleKeyDown = (event) => {
 		event.preventDefault()

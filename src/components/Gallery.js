@@ -20,7 +20,9 @@ const Image = styled.img`
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
-	transform: translateY(1rem);
+	&.gauss {
+		transform: translateY(1rem);
+	}
 	@media only screen and (min-width: 960px) {
 		object-fit: fill;
 		width: auto;
@@ -60,8 +62,13 @@ const Gallery = (props) => {
 
 	return (
 		<Show>
-			<Image src={props.images[props.current]} />
-			<Counter>{props.current + 1} / 4</Counter>
+			<Image
+				src={props.images[props.current]}
+				className={props.className}
+			/>
+			<Counter>
+				{props.current + 1} / {props.max}
+			</Counter>
 			<Buttons>
 				<Button
 					onClick={() =>

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import SlideShow from "../components/SlideShow"
 
-const Syntax = () => {
+const Form = () => {
 	return (
 		<>
 			<SlideShow />
@@ -9,4 +9,4 @@ const Syntax = () => {
 	)
 }
 
-export default Syntax
+export default Form
