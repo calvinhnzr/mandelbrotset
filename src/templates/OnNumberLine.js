@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Html } from "@react-three/drei"
 import styled from "styled-components"
 import getWindowDimensions from "../hooks/useWindowDimensions"
 
@@ -111,6 +112,15 @@ const OnNumberLine = (props) => {
 				color={props.color}
 			/>
 			<Scene control>
+				{start == 0.97 ? (
+					<Html
+						center={true}
+						position={[0, 0, 8]}
+						distanceFactor={20}>
+						<h6>I love you!</h6>
+					</Html>
+				) : null}
+
 				<MyAxisX null length={length} />
 				<MyGrid />
 				<MyMesh position={[start, 0, 0]} size={0.2} color="#437ef1" />

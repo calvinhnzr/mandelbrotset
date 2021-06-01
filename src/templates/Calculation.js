@@ -62,7 +62,7 @@ const Calculation = () => {
 		],
 		[
 			<Text>G bekannt, A bekannt, rechtwinklig.</Text>,
-			<MyMath>{"tan( G/A )"}</MyMath>,
+			<MyMath>{"tan(G/A)"}</MyMath>,
 			<MyMath>{"=tan(\\varphi)"}</MyMath>,
 			<MyMath>{"=tan(3/2)"}</MyMath>,
 		],

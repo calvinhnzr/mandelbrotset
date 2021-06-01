@@ -4,10 +4,21 @@ export default function MyMath(props) {
 	const config = {
 		showMathMenu: false,
 		tex2jax: {
-			inlineMath: [["$", "$"]],
+			inlineMath: [
+				["$", "$"],
+				["\\(", "\\)"],
+			],
 			displayMath: [["$$", "$$"]],
 			// TeX: { Macros: { phi: "\\varphi" } },
 		},
+		TeX: {
+			noErrors: { disabled: true }, // Show error messages
+			MAXBUFFER: 25 * 1024, // Set size of buffer in bytes
+		},
+		imageFont: null,
+		skipStartupTypeset: true,
+		showProcessingMessages: true,
+		TeX: { noErrors: { disabled: true } },
 	}
 
 	return (
