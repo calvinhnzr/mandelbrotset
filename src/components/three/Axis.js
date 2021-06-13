@@ -12,44 +12,44 @@ const StyledNumAxis = styled.span`
 
 const MyLine = (props) => {
 	return (
-		<Line name="axis" points={props.points} color="white" lineWidth={3} />
+		<Line name="axis" points={props.points} color="white" lineWidth={2} />
 	)
 }
 let nums = [-1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1]
-let multiFactor = 2
+let multiFactor = 1
+
 const Dots = () => {
 	return nums.map((item) => (
 		<>
 			<MyLine
 				points={[
-					[item * multiFactor, 0.05, 0],
-					[item * multiFactor, -0.05, 0],
+					[item * multiFactor, 0.025, 0],
+					[item * multiFactor, -0.025, 0],
 				]}
 			/>
-
-			{item ? (
+			{/* {item ? (
 				<Html
 					center={true}
 					position={[item * multiFactor, -0.2, 0]}
-					distanceFactor={5}>
+					distanceFactor={2}>
 					<StyledNumAxis>{item}</StyledNumAxis>
 				</Html>
-			) : null}
+			) : null} */}
 
 			<MyLine
 				points={[
-					[0.05, item * multiFactor, 0],
-					[-0.05, item * multiFactor, 0],
+					[0.025, item * multiFactor, 0],
+					[-0.025, item * multiFactor, 0],
 				]}
 			/>
-			{item ? (
+			{/* {item ? (
 				<Html
 					center={true}
-					position={[-0.2, item * 2, 0]}
-					distanceFactor={5}>
+					position={[-0.2, item * multiFactor, 0]}
+					distanceFactor={2}>
 					<StyledNumAxis>{item}</StyledNumAxis>
 				</Html>
-			) : null}
+			) : null} */}
 		</>
 	))
 }
@@ -57,17 +57,17 @@ const Dots = () => {
 const Axis = () => {
 	return (
 		<>
-			{/* <Dots /> */}
+			<Dots />
 			<MyLine
 				points={[
-					[2.5, 0, 0],
-					[-2.5, 0, 0],
+					[1.5, 0, 0],
+					[-1.5, 0, 0],
 				]}
 			/>
 			<MyLine
 				points={[
-					[0, 2.5, 0],
-					[0, -2.5, 0],
+					[0, 1.5, 0],
+					[0, -1.5, 0],
 				]}
 			/>
 		</>

@@ -11,7 +11,6 @@ import ComplexNumbersIntro from "./templates/ComplexNumbersIntro"
 import Gauss from "./templates/Gauss"
 import Form from "./templates/Form"
 import Calculation from "./templates/Calculation"
-import MultiplyComplex from "./templates/MultiplyComplex"
 import SquareComplex from "./templates/SquareComplex"
 import Fractal from "./templates/Fractal"
 import Mandelbrotset from "./templates/Mandelbrotset"
@@ -53,12 +52,8 @@ const NewData = () => {
 				<Calculation />
 			</Card>
 			<Card>
-				<Headline value="Multiplikation" />
-				<MultiplyComplex />
-			</Card>
-			<Card>
 				<Headline value="Quadrieren" />
-				{/* <SquareComplex /> */}
+				<SquareComplex />
 			</Card>
 			<Card>
 				<Portrait />

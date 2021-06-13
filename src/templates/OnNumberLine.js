@@ -111,7 +111,7 @@ const OnNumberLine = (props) => {
 				myStyle="numberLine"
 				color={props.color}
 			/>
-			<Scene control>
+			<Scene control position={[0, 0, 7]}>
 				{start == 0.97 ? (
 					<Html
 						center={true}
