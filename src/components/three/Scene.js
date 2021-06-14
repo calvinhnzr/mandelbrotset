@@ -72,39 +72,6 @@ const MyLock = (props) => {
 	)
 }
 
-function Box() {
-	const { viewport } = useThree()
-	const { width, height, factor } = viewport
-	const [boxPos, setBoxPos] = useState({
-		position: [0, 0, 0],
-		scale: [1, 1, 1],
-	})
-
-	const bind = useDrag(
-		({ offset: [x, y] }) => setBoxPos({ position: [x, y, 0] }),
-		{
-			// bounds are expressed in canvas coordinates!
-			bounds: {
-				left: -width / 2,
-				right: width / 2,
-				top: -height / 2,
-				bottom: height / 2,
-			},
-			rubberband: true,
-			transform: ([x, y]) => [x / factor, -y / factor],
-		}
-	)
-
-	return (
-		<mesh
-			{...bind()}
-			position={[boxPos.position[0], boxPos.position[1], 0]}>
-			<boxBufferGeometry args={[0.1, 0.1, 0.1]} />
-			<meshStandardMaterial color="orange" />
-		</mesh>
-	)
-}
-
 const Scene = (props) => {
 	const [active, setActive] = useState(false)
 	const myOrbitControls = useRef()
@@ -134,7 +101,6 @@ const Scene = (props) => {
 				/>
 				<ambientLight intensity={0.5} />
 				{/* <directionalLight position={[0, 3, 5]} intensity={0.3} /> */}
-				{/* <Box /> */}
 				{props.children}
 			</Canvas>
 		</StyledScene>
