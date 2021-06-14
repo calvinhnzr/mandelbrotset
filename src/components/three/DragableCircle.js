@@ -14,6 +14,20 @@ const DragableCircle = (props) => {
 	const { viewport } = useThree()
 	const { width, height, factor } = viewport
 
+	let re1 =
+		boxPos.position[0] * boxPos.position[0] -
+		boxPos.position[1] * boxPos.position[1]
+	let im1 = 2 * (boxPos.position[0] * boxPos.position[1])
+
+	let re2 = re1 * re1 - im1 * im1
+	let im2 = 2 * (re1 * im1)
+
+	let re3 = re2 * re2 - im2 * im2
+	let im3 = 2 * (re2 * im2)
+
+	let re4 = re3 * re3 - im3 * im3
+	let im4 = 2 * (re3 * im3)
+
 	const bind = useDrag(
 		({ offset: [x, y] }) =>
 			setBoxPos({ position: [x + defaultX, y + defaultY, 0] }),
@@ -39,14 +53,16 @@ const DragableCircle = (props) => {
 				{...bind()}>
 				<meshBasicMaterial attach="material" color="#EA5B89" />
 			</Circle>
-			<Circle
-				args={[0.05, 64]}
-				position={[
-					boxPos.position[0] * boxPos.position[0] -
-						boxPos.position[1] * boxPos.position[1],
-					2 * (boxPos.position[0] * boxPos.position[1]),
-					0,
-				]}>
+			<Circle args={[0.05, 64]} position={[re1, im1, 0]}>
+				<meshBasicMaterial attach="material" color="white" />
+			</Circle>
+			<Circle args={[0.05, 64]} position={[re2, im2, 0]}>
+				<meshBasicMaterial attach="material" color="white" />
+			</Circle>
+			<Circle args={[0.05, 64]} position={[re3, im3, 0]}>
+				<meshBasicMaterial attach="material" color="white" />
+			</Circle>
+			<Circle args={[0.05, 64]} position={[re4, im4, 0]}>
 				<meshBasicMaterial attach="material" color="white" />
 			</Circle>
 		</>
