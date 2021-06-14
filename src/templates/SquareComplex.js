@@ -30,7 +30,7 @@ const SquareComplex = () => {
 
 	return (
 		<>
-			<Scene control position={[0, 0, 5]}>
+			<Scene control position={[0, 0, 4]}>
 				<Axis />
 				<Ring />
 				<DragableCircle />

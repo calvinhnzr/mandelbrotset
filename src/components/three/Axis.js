@@ -1,14 +1,14 @@
-import { Line } from "@react-three/drei"
-// import styled from "styled-components"
+import { Line, Html } from "@react-three/drei"
+import styled from "styled-components"
 
-// const StyledNumAxis = styled.span`
-// 	/* display: none; */
-// 	opacity: 1;
-// 	font-family: "Roboto";
-// 	font-weight: 100;
-// 	font-size: ${(props) => (props.colored ? "1.2rem" : "1rem")};
-// 	color: ${(props) => (props.colored ? "#437ef1" : "white")};
-// `
+const StyledNumAxis = styled.span`
+	/* display: none; */
+	opacity: 1;
+	font-family: "Roboto";
+	font-weight: 100;
+	font-size: ${(props) => (props.colored ? "1.2rem" : "1rem")};
+	color: ${(props) => (props.colored ? "#437ef1" : "white")};
+`
 
 const MyLine = (props) => {
 	return (
@@ -27,14 +27,14 @@ const Dots = () => {
 					[item * multiFactor, -0.025, 0],
 				]}
 			/>
-			{/* {item ? (
+			{item ? (
 				<Html
 					center={true}
 					position={[item * multiFactor, -0.2, 0]}
 					distanceFactor={2}>
 					<StyledNumAxis>{item}</StyledNumAxis>
 				</Html>
-			) : null} */}
+			) : null}
 
 			<MyLine
 				points={[
@@ -42,14 +42,14 @@ const Dots = () => {
 					[-0.025, item * multiFactor, 0],
 				]}
 			/>
-			{/* {item ? (
+			{item ? (
 				<Html
 					center={true}
 					position={[-0.2, item * multiFactor, 0]}
 					distanceFactor={2}>
 					<StyledNumAxis>{item}</StyledNumAxis>
 				</Html>
-			) : null} */}
+			) : null}
 		</>
 	))
 }
@@ -60,14 +60,14 @@ const Axis = () => {
 			<Dots />
 			<MyLine
 				points={[
-					[1.5, 0, 0],
-					[-1.5, 0, 0],
+					[1.3, 0, 0],
+					[-1.3, 0, 0],
 				]}
 			/>
 			<MyLine
 				points={[
-					[0, 1.5, 0],
-					[0, -1.5, 0],
+					[0, 1.2, 0],
+					[0, -1.2, 0],
 				]}
 			/>
 		</>

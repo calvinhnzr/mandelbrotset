@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import { Circle } from "@react-three/drei"
+import { Circle, Line } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 import { useDrag } from "react-use-gesture"
 
@@ -14,19 +14,20 @@ const DragableCircle = (props) => {
 	const { viewport } = useThree()
 	const { width, height, factor } = viewport
 
-	let re1 =
-		boxPos.position[0] * boxPos.position[0] -
-		boxPos.position[1] * boxPos.position[1]
-	let im1 = 2 * (boxPos.position[0] * boxPos.position[1])
+	let arr = []
+	let coo = []
 
-	let re2 = re1 * re1 - im1 * im1
-	let im2 = 2 * (re1 * im1)
+	let tempRe = boxPos.position[0]
+	let tempIm = boxPos.position[1]
 
-	let re3 = re2 * re2 - im2 * im2
-	let im3 = 2 * (re2 * im2)
-
-	let re4 = re3 * re3 - im3 * im3
-	let im4 = 2 * (re3 * im3)
+	for (let i = 0; i < 8; i++) {
+		let re = tempRe * tempRe - tempIm * tempIm
+		let im = 2 * (tempRe * tempIm)
+		coo = [re, im, tempRe, tempIm]
+		tempRe = re
+		tempIm = im
+		arr.push(coo)
+	}
 
 	const bind = useDrag(
 		({ offset: [x, y] }) =>
@@ -49,22 +50,29 @@ const DragableCircle = (props) => {
 		<>
 			<Circle
 				args={[0.05, 64]}
-				position={[boxPos.position[0], boxPos.position[1], 0]}
+				position={[boxPos.position[0], boxPos.position[1], 0.01]}
 				{...bind()}>
 				<meshBasicMaterial attach="material" color="#EA5B89" />
 			</Circle>
-			<Circle args={[0.05, 64]} position={[re1, im1, 0]}>
-				<meshBasicMaterial attach="material" color="white" />
-			</Circle>
-			<Circle args={[0.05, 64]} position={[re2, im2, 0]}>
-				<meshBasicMaterial attach="material" color="white" />
-			</Circle>
-			<Circle args={[0.05, 64]} position={[re3, im3, 0]}>
-				<meshBasicMaterial attach="material" color="white" />
-			</Circle>
-			<Circle args={[0.05, 64]} position={[re4, im4, 0]}>
-				<meshBasicMaterial attach="material" color="white" />
-			</Circle>
+			{arr.map((value, index) => (
+				<>
+					<Line
+						name="axis"
+						points={[
+							[value[0], value[1], 0],
+							[value[2], value[3], 0],
+						]}
+						color="white"
+						lineWidth={2}
+					/>
+					<Circle
+						key={index}
+						args={[0.025, 64]}
+						position={[value[0], value[1], 0.01]}>
+						<meshBasicMaterial attach="material" color="#EA5B89" />
+					</Circle>
+				</>
+			))}
 		</>
 	)
 }
