@@ -18,7 +18,6 @@ export default function MyMath(props) {
 		imageFont: null,
 		skipStartupTypeset: true,
 		showProcessingMessages: true,
-		TeX: { noErrors: { disabled: true } },
 	}
 
 	return (

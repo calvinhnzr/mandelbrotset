@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react"
 import { Context } from "../Context"
-import getWindowDimensions from "../hooks/useWindowDimensions"
 import styled from "styled-components"
 
 const StyledPresentation = styled.div`
@@ -37,8 +36,6 @@ const Presentation = (props) => {
 	const [showInfo, setShowInfo] = useState(false)
 	const { currentPage, setCurrentPage } = useContext(Context)
 	const { inputOnFocus } = useContext(Context)
-
-	const { width } = getWindowDimensions()
 
 	// max number of slides
 	let max = 15

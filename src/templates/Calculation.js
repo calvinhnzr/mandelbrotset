@@ -67,7 +67,7 @@ const Calculation = () => {
 				max={max}
 			/>
 			<SubText>
-				<HiddenContent style={current == 0 ? shown : hidden}>
+				<HiddenContent style={current === 0 ? shown : hidden}>
 					<Text>
 						Eindeutig definiert durch x-Wert und y-Wert. Gibt es
 						andere Möglichkeiten?
@@ -75,27 +75,27 @@ const Calculation = () => {
 					<MyMath>{"z=a+b*i"}</MyMath>
 					<MyMath>{"z=3+2*i"}</MyMath>
 				</HiddenContent>
-				<HiddenContent style={current == 1 ? shown : hidden}>
+				<HiddenContent style={current === 1 ? shown : hidden}>
 					<Text>Wie können wir die Länge des Vektors berechnen?</Text>
 				</HiddenContent>
-				<HiddenContent style={current == 2 ? shown : hidden}>
+				<HiddenContent style={current === 2 ? shown : hidden}>
 					<Text>Länge? Pythagoras!</Text>
 					<MyMath>{"r=\\sqrt{3^2+3^2}"}</MyMath>
 					<MyMath>{"r=3.6"}</MyMath>
 				</HiddenContent>
-				<HiddenContent style={current == 3 ? shown : hidden}>
+				<HiddenContent style={current === 3 ? shown : hidden}>
 					<Text>G bekannt, A bekannt, rechtwinklig.</Text>
 					<MyMath>{"tan(G/A)"}</MyMath>
 					<MyMath>{"=tan(\\varphi)"}</MyMath>
 					<MyMath>{"=tan(3/2)"}</MyMath>
 				</HiddenContent>
-				<HiddenContent style={current == 4 ? shown : hidden}>
+				<HiddenContent style={current === 4 ? shown : hidden}>
 					<Text>Grafisch verstanden.</Text>
 					<Text>Mathematische Darstellung?</Text>
 					<MyMath>{"r=\\sqrt{3^2+2^2}"}</MyMath>
 					<MyMath>{"\\varphi=tan^{(-1)}*(2/3)"}</MyMath>
 				</HiddenContent>
-				<HiddenContent style={current == 5 ? shown : hidden}>
+				<HiddenContent style={current === 5 ? shown : hidden}>
 					<MyMath>{"cos(\\varphi)=A/H"}</MyMath>
 					<MyMath>{"cos(\\varphi)*H=A"}</MyMath>
 					<MyMath>{"cos(\\varphi)*r=Re(z)"}</MyMath>
@@ -104,7 +104,7 @@ const Calculation = () => {
 					<MyMath>{"sin(\\varphi)*H=G"}</MyMath>
 					<MyMath>{"sin(\\varphi)*r=Im(z)"}</MyMath>
 				</HiddenContent>
-				<HiddenContent style={current == 6 ? shown : hidden}>
+				<HiddenContent style={current === 6 ? shown : hidden}>
 					<MyMath>{"z=r*cos(\\varphi)+i*r*sin(\\varphi)"}</MyMath>
 					<MyMath>{"z=r*(cos(\\varphi)+i*r*sin(\\varphi))"}</MyMath>
 					<MyMath>{"=r*cis(\\varphi)"}</MyMath>

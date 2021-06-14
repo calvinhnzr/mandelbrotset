@@ -1,7 +1,6 @@
 import { useState, useRef } from "react"
-import { Canvas, useThree } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
-import { useDrag } from "react-use-gesture"
 import { FaLock, FaLockOpen } from "react-icons/fa"
 import styled from "styled-components"
 
@@ -85,6 +84,9 @@ const Scene = (props) => {
 				</>
 			) : null}
 			<Canvas
+				gl={{
+					powerPreference: "high-performance",
+				}}
 				dpr={[1, 2]}
 				camera={{
 					// default: 75

@@ -77,7 +77,7 @@ const OnNumberLine = (props) => {
 						<div>
 							<span>x = </span>
 							<StyledStart>
-								{start != 0 ? (
+								{start !== 0 ? (
 									start
 								) : (
 									<span style={{ color: "#8e8e8e" }}>
@@ -112,7 +112,7 @@ const OnNumberLine = (props) => {
 				color={props.color}
 			/>
 			<Scene control position={[0, 0, 7]}>
-				{start == 0.97 ? (
+				{start === 0.97 ? (
 					<Html
 						center={true}
 						position={[0, 0, 8]}

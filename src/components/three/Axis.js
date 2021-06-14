@@ -1,14 +1,14 @@
-import { Line, Html } from "@react-three/drei"
-import styled from "styled-components"
+import { Line } from "@react-three/drei"
+// import styled from "styled-components"
 
-const StyledNumAxis = styled.span`
-	/* display: none; */
-	opacity: 1;
-	font-family: "Roboto";
-	font-weight: 100;
-	font-size: ${(props) => (props.colored ? "1.2rem" : "1rem")};
-	color: ${(props) => (props.colored ? "#437ef1" : "white")};
-`
+// const StyledNumAxis = styled.span`
+// 	/* display: none; */
+// 	opacity: 1;
+// 	font-family: "Roboto";
+// 	font-weight: 100;
+// 	font-size: ${(props) => (props.colored ? "1.2rem" : "1rem")};
+// 	color: ${(props) => (props.colored ? "#437ef1" : "white")};
+// `
 
 const MyLine = (props) => {
 	return (
@@ -19,7 +19,7 @@ let nums = [-1, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1]
 let multiFactor = 1
 
 const Dots = () => {
-	return nums.map((item) => (
+	return nums.map((item, index) => (
 		<>
 			<MyLine
 				points={[
