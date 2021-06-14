@@ -3,12 +3,17 @@ import { Circle, Line } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 import { useDrag } from "react-use-gesture"
 
-const DragableCircle = (props) => {
-	let defaultX = 0.4
-	let defaultY = 0.4
+const DragableCircle = () => {
+	//  default value
+	let defaultX = 0
+	let defaultY = 0
 
 	const [boxPos, setBoxPos] = useState({
 		position: [defaultX, defaultY, 0],
+	})
+
+	const [c, setC] = useState({
+		position: [0, 0, 0],
 	})
 
 	const { viewport } = useThree()
@@ -20,9 +25,13 @@ const DragableCircle = (props) => {
 	let tempRe = boxPos.position[0]
 	let tempIm = boxPos.position[1]
 
-	for (let i = 0; i < 8; i++) {
+	for (let i = 0; i < 15; i++) {
 		let re = tempRe * tempRe - tempIm * tempIm
 		let im = 2 * (tempRe * tempIm)
+
+		re += c.position[0]
+		im += c.position[1]
+
 		coo = [re, im, tempRe, tempIm]
 		tempRe = re
 		tempIm = im
@@ -46,6 +55,22 @@ const DragableCircle = (props) => {
 		}
 	)
 
+	const bindC = useDrag(
+		({ offset: [x, y] }) => setC({ position: [x, y, 0] }),
+
+		{
+			// bounds are expressed in canvas coordinates!
+			bounds: {
+				left: -width / 2,
+				right: width / 2,
+				top: -height / 2,
+				bottom: height / 2,
+			},
+			// rubberband: true,
+			transform: ([x, y]) => [x / factor, -y / factor],
+		}
+	)
+
 	return (
 		<>
 			<Circle
@@ -54,6 +79,14 @@ const DragableCircle = (props) => {
 				{...bind()}>
 				<meshBasicMaterial attach="material" color="#EA5B89" />
 			</Circle>
+
+			<Circle
+				args={[0.05, 64]}
+				position={[c.position[0], c.position[1], 0.01]}
+				{...bindC()}>
+				<meshBasicMaterial attach="material" color="blue" />
+			</Circle>
+
 			{arr.map((value, index) => (
 				<>
 					<Line

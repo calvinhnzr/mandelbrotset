@@ -3,7 +3,7 @@ const MyMesh = (props) => {
 	return (
 		<mesh position={props.position}>
 			<boxGeometry args={[size, size, size]} />
-			<meshPhongMaterial color={props.color} wireframe={true} />
+			<meshPhongMaterial color={props.color} wireframe={false} />
 		</mesh>
 	)
 }
