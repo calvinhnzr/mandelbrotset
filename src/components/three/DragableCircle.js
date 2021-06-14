@@ -1,17 +1,23 @@
+import { useState, useEffect, useRef } from "react"
 import { Circle } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 import { useDrag } from "react-use-gesture"
 
 const DragableCircle = (props) => {
-	const { viewport } = useThree()
-	const { width, height, factor } = viewport
-
 	let defaultX = 0.4
 	let defaultY = 0.4
 
+	const [boxPos, setBoxPos] = useState({
+		position: [defaultX, defaultY, 0],
+	})
+
+	const { viewport } = useThree()
+	const { width, height, factor } = viewport
+
 	const bind = useDrag(
 		({ offset: [x, y] }) =>
-			props.setBoxPos({ position: [x + defaultX, y + defaultY, 0] }),
+			setBoxPos({ position: [x + defaultX, y + defaultY, 0] }),
+
 		{
 			// bounds are expressed in canvas coordinates!
 			bounds: {
@@ -26,16 +32,24 @@ const DragableCircle = (props) => {
 	)
 
 	return (
-		<Circle
-			args={[0.05, 64]}
-			position={[
-				props.boxPos.position[0].toFixed(2),
-				props.boxPos.position[1].toFixed(2),
-				0,
-			]}
-			{...bind()}>
-			<meshBasicMaterial attach="material" color="#EA5B89" />
-		</Circle>
+		<>
+			<Circle
+				args={[0.05, 64]}
+				position={[boxPos.position[0], boxPos.position[1], 0]}
+				{...bind()}>
+				<meshBasicMaterial attach="material" color="#EA5B89" />
+			</Circle>
+			<Circle
+				args={[0.05, 64]}
+				position={[
+					boxPos.position[0] * boxPos.position[0] -
+						boxPos.position[1] * boxPos.position[1],
+					2 * (boxPos.position[0] * boxPos.position[1]),
+					0,
+				]}>
+				<meshBasicMaterial attach="material" color="white" />
+			</Circle>
+		</>
 	)
 }
 
