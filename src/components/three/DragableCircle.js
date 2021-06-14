@@ -76,7 +76,8 @@ const DragableCircle = () => {
 			<Circle
 				args={[0.05, 64]}
 				position={[boxPos.position[0], boxPos.position[1], 0.01]}
-				{...bind()}>
+				// {...bind()}
+			>
 				<meshBasicMaterial attach="material" color="#EA5B89" />
 			</Circle>
 
