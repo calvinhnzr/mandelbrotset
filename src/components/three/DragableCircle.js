@@ -25,7 +25,7 @@ const DragableCircle = () => {
 	let tempRe = boxPos.position[0]
 	let tempIm = boxPos.position[1]
 
-	for (let i = 0; i < 15; i++) {
+	for (let i = 0; i < 32; i++) {
 		let re = tempRe * tempRe - tempIm * tempIm
 		let im = 2 * (tempRe * tempIm)
 
@@ -90,7 +90,8 @@ const DragableCircle = () => {
 
 			{arr.map((value, index) => (
 				<>
-					<Line
+					{/* [BUGFIX] error msg */}
+					{/* <Line
 						name="axis"
 						points={[
 							[value[0], value[1], 0],
@@ -98,7 +99,7 @@ const DragableCircle = () => {
 						]}
 						color="white"
 						lineWidth={2}
-					/>
+					/> */}
 					<Circle
 						key={index}
 						args={[0.025, 64]}

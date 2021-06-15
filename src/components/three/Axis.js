@@ -27,14 +27,14 @@ const Dots = () => {
 					[item * multiFactor, -0.025, 0],
 				]}
 			/>
-			{item ? (
+			{/* {item ? (
 				<Html
 					center={true}
 					position={[item * multiFactor, -0.2, 0]}
 					distanceFactor={2}>
 					<StyledNumAxis>{item}</StyledNumAxis>
 				</Html>
-			) : null}
+			) : null} */}
 
 			<MyLine
 				points={[
@@ -42,14 +42,14 @@ const Dots = () => {
 					[-0.025, item * multiFactor, 0],
 				]}
 			/>
-			{item ? (
+			{/* {item ? (
 				<Html
 					center={true}
 					position={[-0.2, item * multiFactor, 0]}
 					distanceFactor={2}>
 					<StyledNumAxis>{item}</StyledNumAxis>
 				</Html>
-			) : null}
+			) : null} */}
 		</>
 	))
 }
