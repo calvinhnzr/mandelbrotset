@@ -58,15 +58,8 @@ const SquareComplex = () => {
 					onChange={() => setImage(!image)}
 				/>
 			</StyledCheckBox>
-			<Scene control>
+			<Scene control position={[0, 0, 4]}>
 				{image ? <Image url={mandelbrotset} /> : null}
-				<PerspectiveCamera
-					makeDefault
-					fov={40}
-					near={0.1}
-					far={1000}
-					position={[0, 0, 4]}
-				/>
 				<Axis />
 				<Ring />
 				<DragableCircle />
