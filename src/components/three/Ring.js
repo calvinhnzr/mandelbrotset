@@ -3,7 +3,8 @@ import { CubicBezierLine } from "@react-three/drei"
 let num = (4 * (Math.sqrt(2) - 1)) / 3
 let x = 1
 const z = -0.1
-const myColor = "#363738"
+let myColor = "#363738"
+
 // multiply factor
 num *= 1
 x *= 1

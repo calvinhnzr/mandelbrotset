@@ -5,7 +5,7 @@ const StyledNumAxis = styled.span`
 	/* display: none; */
 	opacity: 1;
 	font-family: "Roboto";
-	font-weight: 100;
+	font-weight: 400;
 	font-size: ${(props) => (props.colored ? "1.2rem" : "1rem")};
 	color: ${(props) => (props.colored ? "#437ef1" : "white")};
 `
@@ -60,14 +60,20 @@ const Axis = () => {
 			<Dots />
 			<MyLine
 				points={[
-					[1.3, 0, 0],
-					[-1.3, 0, 0],
+					[-2, 0.025, 0],
+					[-2, -0.025, 0],
 				]}
 			/>
 			<MyLine
 				points={[
-					[0, 1.2, 0],
-					[0, -1.2, 0],
+					[1, 0, 0],
+					[-2, 0, 0],
+				]}
+			/>
+			<MyLine
+				points={[
+					[0, 1, 0],
+					[0, -1, 0],
 				]}
 			/>
 		</>

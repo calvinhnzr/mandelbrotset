@@ -52,22 +52,23 @@ const NewData = () => {
 				<Calculation />
 			</Card>
 			<Card>
-				<Headline value="Quadrieren " />
+				<Portrait />
+			</Card>
+			<Card>
+				<Headline value="Mandelbrotmenge " />
 				<SquareComplex />
 			</Card>
 			<Card>
 				<Headline value="Julia-Menge" />
 				<Juliaset />
 			</Card>
-			<Card>
-				<Portrait />
-			</Card>
+
 			<Card>
 				<Headline value="Was ist ein Fraktal?" />
 				{/* <Fractal /> */}
 			</Card>
 			<Card>
-				<Headline value="Visuelle Darstellung" />
+				<Headline value="Visualisierung und Implementierung" />
 				<Mandelbrotset />
 			</Card>
 

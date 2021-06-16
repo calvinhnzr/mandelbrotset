@@ -1,3 +1,5 @@
+import * as THREE from "three"
+
 import { useState, useRef } from "react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
@@ -74,6 +76,7 @@ const MyLock = (props) => {
 const Scene = (props) => {
 	const [active, setActive] = useState(false)
 	const myOrbitControls = useRef()
+	const canvasRef = useRef()
 
 	return (
 		<StyledScene className={props.className}>
@@ -93,7 +96,6 @@ const Scene = (props) => {
 					fov: 40,
 					near: 0.1,
 					far: 1000,
-
 					position: props.position,
 				}}>
 				<OrbitControls
