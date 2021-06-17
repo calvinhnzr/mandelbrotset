@@ -5,7 +5,7 @@ import { Circle, Line, Html, Plane } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 import { useDrag } from "react-use-gesture"
 
-const DragableCircle = () => {
+const DragableCircle = (props) => {
 	//  start value for a
 	let defaultX = 0
 	let defaultY = 0
@@ -26,7 +26,7 @@ const DragableCircle = () => {
 		// coordinates of every single iteration
 		let coo = []
 
-		const iterationCount = 32
+		const iterationCount = 64
 
 		let tempRe = 0
 		let tempIm = 0
@@ -50,21 +50,24 @@ const DragableCircle = () => {
 	}
 	drawOrbit()
 
-	function drawJulia() {}
-
 	let pixelArr = []
+	// radius
+	const radius = 1
+	// pixel per block
+	const amount = 16 // += 2
+	const margin = amount * radius
+
 	function drawMandelbrot() {
-		let pixelCount = 40 // *= 2
 		// coordinates of pixel
 		let coo = []
 		let x, y
-		for (let i = -pixelCount - 30; i < pixelCount; i++) {
-			for (let j = -pixelCount; j < pixelCount; j++) {
+		const moveLeft = amount / 2
+		for (let i = -margin - moveLeft; i < margin - moveLeft; i++) {
+			for (let j = -margin + 1; j < margin; j++) {
 				// pixel position
-				x = i / pixelCount
-				y = j / pixelCount
-				x += 0.025
-				y += 0.025
+				x = i / (margin / radius)
+				y = j / (margin / radius)
+
 				coo = [x, y]
 
 				// mandelbrot
@@ -72,19 +75,21 @@ const DragableCircle = () => {
 				let tempRe = 0
 				let tempIm = 0
 
+				pixelArr.push(coo)
+
 				let iteration = 0
-				const maxIteration = 100
+				const maxIteration = 200
 				while (iteration < maxIteration) {
 					let re = tempRe * tempRe - tempIm * tempIm
 					let im = 2 * (tempRe * tempIm)
-
 					// add c
 					re += x
 					im += y
 					if (re >= 4) {
-						pixelArr.push(coo)
+						pixelArr.pop(coo)
 						break
 					}
+
 					tempRe = re
 					tempIm = im
 
@@ -93,7 +98,6 @@ const DragableCircle = () => {
 			}
 		}
 	}
-	// drawMandelbrot()
 
 	// dragable compnents
 	const { viewport, scene } = useThree()
@@ -130,29 +134,33 @@ const DragableCircle = () => {
 		}
 	)
 
+	const devider = margin * amount
 	return (
 		<>
+			{props.mandelbrot ? drawMandelbrot() : null}
+
 			{pixelArr.map((value, index) => (
 				<Plane
 					key={index}
-					args={[0.02, 0.02]}
-					position={[value[0], value[1], -0]}>
-					<meshBasicMaterial attach="material" color="red" />
+					args={[margin / devider, margin / devider]}
+					scale={0.8}
+					position={[value[0], value[1], -0.1]}>
+					<meshBasicMaterial attach="material" color="coral" />
 				</Plane>
 			))}
 			<Circle
 				args={[0.05, 64]}
 				position={[a.position[0], a.position[1], 0.01]}
-				// {...bindA()}
-			>
-				<meshBasicMaterial attach="material" color="#437ef1" />
+				{...bindA()}>
+				<meshBasicMaterial attach="material" color="white" />
 			</Circle>
 
 			<Circle
 				args={[0.05, 64]}
 				position={[c.position[0], c.position[1], 0.02]}
-				{...bindC()}>
-				<meshBasicMaterial attach="material" color="#EA5B89" />
+				// {...bindC()}
+			>
+				<meshBasicMaterial attach="material" color="#437ef1" />
 			</Circle>
 
 			{orbitArr.map((value, index) => {
@@ -169,11 +177,11 @@ const DragableCircle = () => {
 						/> */}
 						<Circle
 							key={index}
-							args={[0.025, 64]}
+							args={[0.015, 64]}
 							position={[value[0], value[1], 0.01]}>
 							<meshBasicMaterial
 								attach="material"
-								color="#437ef1"
+								color="#65D677"
 							/>
 						</Circle>
 					</>

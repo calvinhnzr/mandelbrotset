@@ -1,29 +1,31 @@
 import * as THREE from "three"
 import styled from "styled-components"
-import { useState, useEffect, useRef, useMemo } from "react"
+import { useState, useMemo } from "react"
 import Scene from "../components/three/Scene"
 import Axis from "../components/three/Axis"
 import Ring from "../components/three/Ring"
-import { Line, PerspectiveCamera } from "@react-three/drei"
 
 import DragableCircle from "../components/three/DragableCircle"
 import mandelbrotset from "../images/mandelbrotset.png"
 
 const StyledCheckBox = styled.label`
-	/* outline: 1px solid red; */
 	display: flex;
 	align-items: center;
 	width: fit-content;
-	font-size: 1.5rem;
+
+	font-size: 1.2rem;
 	font-weight: 100;
 	/* text-decoration: underline; */
 	cursor: pointer;
 	grid-column: 2 / 6;
-	grid-row: 3 / 4;
+	grid-row: 3 /4;
+	&:last-of-type {
+		grid-row: 4 /5;
+	}
 	input {
 		margin-left: 1rem;
-		height: 2rem;
-		width: 2rem;
+		height: 1.5rem;
+		width: 1.5rem;
 	}
 `
 
@@ -47,6 +49,7 @@ const Image = ({ url }) => {
 
 const SquareComplex = () => {
 	const [image, setImage] = useState(false)
+	const [mandelbrot, setMandelbrot] = useState(false)
 
 	return (
 		<>
@@ -58,11 +61,20 @@ const SquareComplex = () => {
 					onChange={() => setImage(!image)}
 				/>
 			</StyledCheckBox>
+			<StyledCheckBox>
+				Mandelbrot
+				<input
+					type="checkbox"
+					checked={mandelbrot}
+					onChange={() => setMandelbrot(!mandelbrot)}
+				/>
+			</StyledCheckBox>
 			<Scene control position={[0, 0, 4]}>
 				{image ? <Image url={mandelbrotset} /> : null}
 				<Axis />
 				<Ring />
-				<DragableCircle />
+
+				<DragableCircle mandelbrot={mandelbrot} />
 			</Scene>
 		</>
 	)
