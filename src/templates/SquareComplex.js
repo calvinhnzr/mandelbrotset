@@ -8,6 +8,14 @@ import Ring from "../components/three/Ring"
 import DragableCircle from "../components/three/DragableCircle"
 import mandelbrotset from "../images/mandelbrotset.png"
 
+const Container = styled.div`
+	grid-row-start: 3;
+	grid-column: 2 / 6;
+	/* outline: 1px solid white; */
+	display: flex;
+	flex-direction: column;
+`
+
 const StyledCheckBox = styled.label`
 	display: flex;
 	align-items: center;
@@ -17,11 +25,6 @@ const StyledCheckBox = styled.label`
 	font-weight: 100;
 	/* text-decoration: underline; */
 	cursor: pointer;
-	grid-column: 2 / 6;
-	grid-row: 3 /4;
-	&:last-of-type {
-		grid-row: 4 /5;
-	}
 	input {
 		margin-left: 1rem;
 		height: 1.5rem;
@@ -53,26 +56,28 @@ const SquareComplex = () => {
 
 	return (
 		<>
-			<StyledCheckBox>
-				Picture
-				<input
-					type="checkbox"
-					checked={image}
-					onChange={() => setImage(!image)}
-				/>
-			</StyledCheckBox>
-			<StyledCheckBox>
-				Mandelbrot
-				<input
-					type="checkbox"
-					checked={mandelbrot}
-					onChange={() => setMandelbrot(!mandelbrot)}
-				/>
-			</StyledCheckBox>
+			<Container>
+				<StyledCheckBox>
+					Picture
+					<input
+						type="checkbox"
+						checked={image}
+						onChange={() => setImage(!image)}
+					/>
+				</StyledCheckBox>
+				<StyledCheckBox>
+					Mandelbrot
+					<input
+						type="checkbox"
+						checked={mandelbrot}
+						onChange={() => setMandelbrot(!mandelbrot)}
+					/>
+				</StyledCheckBox>
+			</Container>
 			<Scene control position={[0, 0, 4]}>
 				{image ? <Image url={mandelbrotset} /> : null}
-				<Axis />
-				<Ring />
+				{/* <Axis />
+				<Ring /> */}
 
 				<DragableCircle mandelbrot={mandelbrot} />
 			</Scene>

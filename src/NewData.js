@@ -73,7 +73,7 @@ const NewData = () => {
 			</Card>
 
 			<Card>
-				<Headline value="Realanwedungen" />
+				<Headline value="Realanwendungen" />
 				<RealUse />
 			</Card>
 			<Card>

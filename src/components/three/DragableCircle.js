@@ -26,7 +26,7 @@ const DragableCircle = (props) => {
 		// coordinates of every single iteration
 		let coo = []
 
-		const iterationCount = 64
+		const iterationCount = 32
 
 		let tempRe = 0
 		let tempIm = 0
@@ -54,7 +54,7 @@ const DragableCircle = (props) => {
 	// radius
 	const radius = 1
 	// pixel per block
-	const amount = 16 // += 2
+	const amount = 10 // += 2
 	const margin = amount * radius
 
 	function drawMandelbrot() {
@@ -71,14 +71,12 @@ const DragableCircle = (props) => {
 				coo = [x, y]
 
 				// mandelbrot
-
 				let tempRe = 0
 				let tempIm = 0
-
 				pixelArr.push(coo)
 
 				let iteration = 0
-				const maxIteration = 200
+				const maxIteration = 100
 				while (iteration < maxIteration) {
 					let re = tempRe * tempRe - tempIm * tempIm
 					let im = 2 * (tempRe * tempIm)
@@ -140,26 +138,28 @@ const DragableCircle = (props) => {
 			{props.mandelbrot ? drawMandelbrot() : null}
 
 			{pixelArr.map((value, index) => (
-				<Plane
+				<Circle
 					key={index}
 					args={[margin / devider, margin / devider]}
+					args={[margin / devider / 2, 64]}
 					scale={0.8}
 					position={[value[0], value[1], -0.1]}>
 					<meshBasicMaterial attach="material" color="coral" />
-				</Plane>
+				</Circle>
 			))}
 			<Circle
 				args={[0.05, 64]}
 				position={[a.position[0], a.position[1], 0.01]}
-				{...bindA()}>
+				scale={0.8}
+				// {...bindA()}
+			>
 				<meshBasicMaterial attach="material" color="white" />
 			</Circle>
 
 			<Circle
 				args={[0.05, 64]}
 				position={[c.position[0], c.position[1], 0.02]}
-				// {...bindC()}
-			>
+				{...bindC()}>
 				<meshBasicMaterial attach="material" color="#437ef1" />
 			</Circle>
 
@@ -177,7 +177,7 @@ const DragableCircle = (props) => {
 						/> */}
 						<Circle
 							key={index}
-							args={[0.015, 64]}
+							args={[0.025, 64]}
 							position={[value[0], value[1], 0.01]}>
 							<meshBasicMaterial
 								attach="material"
