@@ -10,22 +10,35 @@ const images = [fraktalantennen, imageCompression, keyExchange]
 
 const List = styled.ul`
 	/* outline: 1px solid white; */
-	grid-column: 8 / 12;
-	grid-row: 3 / 11;
-	align-self: center;
+	grid-column: 2 / 12;
+	grid-row: 8 / 11;
 	list-style: inherit;
 	h5 {
-		font-size: 1.8rem;
+		font-size: 1.5rem;
 		/* font-weight: 100; */
 		line-height: 1.3;
 		margin-bottom: 1.5rem;
 	}
 	li {
 		color: aliceblue;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		line-height: 1.3;
 		font-weight: 100;
 		margin-bottom: 0.5rem;
+	}
+
+	@media only screen and (min-width: 960px) {
+		grid-column: 8 / 12;
+		grid-row: 3 / 11;
+		align-self: center;
+
+		h5 {
+			font-size: 1.8rem;
+		}
+
+		li {
+			font-size: 1.5rem;
+		}
 	}
 `
 

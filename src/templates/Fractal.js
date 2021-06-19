@@ -17,24 +17,38 @@ const List = styled.ul`
 		margin-bottom: 0;
 	}
 	h5 {
-		font-size: 1.8rem;
+		font-size: 1.2rem;
 		/* font-weight: 100; */
 		line-height: 1.3;
 		margin-bottom: 1rem;
 	}
 	li {
 		color: aliceblue;
-		font-size: 1.5rem;
+		font-size: 1rem;
 		line-height: 1.3;
 		font-weight: 100;
 		margin-bottom: 0.5rem;
 	}
+	@media only screen and (min-width: 960px) {
+		h5 {
+			font-size: 1.8rem;
+		}
+		li {
+			font-size: 1.5rem;
+		}
+	}
 `
 
 const Container = styled.div`
-	grid-column: 8 / 12;
-	grid-row: 3 / 11;
-	align-self: center;
+	grid-column: 2 / 12;
+	grid-row: 8 / 11;
+	display: flex;
+	@media only screen and (min-width: 960px) {
+		display: inherit;
+		grid-column: 8 / 12;
+		grid-row: 3 / 11;
+		align-self: center;
+	}
 `
 
 const Fractal = () => {
