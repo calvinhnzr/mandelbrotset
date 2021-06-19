@@ -11,9 +11,9 @@ import ComplexNumbersIntro from "./templates/ComplexNumbersIntro"
 import Gauss from "./templates/Gauss"
 import Form from "./templates/Form"
 import Calculation from "./templates/Calculation"
-import SquareComplex from "./templates/SquareComplex"
+import Mandelbrot from "./templates/Mandelbrot"
 import Fractal from "./templates/Fractal"
-import Mandelbrotset from "./templates/Mandelbrotset"
+import Visual from "./templates/Visual"
 import Juliaset from "./templates/Juliaset"
 import RealUse from "./templates/RealUse"
 import Look from "./templates/Look"
@@ -55,23 +55,21 @@ const NewData = () => {
 				<Portrait />
 			</Card>
 			<Card>
-				<Headline value="Mandelbrotmenge " />
-				<SquareComplex />
+				<Headline value="Mandelbrotmenge (WIP)" />
+				<Mandelbrot />
 			</Card>
 			<Card>
-				<Headline value="Julia-Menge" />
+				<Headline value="Julia-Menge (WIP)" />
 				<Juliaset />
 			</Card>
-
 			<Card>
 				<Headline value="Was ist ein Fraktal?" />
 				<Fractal />
 			</Card>
 			<Card>
-				<Headline value="Visualisierung und Implementierung" />
-				<Mandelbrotset />
+				<Headline value="Visualisierung und Implementierung (WIP)" />
+				<Visual />
 			</Card>
-
 			<Card>
 				<Headline value="Realanwendungen" />
 				<RealUse />

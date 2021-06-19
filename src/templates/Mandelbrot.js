@@ -50,7 +50,7 @@ const Image = ({ url }) => {
 	return <Texture texture={texture} />
 }
 
-const SquareComplex = () => {
+const Mandelbrot = () => {
 	const [image, setImage] = useState(false)
 	const [mandelbrot, setMandelbrot] = useState(false)
 
@@ -85,4 +85,4 @@ const SquareComplex = () => {
 	)
 }
 
-export default SquareComplex
+export default Mandelbrot
