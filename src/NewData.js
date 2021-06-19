@@ -12,7 +12,7 @@ import Gauss from "./templates/Gauss"
 import Form from "./templates/Form"
 import Calculation from "./templates/Calculation"
 import SquareComplex from "./templates/SquareComplex"
-// import Fractal from "./templates/Fractal"
+import Fractal from "./templates/Fractal"
 import Mandelbrotset from "./templates/Mandelbrotset"
 import Juliaset from "./templates/Juliaset"
 import RealUse from "./templates/RealUse"
@@ -65,7 +65,7 @@ const NewData = () => {
 
 			<Card>
 				<Headline value="Was ist ein Fraktal?" />
-				{/* <Fractal /> */}
+				<Fractal />
 			</Card>
 			<Card>
 				<Headline value="Visualisierung und Implementierung" />

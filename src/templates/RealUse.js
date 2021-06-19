@@ -2,8 +2,8 @@ import { useState } from "react"
 import styled from "styled-components"
 import Gallery from "../components/Gallery"
 
-import fraktalantennen from "../images/realuse/fraktalantennen.png"
-import imageCompression from "../images/realuse/lenna2.gif"
+import fraktalantennen from "../images/realuse/fraktalantennen.jpg"
+import imageCompression from "../images/realuse/lenna.jpg"
 import keyExchange from "../images/realuse/key-exchange.jpg"
 
 const images = [fraktalantennen, imageCompression, keyExchange]
