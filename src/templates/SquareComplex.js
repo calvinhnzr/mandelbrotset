@@ -76,8 +76,8 @@ const SquareComplex = () => {
 			</Container>
 			<Scene control position={[0, 0, 4]}>
 				{image ? <Image url={mandelbrotset} /> : null}
-				{/* <Axis />
-				<Ring /> */}
+				<Axis />
+				<Ring />
 
 				<DragableCircle mandelbrot={mandelbrot} />
 			</Scene>

@@ -76,6 +76,7 @@ const DragableCircle = (props) => {
 				pixelArr.push(coo)
 
 				let iteration = 0
+				// iteration per pixel
 				const maxIteration = 100
 				while (iteration < maxIteration) {
 					let re = tempRe * tempRe - tempIm * tempIm
