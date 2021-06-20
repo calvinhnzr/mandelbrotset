@@ -4,17 +4,77 @@ import { Circle, Line, Html, Plane } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 import { useDrag } from "react-use-gesture"
 
-const DragableCircle = (props) => {
-	//  start value for a
-	let defaultX = 0
-	let defaultY = 0
+const CValue = (props) => {
+	let width = props.width
+	let height = props.height
+	let factor = props.factor
 
+	const bindC = useDrag(
+		({ offset: [x, y] }) => props.setC({ position: [x, y, 0] }),
+		{
+			// bounds are expressed in canvas coordinates!
+			bounds: {
+				left: -width / 2,
+				right: width / 2,
+				top: -height / 2,
+				bottom: height / 2,
+			},
+			// rubberband: true,
+			transform: ([x, y]) => [x / factor, -y / factor],
+		}
+	)
+
+	return (
+		<Circle
+			args={[0.05, 64]}
+			position={[props.c.position[0], props.c.position[1], 0.02]}
+			{...bindC()}>
+			<meshBasicMaterial attach="material" color="#437ef1" />
+		</Circle>
+	)
+}
+
+const AValue = (props) => {
+	let width = props.width
+	let height = props.height
+	let factor = props.factor
+
+	const bindA = useDrag(
+		({ offset: [x, y] }) => {
+			props.setA({ position: [x, y, 0] })
+		},
+		{
+			// bounds are expressed in canvas coordinates!
+			bounds: {
+				left: -width / 2,
+				right: width / 2,
+				top: -height / 2,
+				bottom: height / 2,
+			},
+			rubberband: true,
+			transform: ([x, y]) => [x / factor, -y / factor],
+		}
+	)
+
+	return (
+		<Circle
+			args={[0.05, 64]}
+			position={[props.a.position[0], props.a.position[1], 0.01]}
+			scale={0.8}
+			// {...bindA()}
+		>
+			<meshBasicMaterial attach="material" color="white" />
+		</Circle>
+	)
+}
+
+const DragableCircle = (props) => {
 	// set starting value for A
 	const [a, setA] = useState({
-		position: [defaultX, defaultY, 0],
+		position: [0, 0, 0],
 	})
 
-	// mandelbrot salt C
+	// set starting value for C
 	const [c, setC] = useState({
 		position: [0, 0, 0],
 	})
@@ -97,45 +157,11 @@ const DragableCircle = (props) => {
 		}
 	}
 
-	// dragable compnents
 	const { viewport, scene } = useThree()
 	const { width, height, factor } = viewport
-	// make A dragable
-	const bindA = useDrag(
-		({ offset: [x, y] }) => {
-			setA({ position: [x + defaultX, y + defaultY, 0] })
-		},
-		{
-			// bounds are expressed in canvas coordinates!
-			bounds: {
-				left: -width / 2,
-				right: width / 2,
-				top: -height / 2,
-				bottom: height / 2,
-			},
-			rubberband: true,
-			transform: ([x, y]) => [x / factor, -y / factor],
-		}
-	)
-	// make C dragable
-	const bindC = useDrag(
-		({ offset: [x, y] }) => setC({ position: [x, y, 0] }),
-		{
-			// bounds are expressed in canvas coordinates!
-			bounds: {
-				left: -width / 2,
-				right: width / 2,
-				top: -height / 2,
-				bottom: height / 2,
-			},
-			// rubberband: true,
-			transform: ([x, y]) => [x / factor, -y / factor],
-		}
-	)
 
 	const devider = margin * amount
 
-	props.callbackFromParent(c)
 	return (
 		<>
 			{props.mandelbrot ? drawMandelbrot() : null}
@@ -150,21 +176,20 @@ const DragableCircle = (props) => {
 					<meshBasicMaterial attach="material" color="coral" />
 				</Circle>
 			))}
-			<Circle
-				args={[0.05, 64]}
-				position={[a.position[0], a.position[1], 0.01]}
-				scale={0.8}
-				// {...bindA()}
-			>
-				<meshBasicMaterial attach="material" color="white" />
-			</Circle>
-
-			<Circle
-				args={[0.05, 64]}
-				position={[c.position[0], c.position[1], 0.02]}
-				{...bindC()}>
-				<meshBasicMaterial attach="material" color="#437ef1" />
-			</Circle>
+			<AValue
+				a={a}
+				setA={setA}
+				height={height}
+				width={width}
+				factor={factor}
+			/>
+			<CValue
+				c={c}
+				setC={setC}
+				height={height}
+				width={width}
+				factor={factor}
+			/>
 
 			{orbitArr.map((value, index) => {
 				return (

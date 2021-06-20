@@ -1,11 +1,16 @@
-import * as THREE from "three"
+import { useState, useMemo } from "react"
 import styled from "styled-components"
-import { useState, useMemo, useEffect } from "react"
+
+import * as THREE from "three"
+import { Circle, Line } from "@react-three/drei"
+import { useThree } from "@react-three/fiber"
+import { useDrag } from "react-use-gesture"
+
 import { FaLock, FaLockOpen } from "react-icons/fa"
+
 import Scene from "../components/three/Scene"
 import Axis from "../components/three/Axis"
 import Ring from "../components/three/Ring"
-
 import DragableCircle from "../components/three/DragableCircle"
 import mandelbrotset from "../images/mandelbrotset.png"
 
@@ -76,6 +81,7 @@ const Texture = ({ texture }) => {
 		</mesh>
 	)
 }
+
 const Image = ({ url }) => {
 	const texture = useMemo(() => new THREE.TextureLoader().load(url), [url])
 	return <Texture texture={texture} />
@@ -88,12 +94,15 @@ const Mandelbrot = () => {
 	let defaultX = 0
 	let defaultY = 0
 
-	const myCallback = (dataFromChild) => {
-		//use dataFromChild
-		// return dataFromChild
-		defaultY = Math.floor(dataFromChild.position[0] * 100) / 100
-		defaultX = Math.floor(dataFromChild.position[1] * 100) / 100
-	}
+	// set starting value for A
+	const [a, setA] = useState({
+		position: [0, 0, 0],
+	})
+
+	// set starting value for C
+	const [c, setC] = useState({
+		position: [0, 0, 0],
+	})
 
 	return (
 		<>
@@ -127,7 +136,7 @@ const Mandelbrot = () => {
 					<tr>
 						<td>c =</td>
 						<td>
-							<Box>{defaultY}</Box>
+							<Box>{defaultX}</Box>
 						</td>
 						<td>
 							<Box>{defaultY}</Box>
@@ -159,10 +168,7 @@ const Mandelbrot = () => {
 				<Axis />
 				<Ring />
 
-				<DragableCircle
-					mandelbrot={mandelbrot}
-					callbackFromParent={myCallback}
-				/>
+				<DragableCircle mandelbrot={mandelbrot} />
 			</Scene>
 		</>
 	)
