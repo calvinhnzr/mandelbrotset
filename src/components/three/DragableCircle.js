@@ -1,5 +1,4 @@
 import * as THREE from "three"
-
 import { useState, useEffect, useRef, useMemo } from "react"
 import { Circle, Line, Html, Plane } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
@@ -103,8 +102,9 @@ const DragableCircle = (props) => {
 	const { width, height, factor } = viewport
 	// make A dragable
 	const bindA = useDrag(
-		({ offset: [x, y] }) =>
-			setA({ position: [x + defaultX, y + defaultY, 0] }),
+		({ offset: [x, y] }) => {
+			setA({ position: [x + defaultX, y + defaultY, 0] })
+		},
 		{
 			// bounds are expressed in canvas coordinates!
 			bounds: {
@@ -134,6 +134,8 @@ const DragableCircle = (props) => {
 	)
 
 	const devider = margin * amount
+
+	props.callbackFromParent(c)
 	return (
 		<>
 			{props.mandelbrot ? drawMandelbrot() : null}

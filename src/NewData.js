@@ -79,7 +79,8 @@ const NewData = () => {
 				<Look />
 			</Card>
 			<Card>
-				<Title value="Fragen?" />
+				<Title value="Vielen Dank für Ihre Aufmerksamkeit!" />
+				<SubTitle value="Fragen?" />
 			</Card>
 		</>
 	)

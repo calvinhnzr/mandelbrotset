@@ -5,7 +5,7 @@ import Presentation from "./components/Presentation"
 import Progress from "./components/Progress"
 
 const GlobalStyle = createGlobalStyle`
-  h1, h2, h3, h4, h5, h6, p, li, label {
+  h1, h2, h3, h4, h5, h6, p, li, label, th, td {
 		color: white;
 		font-family: "Roboto", sans-serif !important;
 	}

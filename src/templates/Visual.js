@@ -85,9 +85,9 @@ void main(){ // gl_FragCoord in [0,1]
 
 	// var aspect = canvasWidth / canvasHeight
 
-	var zoom = 5.5
+	var zoom = 3
 
-	var offset = new THREE.Vector2(-2.0 * aspect, -2.0)
+	var offset = new THREE.Vector2(-2.5 * aspect, -2.1)
 
 	let parameters = {
 		a: 1.01,
