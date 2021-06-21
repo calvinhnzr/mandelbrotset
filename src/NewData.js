@@ -59,7 +59,7 @@ const NewData = () => {
 				<Portrait />
 			</Card>
 			<Card>
-				<Headline value="Mandelbrotmenge (WIP)" />
+				<Headline value="Mandelbrotmenge" />
 				<Mandelbrot />
 			</Card>
 			<Card>

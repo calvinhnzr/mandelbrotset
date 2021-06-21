@@ -86,8 +86,9 @@ void main(){ // gl_FragCoord in [0,1]
 	// var aspect = canvasWidth / canvasHeight
 
 	var zoom = 3
-
-	var offset = new THREE.Vector2(-2.5 * aspect, -2.1)
+	// zoom = 0.2
+	// .3
+	var offset = new THREE.Vector2(-3.2 * aspect, -zoom)
 
 	let parameters = {
 		a: 1.01,
@@ -211,7 +212,7 @@ void main(){ // gl_FragCoord in [0,1]
 					dpr={[1, 2]}
 					camera={{
 						// default: 75
-						fov: 65,
+						fov: 75,
 						near: 0.1,
 						far: 1000,
 						position: [0, 0, 1],

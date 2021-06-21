@@ -68,7 +68,7 @@ const Mandelbrot = () => {
 
 	return (
 		<>
-			<Container>
+			{/* <Container>
 				<span>
 					<MyMath>{"z=(a+b*i)^2"}</MyMath>
 				</span>
@@ -95,7 +95,7 @@ const Mandelbrot = () => {
 						onChange={() => setMandelbrot(!mandelbrot)}
 					/>
 				</StyledCheckBox>
-			</Container>
+			</Container> */}
 			<DragableCircle mandelbrot={mandelbrot}>
 				{image ? <Image url={mandelbrotset} /> : null}
 				<Axis />

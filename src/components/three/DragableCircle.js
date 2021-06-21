@@ -41,11 +41,13 @@ const StyledLock = styled.button`
 	}
 `
 const Container = styled.div`
-	grid-row-start: 3;
+	grid-row: 5 / 9;
 	grid-column: 2 / 6;
 	/* outline: 1px solid white; */
 	display: flex;
 	flex-direction: column;
+	align-self: center;
+	margin-right: 2rem;
 `
 const Table = styled.table`
 	/* outline: 1px solid white; */
@@ -59,7 +61,7 @@ const Table = styled.table`
 			text-align: center;
 		}
 		td:first-of-type {
-			text-align: left;
+			text-align: right;
 		}
 		th,
 		td {
@@ -256,7 +258,7 @@ const DragableCircle = (props) => {
 					</thead>
 					<tbody>
 						<tr>
-							<td style={{ color: "coral" }}>
+							<td style={{ color: "white" }}>
 								<MyMath>z =</MyMath>
 							</td>
 							<td>
@@ -289,7 +291,7 @@ const DragableCircle = (props) => {
 							</td>
 						</tr>
 						<tr>
-							<td style={{ color: "#437EF1" }}>
+							<td style={{ color: "white" }}>
 								<MyMath>c =</MyMath>
 							</td>
 							<td>
