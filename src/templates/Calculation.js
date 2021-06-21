@@ -27,8 +27,10 @@ const Text = styled.p`
 	font-size: 1.2rem;
 	font-weight: 100;
 	line-height: 1.3;
+
 	@media only screen and (min-width: 960px) {
 		font-size: 1.5rem;
+		margin-bottom: 1rem;
 	}
 `
 
@@ -52,7 +54,7 @@ const HiddenContent = styled.div`
 
 const Calculation = () => {
 	const [current, setcurrent] = useState(0)
-	const images = [calc1, calc2, calc3, calc4, calc5, calc4]
+	const images = [calc1, calc2, calc3, calc4, calc5, calc4, calc4]
 	const max = images.length
 	// fix mathjax does not load
 	const shown = { opacity: "1" }
@@ -80,34 +82,38 @@ const Calculation = () => {
 				</HiddenContent>
 				<HiddenContent style={current === 2 ? shown : hidden}>
 					<Text>Länge? Pythagoras!</Text>
-					<MyMath>{"r=\\sqrt{3^2+3^2}"}</MyMath>
+					<MyMath>{"r=\\sqrt{3^2+2^2}"}</MyMath>
 					<MyMath>{"r=3.6"}</MyMath>
 				</HiddenContent>
 				<HiddenContent style={current === 3 ? shown : hidden}>
 					<Text>G bekannt, A bekannt, rechtwinklig.</Text>
 					<MyMath>{"tan(G/A)"}</MyMath>
-					<MyMath>{"=tan(\\varphi)"}</MyMath>
-					<MyMath>{"=tan(3/2)"}</MyMath>
+					<MyMath>{"\\Rightarrow tan(\\varphi)"}</MyMath>
+					<MyMath>{"\\Rightarrow tan(3/2)"}</MyMath>
 				</HiddenContent>
 				<HiddenContent style={current === 4 ? shown : hidden}>
-					<Text>Grafisch verstanden.</Text>
-					<Text>Mathematische Darstellung?</Text>
+					<Text>
+						Grafisch verstanden.
+						<br />
+						Mathematische Darstellung?
+					</Text>
+
 					<MyMath>{"r=\\sqrt{3^2+2^2}"}</MyMath>
-					<MyMath>{"\\varphi=tan^{(-1)}*(2/3)"}</MyMath>
+					<MyMath>{"\\varphi=tan^{(-1)}(2/3)"}</MyMath>
 				</HiddenContent>
 				<HiddenContent style={current === 5 ? shown : hidden}>
 					<MyMath>{"cos(\\varphi)=A/H"}</MyMath>
-					<MyMath>{"cos(\\varphi)*H=A"}</MyMath>
-					<MyMath>{"cos(\\varphi)*r=Re(z)"}</MyMath>
+					<MyMath>{"\\Rightarrow cos(\\varphi)*H=A"}</MyMath>
+					<MyMath>{"\\Leftrightarrow cos(\\varphi)*r=Re(z)"}</MyMath>
 					<br />
 					<MyMath>{"sin(\\varphi)=G/H"}</MyMath>
-					<MyMath>{"sin(\\varphi)*H=G"}</MyMath>
-					<MyMath>{"sin(\\varphi)*r=Im(z)"}</MyMath>
+					<MyMath>{"\\Rightarrow sin(\\varphi)*H=G"}</MyMath>
+					<MyMath>{"\\Leftrightarrow sin(\\varphi)*r=Im(z)"}</MyMath>
 				</HiddenContent>
 				<HiddenContent style={current === 6 ? shown : hidden}>
 					<MyMath>{"z=r*cos(\\varphi)+i*r*sin(\\varphi)"}</MyMath>
 					<MyMath>{"z=r*(cos(\\varphi)+i*r*sin(\\varphi))"}</MyMath>
-					<MyMath>{"=r*cis(\\varphi)"}</MyMath>
+					<MyMath>{"\\Rightarrow r*cis(\\varphi)"}</MyMath>
 				</HiddenContent>
 			</SubText>
 		</>

@@ -1,4 +1,8 @@
+import { useState } from "react"
 import styled from "styled-components"
+
+import { useDrag } from "react-use-gesture"
+
 import MyMath from "../components/math/MyMath"
 
 const Text = styled.p`
@@ -45,10 +49,47 @@ const List = styled.ul`
 	}
 `
 
+const Card = styled.div`
+	height: 25rem;
+	width: 20rem;
+	margin-left: -2rem;
+	margin-top: 2.5rem;
+	background-color: #191a1b;
+	/* border: 4px solid #363738; */
+	z-index: 10;
+	box-shadow: 0px 8px 40px rgb(0 0 0 / 20%);
+	border-radius: 0.5rem;
+	grid-column: 2 / 12;
+	grid-row: 4 / 11;
+	&:hover {
+		cursor: pointer;
+	}
+`
+
 const ComplexNumbersIntro = () => {
+	const [cardPos, setCardPos] = useState({
+		x: 0,
+		y: 0,
+	})
+
+	const bindCard = useDrag((params) => {
+		setCardPos({
+			x: params.offset[0],
+			y: params.offset[1],
+		})
+	})
+
 	return (
 		<>
 			<Text>Schulmathematik sagt unlösbar, was sagt die Uni?</Text>
+			<Card
+				{...bindCard()}
+				style={{
+					position: "absolute",
+					top: cardPos.y,
+					left: cardPos.x,
+				}}
+			/>
 			<Container>
 				<List>
 					<li>

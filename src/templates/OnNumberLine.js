@@ -112,12 +112,12 @@ const OnNumberLine = (props) => {
 				color={props.color}
 			/>
 			<Scene control position={[0, 0, 7]}>
-				{start === 0.97 ? (
+				{start === "0.97" ? (
 					<Html
 						center={true}
-						position={[0, 0, 8]}
+						position={[0, 5, 10]}
 						distanceFactor={20}>
-						<h6>I love you!</h6>
+						<h6 style={{ width: "4rem" }}>I love you! ❤️</h6>
 					</Html>
 				) : null}
 

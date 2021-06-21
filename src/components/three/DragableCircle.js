@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import { FaLock, FaLockOpen } from "react-icons/fa"
 
-import { Circle } from "@react-three/drei"
+import { Circle, Line } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 import { useDrag } from "react-use-gesture"
 
@@ -165,7 +165,7 @@ const DragableCircle = (props) => {
 		// coordinates of every single iteration
 		let coo = []
 
-		const iterationCount = 32
+		const iterationCount = 16
 
 		let tempRe = 0
 		let tempIm = 0
@@ -345,14 +345,15 @@ const DragableCircle = (props) => {
 					return (
 						<>
 							{/* [BUGFIX] error msg */}
+
 							{/* <Line
-							points={[
-								[value[0], value[1], 0],
-								[value[2], value[3], 0],
-							]}
-							color="white"
-							lineWidth={2}
-						/> */}
+								points={[
+									[value[0], value[1], 0],
+									[value[2], value[3], 0],
+								]}
+								color="white"
+								lineWidth={2}
+							/> */}
 							<Circle
 								key={index}
 								args={[0.025, 64]}
