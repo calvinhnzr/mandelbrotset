@@ -6,24 +6,35 @@ import * as THREE from "three"
 import Axis from "../components/three/Axis"
 import Ring from "../components/three/Ring"
 import DragableCircle from "../components/three/DragableCircle"
+import MyMath from "../components/math/MyMath"
+
 import mandelbrotset from "../images/mandelbrotset.png"
 
 const Container = styled.div`
-	grid-row-start: 4;
+	/* margin-top: 2rem; */
+	grid-row: 4 / 11;
 	grid-column: 2 / 6;
 	/* outline: 1px solid white; */
 	display: flex;
 	flex-direction: column;
+	> span {
+		font-size: 2rem;
+		color: white;
+		margin-bottom: 1rem;
+	}
 `
 
 const StyledCheckBox = styled.label`
 	display: flex;
 	align-items: center;
 	width: fit-content;
-
+	margin-top: 1rem;
 	font-size: 1.2rem;
 	font-weight: 100;
 	/* text-decoration: underline; */
+	&:first-of-type {
+		margin-top: 2.5rem;
+	}
 	cursor: pointer;
 	input {
 		margin-left: 1rem;
@@ -55,12 +66,19 @@ const Mandelbrot = () => {
 	const [image, setImage] = useState(false)
 	const [mandelbrot, setMandelbrot] = useState(false)
 
-	let defaultX = 0
-	let defaultY = 0
-
 	return (
 		<>
 			<Container>
+				<span>
+					<MyMath>{"z=(a+b*i)^2"}</MyMath>
+				</span>
+				<span>
+					<MyMath>{"z_0=0"}</MyMath>
+				</span>
+				<span>
+					<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
+				</span>
+
 				<StyledCheckBox>
 					Picture
 					<input

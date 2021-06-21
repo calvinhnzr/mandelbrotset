@@ -12,6 +12,7 @@ const StyledCard = styled.section`
 	gap: 1rem;
 	row-gap: 2.25rem;
 	margin-bottom: 1.3rem;
+	position: relative;
 	&:first-of-type {
 		gap: 1rem;
 		background-color: #191a1b;

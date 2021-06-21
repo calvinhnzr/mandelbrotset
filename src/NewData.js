@@ -17,8 +17,9 @@ import Visual from "./templates/Visual"
 import Juliaset from "./templates/Juliaset"
 import RealUse from "./templates/RealUse"
 import Look from "./templates/Look"
-
 import Portrait from "./templates/Portrait"
+
+import Info from "./components/Info"
 
 const NewData = () => {
 	return (
@@ -38,6 +39,9 @@ const NewData = () => {
 			<Card>
 				<Headline value="Komplexe Zahlen" />
 				<ComplexNumbersIntro />
+				<Info>
+					<Headline value="Wieso betrachten wir komplexe Zahlen?" />
+				</Info>
 			</Card>
 			<Card>
 				<Headline value="Komplexe Zahlenebene" />

@@ -8,6 +8,7 @@ import { useThree } from "@react-three/fiber"
 import { useDrag } from "react-use-gesture"
 
 import Scene from "./Scene"
+import MyMath from "../math/MyMath"
 
 const StyledLock = styled.button`
 	width: 100%;
@@ -51,6 +52,7 @@ const Table = styled.table`
 	border-spacing: 1rem;
 	width: 100%;
 	table-layout: fixed;
+
 	tr {
 		white-space: nowrap;
 		th {
@@ -242,15 +244,21 @@ const DragableCircle = (props) => {
 					<thead>
 						<tr>
 							<th></th>
-							<th>x</th>
-							<th>y</th>
+							<th>
+								<MyMath>Re</MyMath>
+							</th>
+							<th>
+								<MyMath>Im</MyMath>
+							</th>
 							<th></th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td style={{ color: "coral" }}>z =</td>
+							<td style={{ color: "coral" }}>
+								<MyMath>z =</MyMath>
+							</td>
 							<td>
 								<Box>
 									{Math.floor(a.position[0] * 100) / 100}
@@ -261,7 +269,6 @@ const DragableCircle = (props) => {
 									{Math.floor(a.position[1] * 100) / 100}
 								</Box>
 							</td>
-
 							<td>
 								<StyledLock
 									className="reset"
@@ -282,7 +289,9 @@ const DragableCircle = (props) => {
 							</td>
 						</tr>
 						<tr>
-							<td style={{ color: "#437ef1" }}>c =</td>
+							<td style={{ color: "#437EF1" }}>
+								<MyMath>c =</MyMath>
+							</td>
 							<td>
 								<Box>
 									{Math.floor(c.position[0] * 100) / 100}
