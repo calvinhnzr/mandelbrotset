@@ -1,6 +1,4 @@
 import { useState } from "react"
-import { useSprings, animated, interpolate } from "react-spring"
-import { useGesture } from "react-use-gesture"
 import styled from "styled-components"
 
 import zoom1 from "../images/zoom/zoom-1.jpg"
