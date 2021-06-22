@@ -25,7 +25,7 @@ const NewData = () => {
 	return (
 		<>
 			<Card>
-				<Title value="Mandelbrotset" />
+				<Title value="Mandelbrotmenge" />
 				<SubTitle value="„Wenn Mathematik mal&nbsp;schön&nbsp;ist.“" />
 			</Card>
 			<Card>
@@ -39,9 +39,9 @@ const NewData = () => {
 			<Card>
 				<Headline value="Komplexe Zahlen" />
 				<ComplexNumbersIntro />
-				<Info>
+				{/* <Info>
 					<Headline value="Wieso betrachten wir komplexe Zahlen?" />
-				</Info>
+				</Info> */}
 			</Card>
 			<Card>
 				<Headline value="Komplexe Zahlenebene" />
@@ -71,7 +71,7 @@ const NewData = () => {
 				<Fractal />
 			</Card>
 			<Card>
-				<Headline value="Visualisierung und Implementierung (WIP)" />
+				{/* <Headline value="Visualisierung und Implementierung" /> */}
 				<Visual />
 			</Card>
 			<Card>

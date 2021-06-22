@@ -1,13 +1,18 @@
 import * as THREE from "three"
 import { useState, useRef } from "react"
+
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs"
+
 import styled from "styled-components"
-import { OrbitControls } from "@react-three/drei"
-import { Canvas, useThree } from "@react-three/fiber"
-import Scene from "../components/three/Scene"
+
+import { Canvas } from "@react-three/fiber"
 
 const Visual = () => {
-	const [mandelbrot, setMandelbrot] = useState(false)
+	const [mandelbrot, setMandelbrot] = useState(true)
 	const canvasRef = useRef(null)
+
+	let numberOfIteration = 17
 
 	function fragmentShader() {
 		return `
@@ -37,7 +42,8 @@ float mandelbrot(vec2 c){
   vec2 z_1;
   vec2 z_2;
 
-  for(int i=0; i < 200; i++){  // i < max iterations
+	// i < 200
+  for(int i=0; i < ${numberOfIteration}; i++){  // i < max iterations
     z_2 = z_1;
     z_1 = z_0;
     z_0 = z;
@@ -57,7 +63,8 @@ float mandelbrot(vec2 c){
     float z_0_mag = x_0_sq + y_0_sq;
     float z_1_mag = x_1_sq + y_1_sq;
 
-    if(z_0_mag > 12.0){
+		// if(z_0_mag > 12.0){
+    if(z_0_mag > 10.0){
       float frac = (12.0 - z_1_mag) / (z_0_mag - z_1_mag);
       alpha = (float(i) - 1.0 + frac)/200.0; // should be same as max iterations
       break;
@@ -71,9 +78,13 @@ void main(){ // gl_FragCoord in [0,1]
   vec2 uv = zoom * vec2(aspect, 1.0) * gl_FragCoord.xy / res + offset;
   float s = 1.0 - mandelbrot(uv);
 
+	if(s<0.3){
+    s=.666;
+  }
   
 	vec3 coord = vec3(s,s,s);
-  gl_FragColor = vec4(pow(coord, vec3(5.38, 6.15, 3.85)), 1.0);
+  //gl_FragColor = vec4(pow(coord, vec3(5.38, 6.15, 3.85)), 1.0);
+	gl_FragColor = vec4(pow(coord, vec3(5.1, 5.0, 4.87)), 1.0);
 	
 
 }
@@ -85,10 +96,10 @@ void main(){ // gl_FragCoord in [0,1]
 
 	// var aspect = canvasWidth / canvasHeight
 
-	var zoom = 3
-	// zoom = 0.2
-	// .3
-	var offset = new THREE.Vector2(-3.2 * aspect, -zoom)
+	// var zoom = 2.0
+	var zoom = 0.1
+	// var offset = new THREE.Vector2(-2.0 * aspect, -2.0)
+	var offset = new THREE.Vector2((-zoom - 0.2) * aspect, -zoom)
 
 	let parameters = {
 		a: 1.01,
@@ -126,7 +137,6 @@ void main(){ // gl_FragCoord in [0,1]
 	}
 
 	// window.addEventListener("resize", windowResize, false)
-	document.addEventListener("wheel", scroll)
 
 	// function windowResize() {
 	// 	//aspect intentionaly not updated
@@ -136,18 +146,26 @@ void main(){ // gl_FragCoord in [0,1]
 	// 	renderer.setSize(window.innerWidth, window.innerHeight - 2)
 	// }
 
+	// check if mouse is on card, useffect
+	document.addEventListener("wheel", scroll)
+
 	function scroll(event) {
 		let zoom_0 = zoom
 		if ("wheelDeltaY" in event) {
 			// chrome vs. firefox
+			//zoom *= 1 + event.wheelDeltaY * 0.0003
 			zoom *= 1 - event.wheelDeltaY * 0.0003
 		} else {
 			zoom *= 1 + event.deltaY * 0.01
 		}
 
 		let space = zoom - zoom_0
-		let mouseX = event.clientX / window.innerWidth
-		let mouseY = 1 - event.clientY / window.innerHeight
+
+		// let mouseX = event.clientX / window.innerWidth
+		// let mouseY = 1 - event.clientY / window.innerHeight
+
+		let mouseX = 1
+		let mouseY = 1
 		offset = offset.add(
 			new THREE.Vector2(-mouseX * space * aspect, -mouseY * space)
 		)
@@ -157,29 +175,40 @@ void main(){ // gl_FragCoord in [0,1]
 	}
 
 	const CanvasContainer = styled.div`
-		grid-row: 3 / 12;
-		grid-column: 4 / 12;
-
-		background-color: #191a1b;
-		border-radius: 0.5rem;
-		canvas {
-			/* opacity: 0.87; */
-		}
+		grid-row: 1 / 13;
+		grid-column: 1 / 13;
+		background-color: rgb(32, 33, 35);
+		/* border-radius: 0.5rem; */
 	`
 
 	const Container = styled.div`
-		grid-row-start: 3;
-		grid-column: 2 / 4;
+		grid-row: 1 / 13;
+		grid-column: 2 / 10;
 		/* outline: 1px solid white; */
 		display: flex;
 		flex-direction: column;
+		z-index: 100;
+		> pre {
+			background: none !important;
+			border: none !important;
+			opacity: 1;
+			&::before {
+				display: block;
+				content: "";
+				height: 9rem;
+			}
+		}
 	`
 
 	const StyledCheckBox = styled.label`
+		/* outline: 1px solid white; */
+		padding-top: 9rem;
+		grid-row: 1 / 4;
+		grid-column: 11 / 13;
 		display: flex;
 		align-items: center;
 		width: fit-content;
-
+		z-index: 200;
 		font-size: 1.2rem;
 		font-weight: 100;
 		/* text-decoration: underline; */
@@ -191,19 +220,106 @@ void main(){ // gl_FragCoord in [0,1]
 		}
 	`
 
+	const codeString = `<html>
+	<body>
+		<canvas id="myCanvas" width="800" height="800"></canvas>
+		<script>
+			var canvas = document.getElementById("myCanvas")
+			var context = canvas.getContext("2d")
+
+			//---//
+			// Durchlaufe alle Zeilen des zu zeichnenden Bildes
+			for (var pixelzeile = 0; pixelzeile < 200; pixelzeile++) {
+
+				// Durchlaufe alle Spalten der jeweiligen Zeile
+				for (var pixelspalte = 0; pixelspalte < 200; pixelspalte++) {
+
+					// Zähler für Iterationen für aktuelles Pixel
+					var iterationen = 0
+
+					// Berechnung der X-Verschiebung für bessere Darstellung
+					var xverschiebung = -2 + pixelzeile / 50
+
+					// Berechnung der Y-Verschiebung für bessere Darstellung
+					var yverschiebung = -2 + pixelspalte / 50
+
+					// Anlegen/Nullen der Variable für den Realteil des Punktes über den iteriert wird
+					var zx = 0
+
+					// Anlegen/Nullen der Variable für den Imaginärteilteil des Punktes über den iteriert wird
+					var zy = 0
+
+					// While-Schleife in der die tatsächliche Iterierung stattfindet. Bruchbedingungen sind maximal 255 Iterationen (aufgrund von Performance) oder das Überschreiten der Grenze 4 (siehe Beweis) durch Quadrierung des Betrags der jeweiligen Iteration
+					while (iterationen < 255 && zx * zx + zy * zy < 4) {
+
+						// Temporäre Variable in der Produkt aus Imaginär- und Realteil gespeichert wird
+						var xtemp = zx * zy
+
+						// Überschreiben des Realanteils durch Realanteil des Quadrats der komplexen Zahl, ausnutzen von (zx+zy)*(zx+zy)=zx^2-zy^2+2*zx*zy
+						zx = zx * zx - zy * zy + xverschiebung
+
+						// Überschreiben des Imaginäranteils durch Imaginäranteil des Quadrats der komplexen Zahl
+						zy = 2 * xtemp + yverschiebung
+
+						// Erhöhen des Iterationszählers
+						iterationen++
+					}
+
+					// Festlegen eines RGB-Werts für jeweiliges Pixel abhängig von Anzahl durchlaufender Iterationen
+					var color = iterationen.toString(16)
+
+					// Element für Pixel anlegen
+					context.beginPath()
+
+					// Entsprechenden Block füllen
+					context.rect(pixelzeile * 4, pixelspalte * 4, 4, 4)
+
+					// Farbe für Block festlegen
+					context.fillStyle = "#" + color + color + color
+
+					// Block zeichnen
+					context.fill()
+				}
+			}
+		</script>
+	</body>
+</html>`
+
 	return (
 		<>
+			<StyledCheckBox>
+				Render Mandelbrot
+				<input
+					type="checkbox"
+					checked={mandelbrot}
+					onChange={() => setMandelbrot(!mandelbrot)}
+				/>
+			</StyledCheckBox>
 			<Container>
-				<StyledCheckBox>
-					Render Mandelbrot
-					<input
-						type="checkbox"
-						checked={mandelbrot}
-						onChange={() => setMandelbrot(!mandelbrot)}
-					/>
-				</StyledCheckBox>
+				<SyntaxHighlighter
+					language="javascript"
+					style={tomorrowNight}
+					showLineNumbers
+					wrapLongLines
+					useInlineStyles={true}
+					customStyle={{
+						padding: "0 0 100% 1rem",
+						lineHeight: "1.6",
+						fontSize: "1.3rem",
+						color: "white",
+						fontFamily: "Roboto",
+						letterSpacing: "1px",
+						fontWeight: 400,
+						textShadow: "0px 0px 25px rgba(0, 0, 0, 0.6)",
+					}}>
+					{codeString}
+				</SyntaxHighlighter>
 			</Container>
-			<CanvasContainer ref={canvasRef}>
+			<CanvasContainer
+				ref={canvasRef}
+				style={
+					mandelbrot ? { display: "inherit" } : { display: "none" }
+				}>
 				<Canvas
 					gl={{
 						powerPreference: "high-performance",
@@ -217,15 +333,13 @@ void main(){ // gl_FragCoord in [0,1]
 						far: 1000,
 						position: [0, 0, 1],
 					}}>
-					{mandelbrot ? (
-						<mesh>
-							<planeBufferGeometry args={[5, 5]} />
-							<shaderMaterial
-								uniforms={uniforms}
-								fragmentShader={fragmentShader()}
-							/>
-						</mesh>
-					) : null}
+					<mesh>
+						<planeBufferGeometry args={[5, 5]} />
+						<shaderMaterial
+							uniforms={uniforms}
+							fragmentShader={fragmentShader()}
+						/>
+					</mesh>
 				</Canvas>
 			</CanvasContainer>
 		</>

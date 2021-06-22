@@ -138,7 +138,7 @@ const AValue = (props) => {
 		<Circle
 			args={[0.05, 64]}
 			position={[props.a.position[0], props.a.position[1], 0.01]}
-			scale={0.8}
+			// scale={0.8}
 			{...bindA()}>
 			<meshBasicMaterial attach="material" color="coral" />
 		</Circle>

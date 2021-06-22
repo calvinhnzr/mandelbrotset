@@ -8,3 +8,8 @@ body {
 	height: 100%;
 	position: relative;
 }
+
+/* hide scroll bar of code visual */
+::-webkit-scrollbar {
+	display: none;
+}

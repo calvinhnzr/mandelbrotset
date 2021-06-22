@@ -56,17 +56,19 @@ const Card = styled.div`
 	margin-top: 2.5rem;
 	background-color: #191a1b;
 	/* border: 4px solid #363738; */
-	z-index: 10;
+	z-index: 200;
 	box-shadow: 0px 8px 40px rgb(0 0 0 / 20%);
 	border-radius: 0.5rem;
 	grid-column: 2 / 12;
 	grid-row: 4 / 11;
 	&:hover {
-		cursor: pointer;
+		cursor: grab;
 	}
 `
 
 const ComplexNumbersIntro = () => {
+	const [cursor, setCursor] = useState(true)
+
 	const [cardPos, setCardPos] = useState({
 		x: 0,
 		y: 0,
@@ -84,7 +86,10 @@ const ComplexNumbersIntro = () => {
 			<Text>Schulmathematik sagt unlösbar, was sagt die Uni?</Text>
 			<Card
 				{...bindCard()}
+				onMouseDown={() => setCursor(false)}
+				onMouseUp={() => setCursor(true)}
 				style={{
+					cursor: cursor ? "grab" : "grabbing",
 					position: "absolute",
 					top: cardPos.y,
 					left: cardPos.x,

@@ -112,7 +112,7 @@ const Calculation = () => {
 				</HiddenContent>
 				<HiddenContent style={current === 6 ? shown : hidden}>
 					<MyMath>{"z=r*cos(\\varphi)+i*r*sin(\\varphi)"}</MyMath>
-					<MyMath>{"z=r*(cos(\\varphi)+i*r*sin(\\varphi))"}</MyMath>
+					<MyMath>{"z=r*(cos(\\varphi)+i*sin(\\varphi))"}</MyMath>
 					<MyMath>{"\\Rightarrow r*cis(\\varphi)"}</MyMath>
 				</HiddenContent>
 			</SubText>

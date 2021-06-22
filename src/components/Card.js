@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 const StyledCard = styled.section`
 	background-color: #202123;
+	background-color: rgb(32, 33, 35);
 	width: 100%;
 	/* 100vh unstable on mobile */
 	height: 780px;
@@ -13,6 +14,7 @@ const StyledCard = styled.section`
 	row-gap: 2.25rem;
 	margin-bottom: 1.3rem;
 	position: relative;
+
 	&:first-of-type {
 		gap: 1rem;
 		background-color: #191a1b;
