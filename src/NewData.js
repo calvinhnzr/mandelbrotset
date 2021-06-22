@@ -10,14 +10,15 @@ import OnNumberLine from "./templates/OnNumberLine"
 import ComplexNumbersIntro from "./templates/ComplexNumbersIntro"
 import Gauss from "./templates/Gauss"
 import Form from "./templates/Form"
-import Calculation from "./templates/Calculation"
+// import Calculation from "./templates/Calculation"
+import Portrait from "./templates/Portrait"
 import Mandelbrot from "./templates/Mandelbrot"
 import Fractal from "./templates/Fractal"
 import Visual from "./templates/Visual"
+import Zoom from "./templates/Zoom"
 import Juliaset from "./templates/Juliaset"
 import RealUse from "./templates/RealUse"
 import Look from "./templates/Look"
-import Portrait from "./templates/Portrait"
 
 import Info from "./components/Info"
 
@@ -51,10 +52,10 @@ const NewData = () => {
 				<Headline value="Form" />
 				<Form />
 			</Card>
-			<Card>
+			{/* <Card>
 				<Headline value="Umrechnung" />
 				<Calculation />
-			</Card>
+			</Card> */}
 			<Card>
 				<Portrait />
 			</Card>
@@ -62,10 +63,7 @@ const NewData = () => {
 				<Headline value="Mandelbrotmenge" />
 				<Mandelbrot />
 			</Card>
-			<Card>
-				<Headline value="Julia-Menge (WIP)" />
-				<Juliaset />
-			</Card>
+
 			<Card>
 				<Headline value="Was ist ein Fraktal?" />
 				<Fractal />
@@ -73,6 +71,14 @@ const NewData = () => {
 			<Card>
 				{/* <Headline value="Visualisierung und Implementierung" /> */}
 				<Visual />
+			</Card>
+			<Card>
+				<Headline value="Zoom" />
+				<Zoom />
+			</Card>
+			<Card>
+				<Headline value="Julia-Menge (WIP)" />
+				<Juliaset />
 			</Card>
 			<Card>
 				<Headline value="Realanwendungen" />

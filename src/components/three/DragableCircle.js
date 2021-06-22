@@ -104,9 +104,9 @@ const CValue = (props) => {
 	return (
 		<Circle
 			args={[0.05, 64]}
-			position={[props.c.position[0], props.c.position[1], 0.02]}
+			position={[props.c.position[0], props.c.position[1], 0.01]}
 			{...bindC()}>
-			<meshBasicMaterial attach="material" color="#437ef1" />
+			<meshBasicMaterial attach="material" color="coral" />
 		</Circle>
 	)
 }
@@ -137,10 +137,10 @@ const AValue = (props) => {
 	return (
 		<Circle
 			args={[0.05, 64]}
-			position={[props.a.position[0], props.a.position[1], 0.01]}
+			position={[props.a.position[0], props.a.position[1], 0.02]}
 			// scale={0.8}
 			{...bindA()}>
-			<meshBasicMaterial attach="material" color="coral" />
+			<meshBasicMaterial attach="material" color="#437ef1" />
 		</Circle>
 	)
 }
@@ -216,7 +216,7 @@ const DragableCircle = (props) => {
 
 				let iteration = 0
 				// iteration per pixel
-				const maxIteration = 100
+				const maxIteration = 200
 				while (iteration < maxIteration) {
 					let re = tempRe * tempRe - tempIm * tempIm
 					let im = 2 * (tempRe * tempIm)
@@ -326,7 +326,7 @@ const DragableCircle = (props) => {
 					</tbody>
 				</Table>
 			</Container>
-			<Scene control position={[0, 0, 4]}>
+			<Scene control position={[0, 0, 3.7]}>
 				{props.mandelbrot ? drawMandelbrot() : null}
 				{props.children}
 				{pixelArr.map((value, index) => (
@@ -357,7 +357,7 @@ const DragableCircle = (props) => {
 							<Circle
 								key={index}
 								args={[0.025, 64]}
-								position={[value[0], value[1], 0.01]}>
+								position={[value[0], value[1], 0.009]}>
 								<meshBasicMaterial
 									attach="material"
 									color="#65D677"

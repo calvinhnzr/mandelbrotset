@@ -129,7 +129,7 @@ const OnNumberLine = (props) => {
 						key={index}
 						position={[roundNumber(item), 0, 0]}
 						size={0.15}
-						color="red"
+						color="#65D677"
 					/>
 				))}
 			</Scene>

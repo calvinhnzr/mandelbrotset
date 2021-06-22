@@ -9,7 +9,7 @@ import styled from "styled-components"
 import { Canvas } from "@react-three/fiber"
 
 const Visual = () => {
-	const [mandelbrot, setMandelbrot] = useState(true)
+	const [mandelbrot, setMandelbrot] = useState(false)
 	const canvasRef = useRef(null)
 
 	let numberOfIteration = 17
@@ -195,19 +195,20 @@ void main(){ // gl_FragCoord in [0,1]
 			&::before {
 				display: block;
 				content: "";
-				height: 9rem;
+				height: 6rem;
 			}
 		}
 	`
 
 	const StyledCheckBox = styled.label`
 		/* outline: 1px solid white; */
-		padding-top: 9rem;
+		padding-top: 6rem;
 		grid-row: 1 / 4;
 		grid-column: 11 / 13;
 		display: flex;
 		align-items: center;
 		width: fit-content;
+		height: fit-content;
 		z-index: 200;
 		font-size: 1.2rem;
 		font-weight: 100;
@@ -220,17 +221,24 @@ void main(){ // gl_FragCoord in [0,1]
 		}
 	`
 
-	const codeString = `<html>
+	const codeString = `<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="keywords" content="mandelbrot, react, three" />
+		<meta name="author" content="Calvin Hinzer" />
+		<meta name="description" content="this took way too long" />
+		<title>Mandelbrotmenge</title>
+	</head>
 	<body>
 		<canvas id="myCanvas" width="800" height="800"></canvas>
 		<script>
 			var canvas = document.getElementById("myCanvas")
 			var context = canvas.getContext("2d")
 
-			//---//
 			// Durchlaufe alle Zeilen des zu zeichnenden Bildes
 			for (var pixelzeile = 0; pixelzeile < 200; pixelzeile++) {
-
 				// Durchlaufe alle Spalten der jeweiligen Zeile
 				for (var pixelspalte = 0; pixelspalte < 200; pixelspalte++) {
 

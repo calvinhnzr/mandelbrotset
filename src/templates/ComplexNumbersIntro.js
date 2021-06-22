@@ -6,18 +6,23 @@ import { useDrag } from "react-use-gesture"
 import MyMath from "../components/math/MyMath"
 
 const Text = styled.p`
+	/* outline: 1px solid white; */
+
 	grid-column: 2 / 12;
-	grid-row: 3 / 4;
+	grid-row: 3 / 5;
 	font-size: 1.4rem;
 	line-height: 1.2;
 	@media only screen and (min-width: 960px) {
 		font-size: 1.5rem;
+		div:first-of-type {
+			margin-bottom: 0.5rem;
+		}
 	}
 `
 
 const Container = styled.div`
 	grid-column: 2 / 12;
-	grid-row: 4 / 11;
+	grid-row: 5 / 11;
 
 	@media only screen and (min-width: 960px) {
 		width: fit-content;
@@ -50,10 +55,10 @@ const List = styled.ul`
 `
 
 const Card = styled.div`
-	height: 25rem;
-	width: 20rem;
-	margin-left: -2rem;
-	margin-top: 2.5rem;
+	height: 22rem;
+	width: 16rem;
+	margin-left: -2.5rem;
+	margin-top: 6.8rem;
 	background-color: #191a1b;
 	/* border: 4px solid #363738; */
 	z-index: 200;
@@ -83,7 +88,17 @@ const ComplexNumbersIntro = () => {
 
 	return (
 		<>
-			<Text>Schulmathematik sagt unlösbar, was sagt die Uni?</Text>
+			<Text>
+				<div>
+					Bsp. <MyMath>{"x_{1,2} = 1/2 \\pm \\sqrt{-3}"}</MyMath>{" "}
+				</div>
+				<div>
+					Schulmathematik sagt{" "}
+					<span style={{ color: "#ea5b89" }}>unlösbar!</span> Was sagt
+					die Uni?
+				</div>
+			</Text>
+
 			<Card
 				{...bindCard()}
 				onMouseDown={() => setCursor(false)}

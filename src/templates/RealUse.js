@@ -64,7 +64,10 @@ const RealUse = () => {
 				Verschlüsselung auf Basis von Diffie-Hellman mit Mandelbrot und
 				Julia-Menge
 			</li>
-			<li>Bessere Verschlüsselung mit der gleichen Leistung</li>
+			<li>
+				Bei der gleichen Schlüsselgröße mehr mögliche Variationen, wie
+				der Schlüssel aussieht im Vergleich zu Diffie-Hellman
+			</li>
 		</List>,
 	]
 

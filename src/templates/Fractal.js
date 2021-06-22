@@ -5,8 +5,10 @@ import Gallery from "../components/Gallery"
 import tree from "../images/fractals/tree.jpg"
 import cloud from "../images/fractals/cloud.jpg"
 import romanesco from "../images/fractals/romanesco.jpg"
+import sierpinskiTriangle from "../images/fractals/sierpinski-triangle.gif"
+import kochCurve from "../images/fractals/koch-curve.gif"
 
-const images = [tree, cloud, romanesco]
+const images = [tree, cloud, romanesco, sierpinskiTriangle, kochCurve]
 
 const List = styled.ul`
 	/* outline: 1px solid white; */
