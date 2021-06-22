@@ -14,7 +14,7 @@ const Container = styled.div`
 	/* margin-top: 2rem; */
 	grid-row: 4 / 11;
 	grid-column: 2 / 6;
-	/* outline: 1px solid white; */
+	outline: 1px solid white;
 	display: flex;
 	flex-direction: column;
 	> span {

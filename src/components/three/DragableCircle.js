@@ -40,28 +40,70 @@ const StyledLock = styled.button`
 		}
 	}
 `
+
 const Container = styled.div`
-	grid-row: 5 / 9;
+	grid-row: 3 / 11;
 	grid-column: 2 / 6;
 	/* outline: 1px solid white; */
 	display: flex;
 	flex-direction: column;
 	align-self: center;
-	margin-right: 2rem;
 `
-const Table = styled.table`
+
+const FormulaContainer = styled.div`
+	/* outline: 1px solid red; */
+	margin-bottom: 4rem;
+	width: 100%;
+	height: 100%;
+	/* flex-direction: column; */
+	/* justify-content: flex-end; */
+	position: relative;
+`
+
+const Button = styled.button`
+	position: absolute;
+	opacity: 0;
+	z-index: 10;
+	height: 100%;
+	width: 50%;
+	cursor: pointer;
+	&:last-of-type {
+		right: 0 !important;
+	}
+`
+
+const HiddenContent = styled.div`
+	/* float: right; */
+	/* margin: 0 auto; */
+	/* margin-left: 5.5rem; */
+	width: fit-content;
 	/* outline: 1px solid white; */
+	& > span {
+		color: white;
+		font-size: 1.1rem;
+		margin: 0.5rem 0;
+	}
+	@media only screen and (min-width: 960px) {
+		/* font-size: 3.5rem; */
+		& > span {
+			font-size: 3.5rem !important;
+		}
+	}
+`
+
+const Table = styled.table`
+	/* outline: 1px solid green; */
 	border-spacing: 1rem;
 	width: 100%;
 	table-layout: fixed;
-
+	margin-left: -1rem;
 	tr {
 		white-space: nowrap;
 		th {
 			text-align: center;
 		}
 		td:first-of-type {
-			text-align: right;
+			/* text-align: right; */
 		}
 		th,
 		td {
@@ -146,6 +188,13 @@ const AValue = (props) => {
 }
 
 const DragableCircle = (props) => {
+	const [currentFormula, setCurrentFormula] = useState(0)
+	const shown = { opacity: "1", height: "auto" }
+	const hidden = { opacity: "0", height: 0 }
+
+	const increment = () => (!(currentFormula >= 3 - 1) ? 1 : 0)
+	const decrement = () => (!(currentFormula <= 0) ? 1 : 0)
+
 	const [lockA, setLockA] = useState(true)
 	const [lockC, setLockC] = useState(false)
 
@@ -242,6 +291,32 @@ const DragableCircle = (props) => {
 	return (
 		<>
 			<Container>
+				<FormulaContainer>
+					<Button
+						onClick={() =>
+							setCurrentFormula(currentFormula - decrement())
+						}
+					/>
+					<Button
+						onClick={() =>
+							setCurrentFormula(currentFormula + increment())
+						}
+					/>
+					<HiddenContent
+						style={currentFormula === 0 ? shown : hidden}>
+						<MyMath>{"z=(a+b*i)^2"}</MyMath>
+					</HiddenContent>
+					<HiddenContent
+						style={currentFormula === 1 ? shown : hidden}>
+						<MyMath>{"z_0=z^2 + c"}</MyMath>
+					</HiddenContent>
+					<HiddenContent
+						style={currentFormula === 2 ? shown : hidden}>
+						<MyMath>{"z_0=0"}</MyMath>
+						<br />
+						<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
+					</HiddenContent>
+				</FormulaContainer>
 				<Table>
 					<thead>
 						<tr>
