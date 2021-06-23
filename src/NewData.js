@@ -22,7 +22,7 @@ import Look from "./templates/Look"
 
 import Info from "./components/Info"
 
-const NewData = () => {
+const NewData = (props) => {
 	return (
 		<>
 			<Card>
@@ -63,18 +63,17 @@ const NewData = () => {
 				<Headline value="Mandelbrotmenge" />
 				<Mandelbrot />
 			</Card>
-
 			<Card>
 				<Headline value="Was ist ein Fraktal?" />
 				<Fractal />
 			</Card>
 			<Card>
 				{/* <Headline value="Visualisierung und Implementierung" /> */}
-				<Visual />
+				<Visual current={props.current} />
 			</Card>
 			<Card>
 				<Headline value="Eine Reise in die Mandelbrotmenge" />
-				<Zoom />
+				<Zoom current={props.current} />
 			</Card>
 			<Card>
 				<Headline value="Julia-Menge" />

@@ -22,17 +22,17 @@ import zoom16 from "../images/zoom/zoom-16.jpg"
 import normal from "../images/zoom/zoom-normal.jpg"
 
 const cards = [
-	zoom16,
-	zoom15,
-	zoom14,
-	zoom13,
-	zoom12,
-	zoom11,
-	zoom10,
-	zoom9,
-	zoom8,
-	zoom7,
-	zoom6,
+	// zoom16,
+	// zoom15,
+	// zoom14,
+	// zoom13,
+	// zoom12,
+	// zoom11,
+	// zoom10,
+	// zoom9,
+	// zoom8,
+	// zoom7,
+	// zoom6,
 	zoom5,
 	zoom4,
 	zoom3,
@@ -105,7 +105,7 @@ const StyledContainer = styled.div`
 	}
 `
 
-const Zoom = () => {
+const Zoom = (props) => {
 	// These two are just helpers, they curate spring data, values that are later being interpolated into css
 	const to = (i) => ({
 		x: 0,
@@ -124,6 +124,7 @@ const Zoom = () => {
 	function Deck() {
 		const [cursor, setCursor] = useState(true)
 		const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
+
 		const [props, set] = useSprings(cards.length, (i) => ({
 			...to(i),
 			from: from(i),
@@ -179,14 +180,18 @@ const Zoom = () => {
 					}}>
 					<img src={cards[i]} />
 					<p>
-						{17 - i}. <span>25. Juni 2021</span>
+						{cards.length - i}. <span>25. Juni 2021</span>
 					</p>
 				</animated.div>
 			</animated.div>
 		))
 	}
 
-	return <StyledContainer>{/* <Deck /> */}</StyledContainer>
+	return (
+		<StyledContainer>
+			<Deck />
+		</StyledContainer>
+	)
 }
 
 export default Zoom

@@ -4,9 +4,9 @@ import Gallery from "../components/Gallery"
 
 import fraktalantennen from "../images/realuse/fraktalantennen.jpg"
 import imageCompression from "../images/realuse/lenna.jpg"
-import keyExchange from "../images/realuse/key-exchange.jpg"
+import keyExchange from "../images/realuse/key-exchange-w.png"
 
-const images = [fraktalantennen, imageCompression, keyExchange]
+const images = [keyExchange, imageCompression, fraktalantennen]
 
 const List = styled.ul`
 	/* outline: 1px solid white; */
@@ -47,18 +47,6 @@ const RealUse = () => {
 
 	const content = [
 		<List>
-			<h5>Fraktalantenne</h5>
-			<li>fraktale Strukturen</li>
-			<li>breitbandige Sende- und Empfangsqualität</li>
-			<li>für Bluetooth, WLAN, GSM, GPS</li>
-		</List>,
-		<List>
-			<h5>Bildkompression</h5>
-			<li>Wiederkehrende Strukturen</li>
-			<li>Itertiertes Funktionensystem</li>
-			<li>Rekonstruktion des Originalbildes</li>
-		</List>,
-		<List>
 			<h5>Mandelbrot- und Julia-Menge Schlüsseltausch</h5>
 			<li>
 				Verschlüsselung auf Basis von Diffie-Hellman mit Mandelbrot und
@@ -68,6 +56,18 @@ const RealUse = () => {
 				Bei der gleichen Schlüsselgröße mehr mögliche Variationen, wie
 				der Schlüssel aussieht im Vergleich zu Diffie-Hellman
 			</li>
+		</List>,
+		<List>
+			<h5>Bildkompression</h5>
+			<li>Wiederkehrende Strukturen</li>
+			<li>Itertiertes Funktionensystem</li>
+			<li>Rekonstruktion des Originalbildes</li>
+		</List>,
+		<List>
+			<h5>Fraktalantenne</h5>
+			<li>fraktale Strukturen</li>
+			<li>breitbandige Sende- und Empfangsqualität</li>
+			<li>für Bluetooth, WLAN, GSM, GPS</li>
 		</List>,
 	]
 

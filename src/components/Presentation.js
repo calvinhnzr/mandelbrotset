@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { Context } from "../Context"
 import styled from "styled-components"
+import NewData from "../NewData"
 
 const StyledPresentation = styled.div`
 	height: 100%;
