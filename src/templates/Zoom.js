@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useDrag } from "react-use-gesture"
+import { useSprings, animated, to as interpolate } from "react-spring"
 import styled from "styled-components"
 
 import zoom1 from "../images/zoom/zoom-1.jpg"
@@ -21,156 +22,171 @@ import zoom16 from "../images/zoom/zoom-16.jpg"
 import normal from "../images/zoom/zoom-normal.jpg"
 
 const cards = [
-	// zoom1,
-	// zoom2,
-	// zoom3,
-	// zoom4,
-	// zoom5,
-	// zoom6,
-	// zoom7,
-	// zoom8,
-	// zoom9,
-	// zoom10,
-	// zoom11,
-	// zoom12,
-	// zoom13,
-	// zoom14,
-	// zoom15,
-	// zoom16,
+	zoom16,
+	zoom15,
+	zoom14,
+	zoom13,
+	zoom12,
+	zoom11,
+	zoom10,
+	zoom9,
+	zoom8,
+	zoom7,
+	zoom6,
+	zoom5,
+	zoom4,
+	zoom3,
+	zoom2,
+	zoom1,
 	normal,
 ]
 
-const StyledDeck = styled.div`
-	outline: 1px solid green;
-	width: fit-content;
-	position: relative;
-	will-change: transform;
-	width: 40rem;
-	height: 100%;
-	margin: 0 auto;
-`
-
-const Deck = (props) => {
-	return <StyledDeck>{props.children}</StyledDeck>
-}
-
-const Card = (props) => {
-	return <StyledCard>{props.children}</StyledCard>
-}
-
 const StyledContainer = styled.div`
-	outline: 1px solid red;
+	grid-row: 1 / 13;
 	grid-column: 1 / 13;
-	grid-row: 2 / 12;
-`
-
-const StyledCard = styled.div`
-	z-index: 200;
-	background-color: white;
-	border-radius: 0.3rem;
-	width: 40rem;
-	height: 30rem;
-	margin: auto;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-
-	will-change: transform;
-	transform: translate3d(0px, -20px, 0px);
-	&:hover {
-		cursor: grab;
-	}
-	> img {
-		object-fit: cover;
-		padding: 1rem 1rem 3rem;
-		width: 100%;
-		height: 100%;
-	}
+	position: relative;
+	overflow: hidden;
 	> div {
-		display: none;
-		height: 1rem;
-		padding: 1rem;
-		background-color: white;
-		p {
-			color: #333;
+		/* outline: 1px solid white; */
+		position: absolute;
+		will-change: transform;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		touch-action: none;
+		margin: auto;
+		left: 0;
+		right: 0;
+		bottom: 5rem;
+		/* card */
+		width: fit-content;
+		/* padding: 1rem; */
+		> div {
+			background-color: #fdf7ea;
+			/* background-color: #191a1b; */
+			padding: 0.7rem;
+			padding-bottom: 3rem;
+			background-size: 100%;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			width: 38rem;
+			height: 30rem;
+			will-change: transform;
+			box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+				0 10px 10px -10px rgba(50, 50, 73, 0.3);
+			box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.1),
+				0 10px 10px -10px rgba(50, 50, 73, 0.1);
+			box-shadow: none;
+			box-shadow: 0px 8px 30px rgb(0 0 0 / 30%);
+			img {
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				user-drag: none;
+				user-select: none;
+				-moz-user-select: none;
+				-webkit-user-drag: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+			}
+			p {
+				line-height: 1.8;
+				color: #333;
+				/* color: white; */
+				/* opacity: 0.5; */
+				position: relative;
+				span {
+					position: absolute;
+					right: 0;
+				}
+			}
 		}
 	}
 `
 
-const MyCard = styled.div`
-	width: 40rem;
-	height: 30rem;
-	margin-left: -2.5rem;
-	margin-top: 7rem;
-	background-color: #fff5e0;
-	/* border: 4px solid #363738; */
-	will-change: transform;
-	transform: perspective(1500px) rotateX(30deg) rotateY(-0.195659deg)
-		rotateZ(-1.95659deg) scale(1);
-	z-index: 200;
-	box-shadow: 0px 8px 40px rgb(0 0 0 / 20%);
-	border-radius: 0.5rem;
-	grid-column: 2 / 12;
-	grid-row: 4 / 11;
-	&:hover {
-		cursor: grab;
-	}
-`
-
 const Zoom = () => {
-	const [cursor, setCursor] = useState(true)
-
-	const [cardPos, setCardPos] = useState({
+	// These two are just helpers, they curate spring data, values that are later being interpolated into css
+	const to = (i) => ({
 		x: 0,
-		y: 0,
+		y: i * -4,
+		scale: 1,
+		rot: -10 + Math.random() * 20,
+		delay: i * 100,
 	})
+	const from = (i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 })
+	// This is being used down there in the view, it interpolates rotation and scale into a css transform
+	const trans = (r, s) =>
+		`perspective(1500px) rotateX(30deg) rotateY(${
+			r / 10
+		}deg) rotateZ(${r}deg) scale(${s})`
 
-	const bindCard = useDrag((params) => {
-		setCardPos({
-			x: params.offset[0],
-			y: params.offset[1],
-		})
-	})
-
-	return (
-		<>
-			<StyledContainer>
-				<Deck>
-					<MyCard
-						{...bindCard()}
-						onMouseDown={() => setCursor(false)}
-						onMouseUp={() => setCursor(true)}
-						style={{
-							cursor: cursor ? "grab" : "grabbing",
-							position: "absolute",
-							top: cardPos.y,
-							left: cardPos.x,
-						}}
-					/>
-
-					{/* {cards.map((value, index) => {
-						return (
-				<Card
-					{...bindCard()}
+	function Deck() {
+		const [cursor, setCursor] = useState(true)
+		const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
+		const [props, set] = useSprings(cards.length, (i) => ({
+			...to(i),
+			from: from(i),
+		})) // Create a bunch of springs using the helpers above
+		// Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
+		const bind = useDrag(
+			({
+				args: [index],
+				down,
+				movement: [mx],
+				direction: [xDir],
+				velocity,
+			}) => {
+				const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out
+				const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
+				if (!down && trigger) gone.add(index) // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
+				set((i) => {
+					if (index !== i) return // We're only interested in changing spring-data for the current spring
+					const isGone = gone.has(index)
+					const x = isGone
+						? (200 + window.innerWidth) * dir
+						: down
+						? mx
+						: 0 // When a card is gone it flys out left or right, otherwise goes back to zero
+					const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0) // How much the card tilts, flicking it harder makes it rotate faster
+					const scale = down ? 1.1 : 1 // Active cards lift up a bit
+					return {
+						x,
+						rot,
+						scale,
+						delay: undefined,
+						config: {
+							friction: 50,
+							tension: down ? 800 : isGone ? 200 : 500,
+						},
+					}
+				})
+				if (!down && gone.size === cards.length)
+					setTimeout(() => gone.clear() || set((i) => to(i)), 600)
+			}
+		)
+		// Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
+		return props.map(({ x, y, rot, scale }, i) => (
+			<animated.div key={i} style={{ x, y }}>
+				{/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
+				<animated.div
+					{...bind(i)}
 					onMouseDown={() => setCursor(false)}
 					onMouseUp={() => setCursor(true)}
 					style={{
+						transform: interpolate([rot, scale], trans),
 						cursor: cursor ? "grab" : "grabbing",
-						position: "absolute",
-						top: cardPos.y,
-						left: cardPos.x,
 					}}>
-					<img src={value} />
-					<div>
-						<p>Mandelbrot 12. Juni 2021</p>
-					</div>
-				</Card>
-				)
-					})} */}
-				</Deck>
-			</StyledContainer>
-		</>
-	)
+					<img src={cards[i]} />
+					<p>
+						{17 - i}. <span>25. Juni 2021</span>
+					</p>
+				</animated.div>
+			</animated.div>
+		))
+	}
+
+	return <StyledContainer>{/* <Deck /> */}</StyledContainer>
 }
 
 export default Zoom

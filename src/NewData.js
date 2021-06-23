@@ -73,7 +73,7 @@ const NewData = () => {
 				<Visual />
 			</Card>
 			<Card>
-				{/* <Headline value="Eine Reise in die Mandelbrotmenge" /> */}
+				<Headline value="Eine Reise in die Mandelbrotmenge" />
 				<Zoom />
 			</Card>
 			<Card>
