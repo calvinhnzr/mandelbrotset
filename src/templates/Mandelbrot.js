@@ -30,6 +30,9 @@ const StyledCheckBox = styled.label`
 	flex-direction: row-reverse;
 	color: #363738;
 	cursor: pointer;
+	:last-of-type {
+		display: none;
+	}
 	input {
 		display: none;
 	}
@@ -69,14 +72,14 @@ const Mandelbrot = () => {
 						onChange={() => setImage(!image)}
 					/>
 				</StyledCheckBox>
-				{/* <StyledCheckBox>
+				<StyledCheckBox>
 					Mandelbrot
 					<input
 						type="checkbox"
 						checked={mandelbrot}
 						onChange={() => setMandelbrot(!mandelbrot)}
 					/>
-				</StyledCheckBox> */}
+				</StyledCheckBox>
 			</Container>
 			<DragableCircle mandelbrot={mandelbrot}>
 				{image ? <Image url={mandelbrotset} /> : null}

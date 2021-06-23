@@ -15,7 +15,7 @@ const Text = styled.p`
 	@media only screen and (min-width: 960px) {
 		font-size: 1.5rem;
 		div:first-of-type {
-			margin-bottom: 0.5rem;
+			margin-bottom: 1rem;
 		}
 	}
 `
@@ -56,9 +56,9 @@ const List = styled.ul`
 
 const Card = styled.div`
 	height: 22rem;
-	width: 16rem;
+	width: 18rem;
 	margin-left: -2.5rem;
-	margin-top: 6.8rem;
+	margin-top: 7rem;
 	background-color: #191a1b;
 	/* border: 4px solid #363738; */
 	z-index: 200;
