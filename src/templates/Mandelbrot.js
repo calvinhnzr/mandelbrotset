@@ -11,35 +11,27 @@ import MyMath from "../components/math/MyMath"
 import mandelbrotset from "../images/mandelbrotset.png"
 
 const Container = styled.div`
-	/* margin-top: 2rem; */
-	grid-row: 4 / 11;
-	grid-column: 2 / 6;
-	outline: 1px solid white;
-	display: flex;
-	flex-direction: column;
-	> span {
-		font-size: 2rem;
-		color: white;
-		margin-bottom: 1rem;
-	}
+	z-index: 100;
+	grid-row: 10 / 11;
+	grid-column: 6 / 7;
+	position: relative;
 `
 
 const StyledCheckBox = styled.label`
+	position: absolute;
+	left: 1.3rem;
+	bottom: 1.2rem;
 	display: flex;
 	align-items: center;
 	width: fit-content;
-	margin-top: 1rem;
 	font-size: 1.2rem;
-	font-weight: 100;
-	/* text-decoration: underline; */
-	&:first-of-type {
-		margin-top: 2.5rem;
-	}
+	letter-spacing: 1px;
+	font-weight: 400;
+	flex-direction: row-reverse;
+	color: #363738;
 	cursor: pointer;
 	input {
-		margin-left: 1rem;
-		height: 1.5rem;
-		width: 1.5rem;
+		display: none;
 	}
 `
 
@@ -68,17 +60,7 @@ const Mandelbrot = () => {
 
 	return (
 		<>
-			{/* <Container>
-				<span>
-					<MyMath>{"z=(a+b*i)^2"}</MyMath>
-				</span>
-				<span>
-					<MyMath>{"z_0=0"}</MyMath>
-				</span>
-				<span>
-					<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
-				</span>
-
+			<Container>
 				<StyledCheckBox>
 					Picture
 					<input
@@ -87,15 +69,15 @@ const Mandelbrot = () => {
 						onChange={() => setImage(!image)}
 					/>
 				</StyledCheckBox>
-				<StyledCheckBox>
+				{/* <StyledCheckBox>
 					Mandelbrot
 					<input
 						type="checkbox"
 						checked={mandelbrot}
 						onChange={() => setMandelbrot(!mandelbrot)}
 					/>
-				</StyledCheckBox>
-			</Container> */}
+				</StyledCheckBox> */}
+			</Container>
 			<DragableCircle mandelbrot={mandelbrot}>
 				{image ? <Image url={mandelbrotset} /> : null}
 				<Axis />

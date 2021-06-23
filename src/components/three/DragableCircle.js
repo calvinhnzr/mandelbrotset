@@ -48,11 +48,13 @@ const StyledCheckBox = styled.label`
 	align-items: center;
 	width: fit-content;
 	margin-top: 1rem;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	font-weight: 400;
-	color: white;
-	text-decoration: underline;
+	letter-spacing: 1px;
+	color: #424242;
+
 	cursor: pointer;
+
 	input {
 		display: none;
 	}
@@ -100,6 +102,7 @@ const HiddenContent = styled.div`
 	/* margin-left: 5.5rem; */
 	width: fit-content;
 	/* outline: 1px solid white; */
+	pointer-events: none;
 	& > span {
 		color: white;
 		font-size: 1.1rem;
@@ -344,7 +347,7 @@ const DragableCircle = (props) => {
 				</FormulaContainer>
 				<StyledCheckBox>
 					Controls
-					{showControls ? <FiChevronDown /> : <FiChevronUp />}
+					{showControls ? <FiChevronUp /> : <FiChevronDown />}
 					<input
 						type="checkbox"
 						checked={showControls}
@@ -356,10 +359,18 @@ const DragableCircle = (props) => {
 						<thead>
 							<tr>
 								<th></th>
-								<th>
+								<th
+									style={{
+										color: "white",
+										pointerEvents: "none",
+									}}>
 									<MyMath>Re</MyMath>
 								</th>
-								<th>
+								<th
+									style={{
+										color: "white",
+										pointerEvents: "none",
+									}}>
 									<MyMath>Im</MyMath>
 								</th>
 								<th></th>
@@ -368,7 +379,11 @@ const DragableCircle = (props) => {
 						</thead>
 						<tbody>
 							<tr>
-								<td style={{ color: "white" }}>
+								<td
+									style={{
+										color: "white",
+										pointerEvents: "none",
+									}}>
 									<MyMath>z =</MyMath>
 								</td>
 								<td>
@@ -402,7 +417,11 @@ const DragableCircle = (props) => {
 								</td>
 							</tr>
 							<tr>
-								<td style={{ color: "white" }}>
+								<td
+									style={{
+										color: "white",
+										pointerEvents: "none",
+									}}>
 									<MyMath>c =</MyMath>
 								</td>
 								<td>
