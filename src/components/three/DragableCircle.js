@@ -2,6 +2,7 @@ import { useState } from "react"
 import styled from "styled-components"
 
 import { FaLock, FaLockOpen } from "react-icons/fa"
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
 import { Circle, Line } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
@@ -41,6 +42,27 @@ const StyledLock = styled.button`
 	}
 `
 
+const StyledCheckBox = styled.label`
+	z-index: 200;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	margin-top: 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	color: white;
+	text-decoration: underline;
+	cursor: pointer;
+	input {
+		display: none;
+	}
+	svg {
+		margin-left: 0.5rem;
+		height: 2rem;
+		width: 1.8rem;
+	}
+`
+
 const Container = styled.div`
 	grid-row: 3 / 11;
 	grid-column: 2 / 6;
@@ -52,7 +74,7 @@ const Container = styled.div`
 
 const FormulaContainer = styled.div`
 	/* outline: 1px solid red; */
-	margin-bottom: 4rem;
+	/* margin-bottom: 4rem; */
 	width: 100%;
 	height: 100%;
 	/* flex-direction: column; */
@@ -93,6 +115,7 @@ const HiddenContent = styled.div`
 
 const Table = styled.table`
 	/* outline: 1px solid green; */
+	margin-top: 3rem;
 	border-spacing: 1rem;
 	width: 100%;
 	table-layout: fixed;
@@ -191,6 +214,8 @@ const DragableCircle = (props) => {
 	const [currentFormula, setCurrentFormula] = useState(0)
 	const shown = { opacity: "1", height: "auto" }
 	const hidden = { opacity: "0", height: 0 }
+
+	const [showControls, setShowControls] = useState(false)
 
 	const increment = () => (!(currentFormula >= 3 - 1) ? 1 : 0)
 	const decrement = () => (!(currentFormula <= 0) ? 1 : 0)
@@ -317,89 +342,102 @@ const DragableCircle = (props) => {
 						<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
 					</HiddenContent>
 				</FormulaContainer>
-				<Table>
-					<thead>
-						<tr>
-							<th></th>
-							<th>
-								<MyMath>Re</MyMath>
-							</th>
-							<th>
-								<MyMath>Im</MyMath>
-							</th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td style={{ color: "white" }}>
-								<MyMath>z =</MyMath>
-							</td>
-							<td>
-								<Box>
-									{Math.floor(a.position[0] * 100) / 100}
-								</Box>
-							</td>
-							<td>
-								<Box>
-									{Math.floor(a.position[1] * 100) / 100}
-								</Box>
-							</td>
-							<td>
-								<StyledLock
-									className="reset"
-									onClick={() =>
-										setA({ position: [0, 0, 0] })
-									}>
-									R
-								</StyledLock>
-							</td>
-							<td>
-								<StyledLock onClick={() => setLockA(!lockA)}>
-									{lockA ? (
-										<FaLockOpen color="#65D677" />
-									) : (
-										<FaLock />
-									)}
-								</StyledLock>
-							</td>
-						</tr>
-						<tr>
-							<td style={{ color: "white" }}>
-								<MyMath>c =</MyMath>
-							</td>
-							<td>
-								<Box>
-									{Math.floor(c.position[0] * 100) / 100}
-								</Box>
-							</td>
-							<td>
-								<Box>
-									{Math.floor(c.position[1] * 100) / 100}
-								</Box>
-							</td>
-							<td>
-								<StyledLock
-									className="reset"
-									onClick={() =>
-										setC({ position: [0, 0, 0] })
-									}>
-									R
-								</StyledLock>
-							</td>
-							<td>
-								<StyledLock onClick={() => setLockC(!lockC)}>
-									{lockC ? (
-										<FaLockOpen color="#65D677" />
-									) : (
-										<FaLock />
-									)}
-								</StyledLock>
-							</td>
-						</tr>
-					</tbody>
-				</Table>
+				<StyledCheckBox>
+					Controls
+					{showControls ? <FiChevronDown /> : <FiChevronUp />}
+					<input
+						type="checkbox"
+						checked={showControls}
+						onChange={() => setShowControls(!showControls)}
+					/>
+				</StyledCheckBox>
+				{showControls ? (
+					<Table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>
+									<MyMath>Re</MyMath>
+								</th>
+								<th>
+									<MyMath>Im</MyMath>
+								</th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style={{ color: "white" }}>
+									<MyMath>z =</MyMath>
+								</td>
+								<td>
+									<Box>
+										{Math.floor(a.position[0] * 100) / 100}
+									</Box>
+								</td>
+								<td>
+									<Box>
+										{Math.floor(a.position[1] * 100) / 100}
+									</Box>
+								</td>
+								<td>
+									<StyledLock
+										className="reset"
+										onClick={() =>
+											setA({ position: [0, 0, 0] })
+										}>
+										R
+									</StyledLock>
+								</td>
+								<td>
+									<StyledLock
+										onClick={() => setLockA(!lockA)}>
+										{lockA ? (
+											<FaLockOpen color="#65D677" />
+										) : (
+											<FaLock />
+										)}
+									</StyledLock>
+								</td>
+							</tr>
+							<tr>
+								<td style={{ color: "white" }}>
+									<MyMath>c =</MyMath>
+								</td>
+								<td>
+									<Box>
+										{Math.floor(c.position[0] * 100) / 100}
+									</Box>
+								</td>
+								<td>
+									<Box>
+										{Math.floor(c.position[1] * 100) / 100}
+									</Box>
+								</td>
+								<td>
+									<StyledLock
+										className="reset"
+										onClick={() =>
+											setC({ position: [0, 0, 0] })
+										}>
+										R
+									</StyledLock>
+								</td>
+								<td>
+									<StyledLock
+										onClick={() => setLockC(!lockC)}>
+										{lockC ? (
+											<FaLockOpen color="#65D677" />
+										) : (
+											<FaLock />
+										)}
+									</StyledLock>
+								</td>
+							</tr>
+						</tbody>
+					</Table>
+				) : null}
 			</Container>
 			<Scene control position={[0, 0, 3.7]}>
 				{props.mandelbrot ? drawMandelbrot() : null}
