@@ -34,7 +34,7 @@ const newCard = [
 	},
 	{
 		src: zoom14,
-		description: "",
+		description: "Gemeine Julia-Menge",
 		date: "21. Juni 2021",
 	},
 	{
@@ -70,7 +70,7 @@ const newCard = [
 	},
 	{
 		src: zoom7,
-		description: "",
+		description: "Déjà-vu",
 		date: "19. Mai 2021",
 	},
 	{
@@ -154,7 +154,6 @@ const StyledContainer = styled.div`
 				width: 100%;
 				height: 100%;
 				pointer-events: none;
-				user-drag: none;
 				user-select: none;
 				-moz-user-select: none;
 				-webkit-user-drag: none;
