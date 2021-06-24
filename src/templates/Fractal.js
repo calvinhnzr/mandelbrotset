@@ -78,8 +78,8 @@ const Fractal = () => {
 				<List>
 					<h5>Genauer erklärt</h5>
 					<li>“Ausgedehnte Objekte”</li>
-					<li>gebrochene räumliche Dimension</li>
-					<li>auch “fraktale Dimension” genannt</li>
+					<li>Gebrochene räumliche Dimension</li>
+					<li>Auch “fraktale Dimension” genannt</li>
 				</List>
 			</Container>
 		</>
