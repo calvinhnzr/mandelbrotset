@@ -21,24 +21,95 @@ import zoom15 from "../images/zoom/zoom-15.jpg"
 import zoom16 from "../images/zoom/zoom-16.jpg"
 import normal from "../images/zoom/zoom-normal.jpg"
 
-const cards = [
-	zoom16,
-	zoom15,
-	zoom14,
-	zoom13,
-	zoom12,
-	zoom11,
-	zoom10,
-	zoom9,
-	zoom8,
-	zoom7,
-	zoom6,
-	zoom5,
-	zoom4,
-	zoom3,
-	zoom2,
-	zoom1,
-	normal,
+const newCard = [
+	{
+		src: zoom16,
+		description: "Details einer Spirale.",
+		date: "25. Juni 2021",
+	},
+	{
+		src: zoom15,
+		description: "Details einer Insel.",
+		date: "24. Juni 2021",
+	},
+	{
+		src: zoom14,
+		description: "",
+		date: "21. Juni 2021",
+	},
+	{
+		src: zoom13,
+		description: "Teil des „Doppelhakens“",
+		date: "18. Juni 2021",
+	},
+	{
+		src: zoom12,
+		description: "Happy Birthday!",
+		date: "12. Juni 2021",
+	},
+	{
+		src: zoom11,
+		description: "",
+		date: "8. Juni 2021",
+	},
+	{
+		src: zoom10,
+		description: "",
+		date: "1. Juni 2021",
+	},
+	{
+		src: zoom9,
+		description:
+			"„Tal der Seepferdchen“ des Satelliten. Es zeigen sich die gleichen Strukturelemente wie in Ausschnitt 2.",
+		date: "28. Mai 2021",
+	},
+	{
+		src: zoom8,
+		description: "„Antenne“ des Satelliten",
+		date: "21. Mai 2021",
+	},
+	{
+		src: zoom7,
+		description: "",
+		date: "19. Mai 2021",
+	},
+	{
+		src: zoom6,
+		description: "",
+		date: "13. Mai 2021",
+	},
+	{
+		src: zoom5,
+		description: "",
+		date: "9. April 2021",
+	},
+	{
+		src: zoom4,
+		description:
+			"Der „Seepferdchenschwanz“ endet im sogenannten Misiurewicz-Punkt.",
+		date: "1. Mai 2021",
+	},
+	{
+		src: zoom3,
+		description: "",
+		date: "30. April 2021",
+	},
+	{
+		src: zoom2,
+		description: "Links Doppelspiralen, rechts „Seepferdchen“.",
+		date: "27. April 2021",
+	},
+	{
+		src: zoom1,
+		description:
+			"Spalte zwischen „Kopf“ und „Körper“, „Tal der Seepferdchen“ genannt.",
+		date: "23. April 2021",
+	},
+	{
+		src: normal,
+		description: "Mandelbrot-Menge",
+		date: "12. April 2021",
+	},
 ]
 
 const StyledContainer = styled.div`
@@ -65,7 +136,7 @@ const StyledContainer = styled.div`
 			background-color: #fdf7ea;
 			/* background-color: #191a1b; */
 			padding: 0.7rem;
-			padding-bottom: 3rem;
+			padding-bottom: 4rem;
 			background-size: 100%;
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -90,13 +161,24 @@ const StyledContainer = styled.div`
 				-webkit-user-select: none;
 				-ms-user-select: none;
 			}
-			p {
-				line-height: 1.8;
-				color: #333;
-				/* color: white; */
-				/* opacity: 0.5; */
+			div {
 				position: relative;
+				padding-top: 0.5rem;
+
+				p {
+					line-height: 1.2;
+					color: #333;
+					/* color: white; */
+					/* opacity: 0.5; */
+					position: relative;
+					width: 70%;
+					height: fit-content;
+				}
 				span {
+					top: 0.5rem;
+					color: #333;
+					line-height: 1.2;
+					font-family: "Roboto";
 					position: absolute;
 					right: 0;
 				}
@@ -125,7 +207,7 @@ const Zoom = (props) => {
 		const [cursor, setCursor] = useState(true)
 		const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
 
-		const [props, set] = useSprings(cards.length, (i) => ({
+		const [props, set] = useSprings(newCard.length, (i) => ({
 			...to(i),
 			from: from(i),
 		})) // Create a bunch of springs using the helpers above
@@ -162,7 +244,7 @@ const Zoom = (props) => {
 						},
 					}
 				})
-				if (!down && gone.size === cards.length)
+				if (!down && gone.size === newCard.length)
 					setTimeout(() => gone.clear() || set((i) => to(i)), 600)
 			}
 		)
@@ -178,10 +260,13 @@ const Zoom = (props) => {
 						transform: interpolate([rot, scale], trans),
 						cursor: cursor ? "grab" : "grabbing",
 					}}>
-					<img src={cards[i]} />
-					<p>
-						{cards.length - i}. <span>25. Juni 2021</span>
-					</p>
+					<img src={newCard[i].src} />
+					<div>
+						<p>
+							{newCard.length - i}. {newCard[i].description}
+						</p>
+						<span>{newCard[i].date}</span>
+					</div>
 				</animated.div>
 			</animated.div>
 		))
