@@ -42,6 +42,21 @@ const StyledLock = styled.button`
 	}
 `
 
+const ControlsButtonContainer = styled.div`
+	/* outline: 1px solid white; */
+	position: relative;
+	span {
+		position: absolute;
+		bottom: 0.25rem;
+		right: 3rem;
+		font-family: "Roboto";
+		font-size: 1.2rem;
+		font-weight: 400;
+		letter-spacing: 1px;
+		color: #424242;
+	}
+`
+
 const StyledCheckBox = styled.label`
 	z-index: 200;
 	display: flex;
@@ -367,15 +382,18 @@ const DragableCircle = (props) => {
 						<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
 					</HiddenContent>
 				</FormulaContainer>
-				<StyledCheckBox>
-					Controls
-					{showControls ? <FiChevronUp /> : <FiChevronDown />}
-					<input
-						type="checkbox"
-						checked={showControls}
-						onChange={() => setShowControls(!showControls)}
-					/>
-				</StyledCheckBox>
+				<ControlsButtonContainer>
+					<span>{currentFormula + 1} / 3</span>
+					<StyledCheckBox>
+						Controls
+						{showControls ? <FiChevronUp /> : <FiChevronDown />}
+						<input
+							type="checkbox"
+							checked={showControls}
+							onChange={() => setShowControls(!showControls)}
+						/>
+					</StyledCheckBox>
+				</ControlsButtonContainer>
 				{showControls ? (
 					<Table>
 						<thead>
