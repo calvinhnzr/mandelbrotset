@@ -3,6 +3,7 @@ import styled from "styled-components"
 const StyledHeadline = styled.h3`
 	font-family: "Roboto";
 	font-size: 2.25rem;
+	font-size: 3rem;
 	font-weight: bold;
 	line-height: 1.2;
 	grid-column: 2 / 12;

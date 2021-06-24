@@ -23,6 +23,7 @@ import RealUse from "./templates/RealUse"
 import Look from "./templates/Look"
 
 import Info from "./components/Info"
+import Keys from "./components/Keys"
 
 import fractalAntenna from "./images/realuse/fraktalantennen.jpg"
 import lenna from "./images/realuse/lenna.jpg"
@@ -33,6 +34,7 @@ const NewData = (props) => {
 			<Card>
 				<Title value="Mandelbrotmenge" />
 				<SubTitle value="„Wenn Mathematik mal&nbsp;schön&nbsp;ist.“" />
+				<Keys />
 			</Card>
 			<Card>
 				<Headline value="Zahlen Quadrieren" />
