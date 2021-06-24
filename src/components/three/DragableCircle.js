@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
 
 import { FaLock, FaLockOpen } from "react-icons/fa"
@@ -215,6 +215,7 @@ const AValue = (props) => {
 
 const DragableCircle = (props) => {
 	const [currentFormula, setCurrentFormula] = useState(0)
+
 	const shown = { opacity: "1", height: "auto" }
 	const hidden = { opacity: "0", height: 0 }
 
@@ -272,6 +273,27 @@ const DragableCircle = (props) => {
 	// pixel per block
 	const amount = 10 // += 2
 	const margin = amount * radius
+
+	function handleClick() {
+		if (currentFormula == 0) {
+			// default, unlock z, lock z
+			setLockA(true)
+			setLockC(false)
+		} else if (currentFormula == 1) {
+			// unlock c, unlock z
+			setLockA(true)
+			setLockC(true)
+		} else if (currentFormula == 2) {
+			// lock z, reset z, unlock c
+			setLockA(false)
+			setLockC(true)
+			setA({ position: [0, 0, 0] })
+		}
+	}
+
+	useEffect(() => {
+		handleClick()
+	}, [currentFormula])
 
 	function drawMandelbrot() {
 		// coordinates of pixel

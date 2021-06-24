@@ -4,6 +4,7 @@ import { FaInfoCircle } from "react-icons/fa"
 import styled from "styled-components"
 
 const StyledInfo = styled.button`
+	/* hide info card during presentation  */
 	/* display: none; */
 
 	border: none;
