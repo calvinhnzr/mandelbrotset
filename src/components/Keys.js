@@ -105,7 +105,7 @@ const Keys = () => {
 						<ImTwitter />
 					</a>
 				</Social>
-				<p>Benutze die Linke und Rechte Pfeiltaste zum Navigieren.</p>
+				<p>Benutze die linke oder rechte Pfeiltaste zum Navigieren.</p>
 				<FullScreen>
 					<BiFullscreen />
 					<input

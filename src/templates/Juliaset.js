@@ -30,11 +30,11 @@ const Juliaset = () => {
 		<>
 			<StyledText>
 				<li>
-					unterscheidet sich von der Mandelbrotmenge nur durch die
+					Unterscheidet sich von der Mandelbrotmenge nur durch die
 					Addition der Konstanten c
 				</li>
 				<li>
-					bei Mandelbrot: für jeden Bildpunkt andere Konstante, bei
+					Bei Mandelbrot: für jeden Bildpunkt andere Konstante, bei
 					Juliamenge: für jeden Punkt gleich
 				</li>
 			</StyledText>
