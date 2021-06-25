@@ -1,6 +1,7 @@
 import * as THREE from "three"
-import { useState, useRef } from "react"
+import { useState, useRef, useContext, useEffect } from "react"
 
+import { Context } from "../Context"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { tomorrowNight } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
@@ -9,10 +10,11 @@ import styled from "styled-components"
 import { Canvas } from "@react-three/fiber"
 
 const Visual = () => {
+	const { currentPage, setCurrentPage } = useContext(Context)
 	const [mandelbrot, setMandelbrot] = useState(false)
 	const canvasRef = useRef(null)
 
-	let numberOfIteration = 17
+	let numberOfIteration = 20
 
 	function fragmentShader() {
 		return `
@@ -97,7 +99,7 @@ void main(){ // gl_FragCoord in [0,1]
 	// var aspect = canvasWidth / canvasHeight
 
 	// var zoom = 2.0
-	var zoom = 0.1
+	var zoom = 0.05
 	// var offset = new THREE.Vector2(-2.0 * aspect, -2.0)
 	var offset = new THREE.Vector2((-zoom - 0.2) * aspect, -zoom)
 
@@ -293,16 +295,42 @@ void main(){ // gl_FragCoord in [0,1]
 	</body>
 </html>`
 
+	function renderMandelbrot() {
+		return (
+			<Canvas
+				gl={{
+					powerPreference: "high-performance",
+					antialias: false,
+				}}
+				dpr={[1, 2]}
+				camera={{
+					// default: 75
+					fov: 75,
+					near: 0.1,
+					far: 1000,
+					position: [0, 0, 1],
+				}}>
+				<mesh>
+					<planeBufferGeometry args={[5, 5]} />
+					<shaderMaterial
+						uniforms={uniforms}
+						fragmentShader={fragmentShader()}
+					/>
+				</mesh>
+			</Canvas>
+		)
+	}
+
 	return (
 		<>
-			<StyledCheckBox>
+			{/* <StyledCheckBox>
 				Render Mandelbrot
 				<input
 					type="checkbox"
 					checked={mandelbrot}
 					onChange={() => setMandelbrot(!mandelbrot)}
 				/>
-			</StyledCheckBox>
+			</StyledCheckBox> */}
 			<Container>
 				<SyntaxHighlighter
 					language="javascript"
@@ -323,32 +351,8 @@ void main(){ // gl_FragCoord in [0,1]
 					{codeString}
 				</SyntaxHighlighter>
 			</Container>
-			<CanvasContainer
-				ref={canvasRef}
-				style={
-					mandelbrot ? { display: "inherit" } : { display: "none" }
-				}>
-				<Canvas
-					gl={{
-						powerPreference: "high-performance",
-						antialias: false,
-					}}
-					dpr={[1, 2]}
-					camera={{
-						// default: 75
-						fov: 75,
-						near: 0.1,
-						far: 1000,
-						position: [0, 0, 1],
-					}}>
-					<mesh>
-						<planeBufferGeometry args={[5, 5]} />
-						<shaderMaterial
-							uniforms={uniforms}
-							fragmentShader={fragmentShader()}
-						/>
-					</mesh>
-				</Canvas>
+			<CanvasContainer ref={canvasRef}>
+				{currentPage == 9 ? renderMandelbrot() : null}
 			</CanvasContainer>
 		</>
 	)

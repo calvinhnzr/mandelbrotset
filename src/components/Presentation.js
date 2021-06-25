@@ -36,6 +36,7 @@ const StyledMove = styled.div`
 const Presentation = (props) => {
 	const [showInfo, setShowInfo] = useState(false)
 	const { currentPage, setCurrentPage } = useContext(Context)
+
 	const { inputOnFocus } = useContext(Context)
 
 	// max number of slides
