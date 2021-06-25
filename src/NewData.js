@@ -21,6 +21,7 @@ import Zoom from "./templates/Zoom"
 import Juliaset from "./templates/Juliaset"
 import RealUse from "./templates/RealUse"
 import Look from "./templates/Look"
+import EndCard from "./templates/EndCard"
 
 import Info from "./components/Info"
 import Keys from "./components/Keys"
@@ -625,6 +626,9 @@ const NewData = (props) => {
 				<Title value="Vielen Dank für Ihre Aufmerksamkeit!" />
 				<SubTitle value="Fragen?" />
 			</Card>
+			{/* <Card>
+				<EndCard />
+			</Card> */}
 		</>
 	)
 }
