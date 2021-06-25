@@ -421,7 +421,7 @@ const DragableCircle = (props) => {
 							<tr>
 								<td
 									style={{
-										color: "white",
+										color: "cornflowerblue",
 										pointerEvents: "none",
 									}}>
 									<MyMath>z =</MyMath>
@@ -459,7 +459,7 @@ const DragableCircle = (props) => {
 							<tr>
 								<td
 									style={{
-										color: "white",
+										color: "coral",
 										pointerEvents: "none",
 									}}>
 									<MyMath>c =</MyMath>

@@ -43,7 +43,7 @@ const Presentation = (props) => {
 	let max = 15
 
 	const handleKeyDown = (event) => {
-		event.preventDefault()
+		// event.preventDefault()
 		switch (event.keyCode) {
 			// shows Info [i]
 			case 73:
@@ -57,7 +57,7 @@ const Presentation = (props) => {
 			case 39:
 				setCurrentPage(currentPage + increment())
 				break
-			// start presentation from beginning
+			//start presentation from beginning
 			case 82:
 				setCurrentPage(0)
 				break

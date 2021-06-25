@@ -6,7 +6,7 @@ import styled from "styled-components"
 const StyledInfo = styled.button`
 	/* hide info card during presentation  */
 	/* display: none; */
-
+	z-index: 500000001;
 	border: none;
 	cursor: pointer;
 	border-radius: 50%;

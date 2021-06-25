@@ -100,6 +100,7 @@ void main(){ // gl_FragCoord in [0,1]
 
 	// var zoom = 2.0
 	var zoom = 0.05
+
 	// var offset = new THREE.Vector2(-2.0 * aspect, -2.0)
 	var offset = new THREE.Vector2((-zoom - 0.2) * aspect, -zoom)
 
@@ -351,7 +352,9 @@ void main(){ // gl_FragCoord in [0,1]
 					{codeString}
 				</SyntaxHighlighter>
 			</Container>
-			<CanvasContainer ref={canvasRef}>
+			<CanvasContainer
+				ref={canvasRef}
+				style={currentPage == 9 ? { opacity: 1 } : { opacity: 0 }}>
 				{currentPage == 9 ? renderMandelbrot() : null}
 			</CanvasContainer>
 		</>
