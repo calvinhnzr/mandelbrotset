@@ -34,6 +34,7 @@ const List = styled.ul`
 	@media only screen and (min-width: 960px) {
 		h5 {
 			font-size: 1.8rem;
+			color: #65d677;
 		}
 		li {
 			font-size: 1.5rem;
