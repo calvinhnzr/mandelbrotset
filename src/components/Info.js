@@ -76,6 +76,11 @@ const StyledMenu = styled.div`
 		a {
 			font-family: "Roboto";
 			color: white;
+			::before {
+				content: "Stand: 25. Juni 2020 ";
+				/* color: #111; */
+				font-weight: bold;
+			}
 		}
 	}
 	img {
