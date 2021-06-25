@@ -48,8 +48,16 @@ const Card = styled.div`
 		width: 100%;
 		flex: inherit;
 		padding: 2.5rem;
-		& > span {
+		& h5 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+		& h6 {
 			font-size: 1.5rem;
+			margin: 2rem 0 2rem;
+		}
+		& > span {
+			font-size: 2rem;
 		}
 		&:first-of-type {
 			margin-right: 4rem;

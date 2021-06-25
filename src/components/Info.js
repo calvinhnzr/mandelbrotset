@@ -17,7 +17,6 @@ const StyledInfo = styled.button`
 	z-index: 10;
 	position: absolute;
 	background-color: #51575e;
-	/* background-color: #aebed2; */
 
 	opacity: 0.2;
 	&:hover {
@@ -27,7 +26,7 @@ const StyledInfo = styled.button`
 		transition: 0.2s ease-in-out;
 		height: 100%;
 		width: 100%;
-		/* color: #437ef1; */
+		color: white;
 		opacity: 0.5;
 	}
 `
@@ -45,10 +44,12 @@ const StyledMenu = styled.div`
 	width: 35rem;
 	z-index: 500000000;
 	background-color: #51575e;
+	/* background-color: #141515; */
 	border-radius: 0.5rem;
-	box-shadow: 0px 8px 40px rgb(0 0 0 / 70%);
+	box-shadow: 0px 8px 80px rgb(0 0 0 / 20%);
 	> * {
-		color: #191a1b;
+		color: white;
+		opacity: 0.7;
 		font-family: "Roboto", sans-serif !important;
 	}
 	h1 {
@@ -57,7 +58,8 @@ const StyledMenu = styled.div`
 		width: fit-content;
 		margin-bottom: 2rem;
 		padding-bottom: 0.5rem;
-		border-bottom: 0.2rem solid #111;
+		border-bottom: 0.2rem solid white;
+		color: white;
 	}
 	h2 {
 		font-size: 1.5rem;
@@ -73,7 +75,7 @@ const StyledMenu = styled.div`
 		margin-top: 2rem;
 		a {
 			font-family: "Roboto";
-			color: #191a1b;
+			color: white;
 		}
 	}
 	img {

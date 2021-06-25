@@ -15,7 +15,7 @@ const Text = styled.p`
 	@media only screen and (min-width: 960px) {
 		font-size: 1.5rem;
 		div:first-of-type {
-			margin-bottom: 1rem;
+			margin-bottom: 1.5rem;
 		}
 	}
 `
