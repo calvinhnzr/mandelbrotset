@@ -31,7 +31,7 @@ const Juliaset = () => {
 		<>
 			<StyledText>
 				<li>
-					<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
+					<MyMath>{"z_{n+1}=z_n^2 + c"}</MyMath>
 				</li>
 				<li>
 					Unterscheidet sich von der Mandelbrotmenge nur durch die

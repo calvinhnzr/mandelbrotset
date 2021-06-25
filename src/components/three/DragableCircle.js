@@ -379,7 +379,7 @@ const DragableCircle = (props) => {
 						style={currentFormula === 2 ? shown : hidden}>
 						<MyMath>{"z_0=0"}</MyMath>
 						<br />
-						<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
+						<MyMath>{"z_{n+1}=z_n^2 + c"}</MyMath>
 					</HiddenContent>
 				</FormulaContainer>
 				<ControlsButtonContainer>
