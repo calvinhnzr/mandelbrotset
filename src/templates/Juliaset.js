@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import juliaMenge from "../images/zoom/zoom-14-big.jpg"
+import MyMath from "../components/math/MyMath"
 
 const StyledImgage = styled.img`
 	grid-column: 2 / 8;
@@ -29,6 +30,9 @@ const Juliaset = () => {
 	return (
 		<>
 			<StyledText>
+				<li>
+					<MyMath>{"z_{n+1}=x_n^2 + c"}</MyMath>
+				</li>
 				<li>
 					Unterscheidet sich von der Mandelbrotmenge nur durch die
 					Addition der Konstanten c
