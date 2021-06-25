@@ -625,6 +625,7 @@ const NewData = (props) => {
 			<Card>
 				<Title value="Vielen Dank für Ihre Aufmerksamkeit!" />
 				<SubTitle value="Fragen?" />
+				<EndCard />
 			</Card>
 			{/* <Card>
 				<EndCard />

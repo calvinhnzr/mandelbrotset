@@ -17,6 +17,7 @@ const StyledInfo = styled.button`
 	z-index: 10;
 	position: absolute;
 	background-color: #51575e;
+	/* background-color: #aebed2; */
 
 	opacity: 0.2;
 	&:hover {
@@ -26,6 +27,7 @@ const StyledInfo = styled.button`
 		transition: 0.2s ease-in-out;
 		height: 100%;
 		width: 100%;
+		/* color: #437ef1; */
 		opacity: 0.5;
 	}
 `
@@ -52,7 +54,10 @@ const StyledMenu = styled.div`
 	h1 {
 		font-size: 2rem;
 		font-weight: bold;
+		width: fit-content;
 		margin-bottom: 2rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 0.2rem solid #111;
 	}
 	h2 {
 		font-size: 1.5rem;
