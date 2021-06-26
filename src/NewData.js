@@ -413,12 +413,21 @@ const NewData = (props) => {
 						Folgenden gehen wir auf eine Implementationsmöglichkeit
 						ein und erklären diese in den Kommentaren im Quellcode.
 					</p>
-					<a
-						href="http://slicker.me/fractals/fractals.htm"
-						target="_blank"
-						rel="noopener noreferrer">
-						Quellcode
-					</a>
+					<div>
+						<a
+							href="http://slicker.me/fractals/fractals.htm"
+							target="_blank"
+							rel="noopener noreferrer">
+							Quellcode
+						</a>
+						<br />
+						<a
+							href="https://medium.com/@SereneBiologist/rendering-escape-fractals-in-three-js-68c96b385a49"
+							target="_blank"
+							rel="noopener noreferrer">
+							Rendering Escape Fractals in Three.js by Levi Walker
+						</a>
+					</div>
 				</Info>
 			</Card>
 			<Card>
