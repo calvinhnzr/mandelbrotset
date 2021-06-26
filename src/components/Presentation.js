@@ -7,9 +7,28 @@ const StyledPresentation = styled.div`
 	height: 100%;
 	width: 100%;
 	position: relative;
+
 	@media only screen and (min-width: 960px) {
 		overflow-x: hidden;
 		overflow-y: hidden;
+		display: inherit;
+	}
+`
+
+const StyledInfo = styled.div`
+	position: absolute;
+	width: fit-content;
+	height: fit-content;
+	margin: auto;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	h6 {
+		padding: 0 1rem;
+		font-size: 1.5rem;
+		line-height: 1.2;
+		text-align: center;
 	}
 `
 
@@ -26,8 +45,9 @@ const StyledMove = styled.div`
 	scroll-snap-type: mandatory;
 	scroll-snap-points-y: repeat(100%);
 	scroll-snap-type: y mandatory; */
-
-	@media only screen and (min-width: 960px) {
+	display: none;
+	@media only screen and (min-width: 1240px) {
+		display: flex;
 		flex-direction: row;
 		transform: translateX(${(props) => props.current * -100}%);
 	}
@@ -84,6 +104,9 @@ const Presentation = (props) => {
 
 	return (
 		<StyledPresentation>
+			<StyledInfo>
+				<h6>Increase Viewport width to min 1240px</h6>
+			</StyledInfo>
 			<StyledMove current={currentPage}>{props.children}</StyledMove>
 		</StyledPresentation>
 	)

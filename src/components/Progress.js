@@ -9,7 +9,7 @@ const myBlue = "#65D677"
 const StyledProgress = styled.progress`
 	display: none;
 
-	@media only screen and (min-width: 960px) {
+	@media only screen and (min-width: 1240px) {
 		display: inherit;
 		-webkit-appearance: none;
 		appearance: none;
