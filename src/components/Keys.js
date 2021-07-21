@@ -93,7 +93,7 @@ const Keys = () => {
 			<Row>
 				<Social>
 					<a
-						href="https://github.com/calvinhnzr"
+						href="https://github.com/calvinhnzr/mandelbrotset"
 						target="_blank"
 						rel="noopener noreferrer">
 						<ImGithub />
